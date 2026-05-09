@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Join a Class – Roots & Wisdom Studio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --forest:  #2D4A3E;
+      --sage:    #5C7A6B;
+      --cream:   #F7F2E8;
+      --sand:    #E8DCC8;
+      --terra:   #A0522D;
+      --gold:    #C8963C;
+      --text:    #2A2A2A;
+      --muted:   #6B6560;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 16px 60px;
+    }
+
+    /* ── Header ── */
+    .header {
+      text-align: center;
+      max-width: 560px;
+      margin-bottom: 36px;
+    }
+    .studio-name {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      color: var(--forest);
+      letter-spacing: 0.04em;
+      line-height: 1.2;
+    }
+    .studio-name span { color: var(--gold); }
+    .tagline {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-top: 6px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .divider {
+      width: 60px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold), var(--terra));
+      margin: 16px auto 0;
+      border-radius: 2px;
+    }
+
+    /* ── Card ── */
+    .card {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 4px 32px rgba(45, 74, 62, 0.10);
+      padding: clamp(28px, 5vw, 48px);
+      width: 100%;
+      max-width: 560px;
+    }
+    .card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.35rem;
+      color: var(--forest);
+      margin-bottom: 6px;
+    }
+    .card-sub {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 28px;
+      line-height: 1.5;
+    }
+
+    /* ── Form Elements ── */
+    .field { margin-bottom: 22px; }
+    label {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--forest);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 7px;
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="date"],
+    select {
+      width: 100%;
+      padding: 11px 14px;
+      border: 1.5px solid var(--sand);
+      border-radius: 8px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      color: var(--text);
+      background: var(--cream);
+      transition: border-color 0.2s, box-shadow 0.2s;
+      outline: none;
+      appearance: none;
+    }
+    input:focus, select:focus {
+      border-color: var(--sage);
+      box-shadow: 0 0 0 3px rgba(92, 122, 107, 0.15);
+      background: #fff;
+    }
+    input::placeholder { color: #b0a89a; }
+
+    /* Checkboxes – class interest */
+    .checkbox-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .chip-label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 16px;
+      border: 1.5px solid var(--sand);
+      border-radius: 999px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 400;
+      text-transform: none;
+      letter-spacing: 0;
+      color: var(--text);
+      background: var(--cream);
+      transition: all 0.2s;
+      user-select: none;
+    }
+    .chip-label input[type="checkbox"] { display: none; }
+    .chip-label:hover { border-color: var(--sage); background: #f0f5f2; }
+    .chip-label.checked {
+      border-color: var(--forest);
+      background: var(--forest);
+      color: #fff;
+    }
+    .chip-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--gold);
+      flex-shrink: 0;
+      display: none;
+    }
+    .chip-label.checked .chip-dot { display: block; }
+
+    /* Date field hint */
+    .field-hint {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-top: 5px;
+    }
+
+    /* Waiver */
+    .waiver-wrap {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      background: #f9f5ee;
+      border: 1.5px solid var(--sand);
+      border-radius: 10px;
+      padding: 14px 16px;
+      cursor: pointer;
+    }
+    .waiver-wrap input[type="checkbox"] {
+      width: 18px; height: 18px;
+      accent-color: var(--forest);
+      flex-shrink: 0;
+      margin-top: 1px;
+      cursor: pointer;
+    }
+    .waiver-text {
+      font-size: 0.88rem;
+      line-height: 1.55;
+      color: var(--text);
+    }
+    .waiver-text strong { color: var(--forest); }
+
+    /* Submit */
+    .btn-submit {
+      width: 100%;
+      padding: 14px;
+      margin-top: 8px;
+      background: linear-gradient(135deg, var(--forest), var(--sage));
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: opacity 0.2s, transform 0.15s;
+    }
+    .btn-submit:hover { opacity: 0.92; transform: translateY(-1px); }
+    .btn-submit:active { transform: translateY(0); }
+    .btn-submit:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+
+    /* ── Confirmation Screen ── */
+    #confirmation {
+      display: none;
+      text-align: center;
+    }
+    .confirm-icon {
+      font-size: 3rem;
+      margin-bottom: 16px;
+    }
+    .confirm-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      color: var(--forest);
+      margin-bottom: 12px;
+    }
+    .confirm-msg {
+      font-size: 0.95rem;
+      color: var(--text);
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+    .confirm-msg strong { color: var(--terra); }
+    .confirm-details {
+      background: #f9f5ee;
+      border-left: 3px solid var(--gold);
+      border-radius: 6px;
+      padding: 14px 18px;
+      text-align: left;
+      font-size: 0.88rem;
+      color: var(--text);
+      line-height: 1.8;
+    }
+    .confirm-details a {
+      color: var(--terra);
+      text-decoration: none;
+    }
+
+    /* Footer */
+    .footer {
+      margin-top: 28px;
+      font-size: 0.78rem;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    @media (max-width: 480px) {
+      .checkbox-group { flex-direction: column; }
+      .chip-label { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="studio-name">Roots <span>&</span> Wisdom Studio</div>
+    <div class="tagline">Movement · Mindfulness · Community</div>
+    <div class="divider"></div>
+  </header>
+
+  <!-- Form Card -->
+  <div class="card">
+
+    <!-- Registration Form -->
+    <div id="form-section">
+      <h1 class="card-title">Join a Class</h1>
+      <p class="card-sub">Fill out the form below and we'll be in touch with everything you need to get started.</p>
+
+      <form id="reg-form" novalidate>
+
+        <!-- Full Name -->
+        <div class="field">
+          <label for="full-name">Full Name</label>
+          <input type="text" id="full-name" name="full_name" placeholder="Your full name" required />
+        </div>
+
+        <!-- Email -->
+        <div class="field">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="you@example.com" required />
+        </div>
+
+        <!-- Class Interest -->
+        <div class="field">
+          <label>Class Interest <span style="color:var(--muted);font-weight:300">(select all that apply)</span></label>
+          <div class="checkbox-group" id="class-group">
+            <label class="chip-label" id="chip-salsa">
+              <input type="checkbox" name="class" value="Salsa" />
+              <span class="chip-dot"></span> Salsa
+            </label>
+            <label class="chip-label" id="chip-capoeira">
+              <input type="checkbox" name="class" value="Capoeira" />
+              <span class="chip-dot"></span> Capoeira
+            </label>
+            <label class="chip-label" id="chip-yoga">
+              <input type="checkbox" name="class" value="Yoga" />
+              <span class="chip-dot"></span> Yoga
+            </label>
+          </div>
+        </div>
+
+        <!-- When are you joining? -->
+        <div class="field">
+          <label for="join-date">When Are You Joining?</label>
+          <input type="date" id="join-date" name="join_date" required />
+          <p class="field-hint">Pick your first class date — we'll confirm availability.</p>
+        </div>
+
+        <!-- Waiver -->
+        <div class="field">
+          <label>Waiver Agreement</label>
+          <label class="waiver-wrap" for="waiver">
+            <input type="checkbox" id="waiver" name="waiver" required />
+            <span class="waiver-text">
+              <strong>I agree to the liability waiver and terms.</strong><br />
+              By checking this box, you acknowledge and accept the Roots & Wisdom Studio participation agreement and release of liability.
+            </span>
+          </label>
+        </div>
+
+        <button type="submit" class="btn-submit" id="submit-btn">Reserve My Spot</button>
+      </form>
+    </div>
+
+    <!-- Confirmation Screen -->
+    <div id="confirmation">
+      <div class="confirm-icon">🌿</div>
+      <h2 class="confirm-title">You're In!</h2>
+      <p class="confirm-msg">
+        Your spot has been reserved — we can't wait to move with you.<br />
+        <strong>Check your inbox</strong> for a confirmation email with next steps.
+      </p>
+      <div class="confirm-details">
+        <strong>Drop-in rates:</strong><br />
+        Salsa — $30/class &nbsp;·&nbsp; Capoeira — $30/class &nbsp;·&nbsp; Yoga — $25/class<br />
+        🎉 <em>First Capoeira class is <strong>FREE</strong> for new students!</em><br /><br />
+        <strong>Packages available:</strong><br />
+        <em>Salsa:</em> $30 single class &nbsp;·&nbsp; $50 day pass &nbsp;·&nbsp; $140 for 5 classes &nbsp;·&nbsp; $250 for 10 classes<br />
+        <em>Capoeira:</em> $30 drop-in &nbsp;·&nbsp; $160/mo (2x/week) &nbsp;·&nbsp; $180/mo unlimited &nbsp;·&nbsp; $485/quarter<br />
+        <em>Yoga:</em> $25 drop-in &nbsp;·&nbsp; $110 for 5 classes &nbsp;·&nbsp; $200 for 10 classes<br /><br />
+        <strong>Studio address:</strong><br />
+        2029 Mt. Diablo Blvd, Walnut Creek, CA 94596<br />
+        📞 415-791-2557 &nbsp;·&nbsp; <a href="mailto:hello@rootsandwisdomstudio.com">hello@rootsandwisdomstudio.com</a><br />
+        <a href="https://maps.google.com/?q=2029+Mt+Diablo+Blvd+Walnut+Creek+CA+94596" target="_blank">→ Get directions</a>
+      </div>
+    </div>
+
+  </div>
+
+  <p class="footer">© 2026 Roots & Wisdom Studio &nbsp;·&nbsp; Walnut Creek, CA</p>
+
+  <script>
+    // Chip toggle
+    document.querySelectorAll('.chip-label').forEach(chip => {
+      chip.addEventListener('click', () => {
+        const cb = chip.querySelector('input[type="checkbox"]');
+        // toggle happens naturally via label; sync class after
+        setTimeout(() => {
+          chip.classList.toggle('checked', cb.checked);
+        }, 0);
+      });
+    });
+
+    // Form submit
+    document.getElementById('reg-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const name    = document.getElementById('full-name').value.trim();
+      const email   = document.getElementById('email').value.trim();
+      const classes = [...document.querySelectorAll('input[name="class"]:checked')].map(c => c.value);
+      const date    = document.getElementById('join-date').value;
+      const waiver  = document.getElementById('waiver').checked;
+
+      if (!name) { alert('Please enter your full name.'); return; }
+      if (!email || !/\S+@\S+\.\S+/.test(email)) { alert('Please enter a valid email address.'); return; }
+      if (classes.length === 0) { alert('Please select at least one class.'); return; }
+      if (!date) { alert('Please select your first class date.'); return; }
+      if (!waiver) { alert('Please agree to the waiver to continue.'); return; }
+
+      // Show confirmation
+      document.getElementById('form-section').style.display = 'none';
+      document.getElementById('confirmation').style.display = 'block';
+    });
+  </script>
+
+</body>
+</html>
