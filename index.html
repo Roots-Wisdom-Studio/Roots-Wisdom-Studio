@@ -3,8 +3,15 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Roots &amp; Wisdom Studio | Walnut Creek, CA</title>
-<meta name="description" content="Roots & Wisdom Studio — Capoeira, Salsa, Yoga & Dance in Walnut Creek, CA. A community space rooted in culture, growing together. First Capoeira class is FREE."/>
+<title>Roots &amp; Wisdom Studio | Capoeira, Salsa &amp; Yoga in Walnut Creek, CA</title>
+<meta name="description" content="Roots & Wisdom Studio is a family-rooted movement, culture, and wellness studio in Walnut Creek, CA offering Capoeira, Salsa, Yoga, Mobility, workshops, and studio rental. First Capoeira class is free."/>
+<meta name="keywords" content="Walnut Creek capoeira, Walnut Creek salsa classes, Walnut Creek yoga, dance studio Walnut Creek, kids capoeira Walnut Creek, Mt Diablo Blvd studio rental"/>
+<meta name="theme-color" content="#2E5020"/>
+<meta property="og:title" content="Roots &amp; Wisdom Studio | Walnut Creek Movement, Culture &amp; Wellness"/>
+<meta property="og:description" content="Capoeira, Salsa, Yoga, Mobility, workshops, and studio rental in the heart of Walnut Creek."/>
+<meta property="og:type" content="website"/>
+<meta property="og:image" content="assets/optimized/hero-poster.webp"/>
+<link rel="preload" as="image" href="assets/optimized/hero-poster.webp"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <style>
@@ -295,10 +302,8 @@ footer{background:var(--text-dark);padding:32px 5% 18px;color:rgba(255,255,255,.
   .classes-intro{flex-direction:column;align-items:flex-start;}
   .chapter{grid-template-columns:52px 1fr;gap:16px;}
   .ch-num{font-size:3rem;}
-  .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:rgba(46,80,32,.98);flex-direction:column;padding:16px 5%;gap:14px;}
+  .nav-links{display:none;}
   .nav-links.open{display:flex;}
-  .nav-cta{display:none;}
-  .nav-toggle{display:block;}
   .chat-modal{right:12px;left:12px;width:auto;bottom:80px;}
   .chat-fab{right:16px;bottom:16px;}
   .foot-top{grid-template-columns:1fr;}
@@ -345,7 +350,80 @@ footer{background:var(--text-dark);padding:32px 5% 18px;color:rgba(255,255,255,.
   .why-grid{grid-template-columns:1fr;}
   .trial-cta{padding:36px 24px;}
 }
+
+
+/* LAUNCH POLISH */
+img{max-width:100%;height:auto;}
+.nav-links a:focus-visible,.nav-cta:focus-visible,.btn-p:focus-visible,.btn-o:focus-visible,.btn-gold:focus-visible,.cl-cta:focus-visible,.form-submit:focus-visible{outline:3px solid var(--gold);outline-offset:3px;}
+.hero-c{animation:heroRise .75s ease-out both;}
+@keyframes heroRise{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:translateY(0);}}
+.photo-frame{border-radius:18px;overflow:hidden;box-shadow:0 18px 48px rgba(42,31,20,.14);background:var(--cream);}
+.photo-frame img{display:block;width:100%;height:100%;object-fit:cover;}
+#local-seo{background:linear-gradient(135deg,var(--cream) 0%,#fffaf0 100%);position:relative;overflow:hidden;}
+#local-seo::before{content:'Walnut Creek';position:absolute;right:-3vw;top:18px;font-family:var(--font-h);font-size:clamp(4rem,14vw,12rem);font-style:italic;color:rgba(46,80,32,.055);line-height:1;white-space:nowrap;pointer-events:none;}
+.local-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:stretch;position:relative;z-index:1;}
+.local-card{background:var(--warm-white);border:1px solid rgba(46,80,32,.14);border-radius:18px;padding:30px;box-shadow:0 14px 34px rgba(46,80,32,.08);}
+.local-card h3{font-family:var(--font-h);font-size:1.45rem;color:var(--green-deep);margin-bottom:12px;line-height:1.25;}
+.local-card p{color:var(--text-mid);font-size:.98rem;line-height:1.85;margin-bottom:16px;}
+.local-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px;}
+.local-tags span{background:rgba(143,175,114,.2);border:1px solid rgba(46,80,32,.12);border-radius:999px;padding:6px 13px;font-size:.8rem;font-weight:700;color:var(--green-deep);}
+.local-details{display:grid;gap:12px;}
+.local-detail{background:rgba(255,255,255,.72);border:1px solid rgba(184,92,56,.14);border-radius:14px;padding:18px;}
+.local-detail strong{display:block;color:var(--terra);font-size:.78rem;letter-spacing:1.8px;text-transform:uppercase;margin-bottom:4px;}
+.local-detail span,.local-detail a{color:var(--text-dark);font-weight:600;line-height:1.55;}
+.inquiry-card{background:var(--warm-white);border:1px solid var(--green-light);border-radius:18px;padding:28px;box-shadow:0 16px 40px rgba(46,80,32,.1);margin-top:28px;}
+.inquiry-card h3{font-family:var(--font-h);font-size:1.4rem;color:var(--green-deep);margin-bottom:8px;}
+.inquiry-card p{font-size:.92rem;color:var(--text-mid);line-height:1.75;margin-bottom:18px;}
+.inquiry-form{display:grid;gap:14px;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.form-field label{display:block;font-size:.74rem;letter-spacing:1.4px;text-transform:uppercase;color:var(--text-light);font-weight:700;margin-bottom:6px;}
+.form-field input,.form-field select,.form-field textarea{width:100%;border:1px solid rgba(46,80,32,.22);border-radius:10px;background:#fff;padding:12px 13px;font:inherit;font-size:.92rem;color:var(--text-dark);transition:border-color .2s,box-shadow .2s;}
+.form-field textarea{min-height:118px;resize:vertical;}
+.form-field input:focus,.form-field select:focus,.form-field textarea:focus{outline:none;border-color:var(--green-mid);box-shadow:0 0 0 4px rgba(143,175,114,.22);}
+.form-submit{border:none;background:var(--terra);color:white;border-radius:999px;padding:13px 24px;font:inherit;font-weight:800;cursor:pointer;transition:transform .2s,background .2s;justify-self:start;}
+.form-submit:hover{background:var(--terra-light);transform:translateY(-2px);}
+.form-note{font-size:.78rem;color:var(--text-light);line-height:1.55;margin-top:2px;}
+.skip-honeypot{display:none!important;}
+@media(max-width:1100px){.nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:rgba(46,80,32,.98);flex-direction:column;padding:18px 5%;gap:14px;box-shadow:0 18px 36px rgba(0,0,0,.18);}.nav-links.open{display:flex}.nav-cta{display:none}.nav-toggle{display:block}.nav-cta-mob{display:block}.nav-i{gap:18px}}
+@media(max-width:960px){.local-grid{grid-template-columns:1fr;}.hero-video{opacity:.86;}}
+@media(max-width:768px){#home{min-height:82vh;padding-top:82px}.h-title{font-size:clamp(2.25rem,11vw,3.4rem)}.h-sub2{font-size:.78rem;line-height:1.8}.form-row{grid-template-columns:1fr}.contact-g{gap:34px}.inquiry-card{padding:22px}.local-card{padding:24px}.studio-photos img{height:260px}.team-img{width:132px;height:132px}}
+@media(max-width:480px){.banner{font-size:.74rem;line-height:1.5}.nav-logo{font-size:1rem}.h-ctas .btn-p,.h-ctas .btn-o{width:100%;text-align:center}.cl-price,.cl-cta{margin-left:0}.cl-cta{width:100%;text-align:center}.chat-fab{padding:10px 13px}.local-tags span{font-size:.76rem}.foot-bot{padding-bottom:56px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.hero-c{animation:none}.btn-p:hover,.btn-gold:hover,.team-card:hover,.p-card:hover,.studio-photos img:hover{transform:none}.hero-video{will-change:auto}}
+
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Roots & Wisdom Studio",
+  "description": "Family-rooted movement, culture, and wellness studio offering Capoeira, Salsa, Yoga, Mobility, workshops, and studio rental in Walnut Creek, California.",
+  "image": "assets/optimized/hero-poster.webp",
+  "telephone": "+1-415-791-2557",
+  "email": "hello@rootsandwisdomstudio.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "2029 Mt. Diablo Blvd.",
+    "addressLocality": "Walnut Creek",
+    "addressRegion": "CA",
+    "postalCode": "94596",
+    "addressCountry": "US"
+  },
+  "url": "https://rootsandwisdomstudio.com/",
+  "sameAs": [
+    "https://instagram.com/rootsandwisdomstudio",
+    "https://tiktok.com/@rootsandwisdomstudio"
+  ],
+  "areaServed": [
+    "Walnut Creek",
+    "Lafayette",
+    "Pleasant Hill",
+    "Concord",
+    "Alamo",
+    "Danville"
+  ],
+  "priceRange": "$$"
+}
+</script>
 </head>
 <body>
 <template id="__bundler_thumbnail" data-bg-color="#2E5020">
@@ -370,6 +448,7 @@ footer{background:var(--text-dark);padding:32px 5% 18px;color:rgba(255,255,255,.
       <li><a onclick="go('classes');closeNav()">Classes</a></li>
       <li><a onclick="go('team');closeNav()">Our Team</a></li>
       <li><a onclick="go('rental');closeNav()">Rental</a></li>
+      <li><a onclick="go('local-seo');closeNav()">Walnut Creek</a></li>
       <li><a onclick="go('join');closeNav()">Join Our Team</a></li>
       <li><a onclick="go('contact');closeNav()">Contact</a></li>
       <li><a href="booking.html" class="nav-cta-mob">Book a Class</a></li>
@@ -381,13 +460,13 @@ footer{background:var(--text-dark);padding:32px 5% 18px;color:rgba(255,255,255,.
 
 <!-- HERO -->
 <section id="home">
-  <video class="hero-video" autoplay muted loop playsinline>
+  <video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="assets/optimized/hero-poster.webp">
     <source src="hero-movie.mp4" type="video/mp4">
   </video>
   <div class="hero-c">
-    <p class="h-eye">Walnut Creek, CA · Est. 2011</p>
+    <p class="h-eye">Walnut Creek, CA · Est. 2011 · Family-Rooted Studio</p>
     <h1 class="h-title">Rooted in Culture.<br>Growing <em>Together.</em></h1>
-    <p class="h-sub2">Capoeira &nbsp;·&nbsp; Salsa &nbsp;·&nbsp; Yoga &nbsp;·&nbsp; Ground Mobility &nbsp;·&nbsp; Studio Rental &nbsp;·&nbsp; Family Friendly &nbsp;— Walnut Creek, CA</p>
+    <p class="h-sub2">Capoeira &nbsp;·&nbsp; Salsa &nbsp;·&nbsp; Yoga &nbsp;·&nbsp; Ground Mobility &nbsp;·&nbsp; Studio Rental &nbsp;— Mt. Diablo Blvd, Walnut Creek</p>
     <div class="h-ctas">
       <a onclick="go('classes')" class="btn-p">Explore Classes</a>
       <a onclick="go('story')" class="btn-o">Our Story</a>
@@ -430,7 +509,7 @@ footer{background:var(--text-dark);padding:32px 5% 18px;color:rgba(255,255,255,.
     <p class="s-tag">Our Story</p>
     <h2 class="s-title">How We Got Here</h2>
     <div class="s-div"></div>
-    <p class="s-desc" style="margin-bottom:36px;">Not a corporate origin story. A family story — built on showing up, weathering hard seasons, and choosing to return to what matters.</p>
+    <p class="s-desc" style="margin-bottom:36px;">Not a corporate origin story. A family story — built on showing up, honoring where we come from, weathering hard seasons, and choosing to return to what matters.</p>
 
     <div class="story-chapters">
       <div class="chapter">
@@ -478,9 +557,9 @@ footer{background:var(--text-dark);padding:32px 5% 18px;color:rgba(255,255,255,.
     </div>
 
     <div class="studio-photos">
-      <img src="Studio Pic 1.jpeg" alt="Roots & Wisdom Studio interior"/>
-      <img src="Studio Pic 2.jpeg" alt="Roots & Wisdom Studio space"/>
-      <img src="Studio Pic 4.jpeg" alt="Roots & Wisdom Studio"/>
+      <img src="assets/optimized/studio-interior-1.webp" alt="Roots &amp; Wisdom Studio interior on Mt. Diablo Blvd in Walnut Creek" width="900" height="650" loading="lazy" decoding="async"/>
+      <img src="assets/optimized/studio-interior-2.webp" alt="Renovated Roots &amp; Wisdom Studio movement space" width="900" height="650" loading="lazy" decoding="async"/>
+      <img src="assets/optimized/studio-interior-3.webp" alt="Warm boutique dance and wellness studio in Walnut Creek" width="900" height="650" loading="lazy" decoding="async"/>
     </div>
   </div>
 </section>
@@ -491,7 +570,7 @@ footer{background:var(--text-dark);padding:32px 5% 18px;color:rgba(255,255,255,.
     <p class="s-tag">What We Stand For</p>
     <h2 class="s-title">Roots. Wisdom. Resilience.</h2>
     <div class="s-div"></div>
-    <p class="s-desc">Three words. One identity. The pillars that shape how we teach, how we welcome, and how we show up for this community every day.</p>
+    <p class="s-desc">Three words. One identity. The pillars that shape how we teach, how we welcome, and how we show up for our Walnut Creek community every day.</p>
     <div class="pillars-g">
       <div class="p-card">
         <div class="p-name">Roots</div>
@@ -525,7 +604,7 @@ footer{background:var(--text-dark);padding:32px 5% 18px;color:rgba(255,255,255,.
     <div class="team-g">
 
       <div class="team-card">
-        <div class="team-img"><img src="Uriel Arauz.jpeg" alt="Uriel Arauz"/></div>
+        <div class="team-img"><img src="assets/optimized/team-uriel.webp" alt="Uriel Arauz, Capoeira instructor at Roots &amp; Wisdom Studio" width="420" height="420" loading="lazy" decoding="async"/></div>
         <h3 class="team-name">Uriel Arauz</h3>
         <p class="team-role">Capoeira Instructor · Founder Sitio Alegre</p>
         <p class="team-bio">30 years of capoeira. A direct student of Mestre Preguiça, whose lineage traces to Mestre Bimba, the creator of Capoeira Regional. Founder of Sitio Alegre Capoeira Group. Teaching in Walnut Creek since 2011.</p>
@@ -536,7 +615,7 @@ footer{background:var(--text-dark);padding:32px 5% 18px;color:rgba(255,255,255,.
       </div>
 
       <div class="team-card">
-        <div class="team-img"><img src="Luis Aguilar.jpeg" alt="Luis Aguilar"/></div>
+        <div class="team-img"><img src="assets/optimized/team-luis.webp" alt="Luis Aguilar, Salsa instructor at Roots &amp; Wisdom Studio" width="420" height="420" loading="lazy" decoding="async"/></div>
         <h3 class="team-name">Luis Aguilar</h3>
         <p class="team-role">Master Salsa Instructor · Director · Choreographer</p>
         <p class="team-bio">30+ years in the craft. Two-time World Salsa Champion — On2 division. Titles include the World Latin Dance Cup and US Salsa Open. Founder of Couture Dance Alliance. Co-founder of Revivé Studio in Millbrae. Teaching since 2005.</p>
@@ -547,7 +626,7 @@ footer{background:var(--text-dark);padding:32px 5% 18px;color:rgba(255,255,255,.
       </div>
 
       <div class="team-card">
-        <div class="team-img"><img src="Melissa Rodriguez.jpeg" alt="Melissa Rodriguez" style="object-position:center 22%;"/></div>
+        <div class="team-img"><img src="assets/optimized/team-melissa.webp" alt="Melissa Rodriguez, Yoga instructor at Roots &amp; Wisdom Studio" width="420" height="420" loading="lazy" decoding="async" style="object-position:center 22%;"/></div>
         <h3 class="team-name">Melissa Rodriguez</h3>
         <p class="team-role">Yoga Instructor</p>
         <p class="team-bio">500-hour RYT certified. Core Vinyasa and Gentle Yoga instructor. Trained at Yoga Garden SF. Specializations in Prenatal Yoga, Restorative Yoga, Chakra Studies, Trauma-Informed Practice, and Subtle Body Energetics — rooted in a Hatha lineage. 20+ years of mind-body experience.</p>
@@ -558,7 +637,7 @@ footer{background:var(--text-dark);padding:32px 5% 18px;color:rgba(255,255,255,.
       </div>
 
       <div class="team-card">
-        <div class="team-img"><img src="Claudia Aguilar.jpeg" alt="Claudia Aguilar"/></div>
+        <div class="team-img"><img src="assets/optimized/team-claudia.webp" alt="Claudia Aguilar, Studio Manager at Roots &amp; Wisdom Studio" width="420" height="420" loading="lazy" decoding="async"/></div>
         <h3 class="team-name">Claudia Aguilar</h3>
         <p class="team-role">Studio Manager · Practitioner</p>
         <p class="team-bio">25 years as Senior Operations Professional. Former CEO Office Manager, assistant to the CEO, and Senior Executive Assistant to C-suite leaders. The heartbeat behind the studio's day-to-day. Training capoeira, dance, and wellness.</p>
@@ -568,7 +647,7 @@ footer{background:var(--text-dark);padding:32px 5% 18px;color:rgba(255,255,255,.
       </div>
 
       <div class="team-card">
-        <div class="team-img"><img src="dj-super-chino.jpg" alt="Jairo Aguilar — DJ Super Chino"/></div>
+        <div class="team-img"><img src="assets/optimized/team-jairo.webp" alt="Jairo Aguilar, DJ Super Chino and Latin music specialist" width="420" height="420" loading="lazy" decoding="async"/></div>
         <h3 class="team-name">Jairo Aguilar</h3>
         <p class="team-role">DJ Super Chino · Latin Music Specialist</p>
         <p class="team-bio">One of SF's most respected Latin DJs — 25+ years behind the booth, competitive salsa dancer before that. Featured at the SF International Salsa Congress, US Salsa Open, and Reno Bachata Festival. Resident DJ for Couture Dance Alliance.</p>
@@ -626,8 +705,8 @@ footer{background:var(--text-dark);padding:32px 5% 18px;color:rgba(255,255,255,.
       <div class="free-badge"><strong>First Capoeira Class FREE!</strong><br>New to Capoeira? Your first class is on us.</div>
     </div>
 
-    <div style="border-radius:14px;overflow:hidden;max-height:300px;margin-bottom:36px;">
-      <img src="Uriel teaching Capoeira 1.png" alt="Uriel Arauz teaching Capoeira" style="width:100%;height:300px;object-fit:cover;object-position:center 40%;display:block;"/>
+    <div class="photo-frame" style="max-height:340px;margin-bottom:36px;">
+      <img src="assets/optimized/capoeira-class-walnut-creek.webp" alt="Capoeira class at Roots &amp; Wisdom Studio in Walnut Creek" width="1600" height="720" loading="lazy" decoding="async" style="height:340px;object-position:center 40%;"/>
     </div>
 
     <!-- VIEW TOGGLE -->
@@ -1165,9 +1244,9 @@ footer{background:var(--text-dark);padding:32px 5% 18px;color:rgba(255,255,255,.
       </div>
       <div class="r-cards">
         <div class="studio-photos" style="margin-bottom:20px;margin-top:0;">
-          <img src="Studio Pic 1.jpeg" alt="Roots &amp; Wisdom Studio interior"/>
-          <img src="Studio Pic 2.jpeg" alt="Roots &amp; Wisdom Studio space"/>
-          <img src="Studio Pic 4.jpeg" alt="Roots &amp; Wisdom Studio"/>
+          <img src="assets/optimized/studio-interior-1.webp" alt="Roots &amp; Wisdom Studio interior on Mt. Diablo Blvd in Walnut Creek" width="900" height="650" loading="lazy" decoding="async"/>
+          <img src="assets/optimized/studio-interior-2.webp" alt="Renovated Roots &amp; Wisdom Studio movement space" width="900" height="650" loading="lazy" decoding="async"/>
+          <img src="assets/optimized/studio-interior-3.webp" alt="Warm boutique dance and wellness studio in Walnut Creek" width="900" height="650" loading="lazy" decoding="async"/>
         </div>
         <div class="r-card">
           <h4>Single Session</h4>
@@ -1184,6 +1263,30 @@ footer{background:var(--text-dark);padding:32px 5% 18px;color:rgba(255,255,255,.
         <div style="text-align:center;margin-top:16px;">
           <a href="mailto:hello@rootsandwisdomstudio.com?subject=Studio%20Rental%20Inquiry&body=Hi%20Roots%20%26%20Wisdom%2C%20I%27m%20interested%20in%20renting%20the%20studio.%20Here%27s%20what%20I%27m%20planning%3A%0A%0ADate%2Fs%3A%0ATime%3A%0AGroup%20size%3A%0APurpose%3A" class="btn-p">Inquire About Rental</a>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOCAL SEO / WALNUT CREEK -->
+<section id="local-seo">
+  <div class="si">
+    <p class="s-tag">Walnut Creek Movement Studio</p>
+    <h2 class="s-title">A Cultural Home on Mt. Diablo Blvd.</h2>
+    <div class="s-div"></div>
+    <div class="local-grid">
+      <div class="local-card">
+        <h3>Capoeira, Salsa, Yoga &amp; Mobility in the Heart of Walnut Creek</h3>
+        <p>Roots &amp; Wisdom Studio is located at <strong>2029 Mt. Diablo Blvd., Walnut Creek, CA 94596</strong> — close to downtown Walnut Creek, Broadway Plaza, Civic Park, and nearby neighborhoods across the East Bay.</p>
+        <p>Families come to us for kids Capoeira, adults come for Salsa, Yoga, Mobility, and workshops, and instructors use the studio for meaningful gatherings. Every class is taught with cultural respect, technical care, and a sense of belonging from the first visit.</p>
+        <div class="local-tags" aria-label="Nearby communities served">
+          <span>Walnut Creek</span><span>Lafayette</span><span>Pleasant Hill</span><span>Concord</span><span>Alamo</span><span>Danville</span>
+        </div>
+      </div>
+      <div class="local-details">
+        <div class="local-detail"><strong>Address</strong><span>2029 Mt. Diablo Blvd.<br>Walnut Creek, CA 94596</span></div>
+        <div class="local-detail"><strong>Best For</strong><span>Capoeira, Salsa, Yoga, Mobility, kids movement, workshops, and boutique studio rental.</span></div>
+        <div class="local-detail"><strong>Get Directions</strong><a href="https://maps.google.com/?q=2029+Mt+Diablo+Blvd+Walnut+Creek+CA+94596" target="_blank" rel="noopener">Open in Google Maps ↗</a></div>
       </div>
     </div>
   </div>
@@ -1267,6 +1370,49 @@ footer{background:var(--text-dark);padding:32px 5% 18px;color:rgba(255,255,255,.
         <div style="margin-top:24px;">
           <a href="booking.html" class="btn-p">Book a Class Online →</a>
         </div>
+        <div class="inquiry-card" id="inquiry">
+          <h3>Send an Inquiry</h3>
+          <p>Have a question about classes, kids Capoeira, studio rental, workshops, or private lessons? Send a note and we’ll reply as soon as possible.</p>
+          <form name="studio-inquiry" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="inquiry-form" action="/thank-you.html">
+            <input type="hidden" name="form-name" value="studio-inquiry"/>
+            <p class="skip-honeypot"><label>Don’t fill this out if you’re human: <input name="bot-field"/></label></p>
+            <div class="form-row">
+              <div class="form-field">
+                <label for="inquiry-name">Name</label>
+                <input id="inquiry-name" name="name" autocomplete="name" required/>
+              </div>
+              <div class="form-field">
+                <label for="inquiry-email">Email</label>
+                <input id="inquiry-email" name="email" type="email" autocomplete="email" required/>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-field">
+                <label for="inquiry-phone">Phone</label>
+                <input id="inquiry-phone" name="phone" type="tel" autocomplete="tel"/>
+              </div>
+              <div class="form-field">
+                <label for="inquiry-topic">Topic</label>
+                <select id="inquiry-topic" name="topic" required>
+                  <option value="">Choose one</option>
+                  <option>Book a class</option>
+                  <option>Kids Capoeira</option>
+                  <option>Salsa / Latin dance</option>
+                  <option>Yoga / Mobility</option>
+                  <option>Studio rental</option>
+                  <option>Instructor / workshop inquiry</option>
+                  <option>Other question</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-field">
+              <label for="inquiry-message">Message</label>
+              <textarea id="inquiry-message" name="message" placeholder="Tell us what you’re looking for, preferred days/times, or any questions we can answer." required></textarea>
+            </div>
+            <button class="form-submit" type="submit">Send Inquiry</button>
+            <div class="form-note">This form is ready for Netlify Forms. You can also text <a href="tel:4157912557">415-791-2557</a> for the fastest response.</div>
+          </form>
+        </div>
       </div>
 
       <!-- FAQ PANEL -->
@@ -1342,6 +1488,7 @@ footer{background:var(--text-dark);padding:32px 5% 18px;color:rgba(255,255,255,.
         <a onclick="go('classes')">Classes</a>
         <a onclick="go('team')">Our Team</a>
         <a onclick="go('rental')">Studio Rental</a>
+        <a onclick="go('local-seo')">Walnut Creek Local</a>
         <a onclick="go('join')">Join Our Team</a>
         <a onclick="go('contact')">Contact</a>
       </div>
