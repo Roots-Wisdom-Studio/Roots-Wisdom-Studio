@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Book a Class — Roots &amp; Wisdom Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --green-deep:#2E5020;--green-mid:#5A7A3A;--green-sage:#8FAF72;--green-light:#D6E8C0;
+  --terra:#B85C38;--terra-light:#D4845E;--terra-pale:#F2DDD3;
+  --cream:#FAF3E8;--warm-white:#FFFDF8;
+  --gold:#C9A84C;--gold-light:#E8D08A;
+  --text-dark:#2A1F14;--text-mid:#5C4033;--text-light:#8A7060;
+  --font-h:'Lora',Georgia,serif;--font-b:'DM Sans','Segoe UI',system-ui,sans-serif;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{font-size:17px;}
+body{font-family:var(--font-b);background:var(--cream);color:var(--text-dark);min-height:100vh;display:flex;flex-direction:column;}
+
+/* TOP BAR */
+.topbar{background:var(--green-deep);padding:13px 24px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;}
+.back-link{color:rgba(255,255,255,.65);font-size:.84rem;text-decoration:none;letter-spacing:.5px;text-transform:uppercase;transition:color .2s;display:flex;align-items:center;gap:6px;}
+.back-link:hover{color:#fff;}
+.back-link::before{content:'←';}
+.topbar-brand{font-family:var(--font-h);color:var(--cream);font-size:1rem;}
+.topbar-phone{font-size:.8rem;color:var(--green-sage);}
+.topbar-phone a{color:inherit;text-decoration:none;}
+
+/* LAYOUT */
+.page{flex:1;display:grid;grid-template-columns:1fr 460px;max-width:1180px;margin:0 auto;width:100%;padding:40px 24px;gap:48px;align-items:start;}
+
+/* LEFT — CLASS PICKER */
+.left-col h1{font-family:var(--font-h);font-size:2.4rem;color:var(--green-deep);line-height:1.1;margin-bottom:8px;}
+.left-col h1 em{color:var(--terra);font-style:italic;font-weight:400;}
+.eyebrow{font-size:.75rem;letter-spacing:2.5px;text-transform:uppercase;color:var(--terra);font-weight:600;margin-bottom:14px;}
+.intro-p{font-size:.98rem;color:var(--text-mid);line-height:1.7;margin-bottom:8px;max-width:48ch;}
+.divider{width:36px;height:2px;background:var(--terra);border-radius:1px;margin:22px 0;}
+
+.section-h{font-family:var(--font-h);font-size:1.05rem;color:var(--green-deep);margin-bottom:12px;display:flex;align-items:center;gap:10px;}
+.section-h::before{content:'';width:14px;height:14px;border-radius:50%;background:var(--terra);display:inline-block;flex-shrink:0;}
+
+.class-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:30px;}
+.class-card{background:white;border-radius:12px;padding:14px 16px;border:1.5px solid var(--green-light);cursor:pointer;transition:all .15s;position:relative;}
+.class-card:hover{border-color:var(--green-mid);transform:translateY(-1px);box-shadow:0 4px 14px rgba(46,80,32,.08);}
+.class-card.selected{border-color:var(--terra);background:rgba(184,92,56,.04);box-shadow:0 4px 18px rgba(184,92,56,.15);}
+.class-card.selected::after{content:'✓';position:absolute;top:10px;right:12px;width:22px;height:22px;background:var(--terra);color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:700;}
+.cc-name{font-weight:600;font-size:.95rem;color:var(--green-deep);line-height:1.25;margin-bottom:3px;padding-right:24px;}
+.cc-times{font-size:.78rem;color:var(--text-light);margin-bottom:8px;}
+.cc-tags{display:flex;flex-wrap:wrap;gap:4px;}
+.cc-tag{font-size:.68rem;padding:2px 8px;border-radius:8px;font-weight:600;}
+.tag-cap{background:var(--green-light);color:var(--green-deep);}
+.tag-sal{background:var(--terra-pale);color:var(--terra);}
+.tag-yog{background:#EAF0FB;color:#3A5A8C;}
+.tag-fit{background:#F0F0E8;color:#5A5A38;}
+.tag-mob{background:#F5E8DA;color:#8C5A2A;}
+.tag-free{background:var(--terra);color:white;}
+.cc-price{font-size:.78rem;color:var(--text-mid);font-weight:600;margin-top:4px;}
+
+/* FAQ */
+.faq{margin-bottom:32px;}
+.faq-item{background:white;border:1px solid var(--green-light);border-radius:10px;margin-bottom:8px;overflow:hidden;}
+.faq-q{padding:13px 16px;cursor:pointer;font-size:.9rem;font-weight:600;color:var(--green-deep);display:flex;justify-content:space-between;align-items:center;transition:background .15s;user-select:none;}
+.faq-q:hover{background:rgba(46,80,32,.03);}
+.faq-q::after{content:'+';font-size:1.3rem;color:var(--terra);font-weight:300;transition:transform .2s;line-height:1;}
+.faq-item.open .faq-q::after{transform:rotate(45deg);}
+.faq-a{padding:0 16px;max-height:0;overflow:hidden;font-size:.86rem;line-height:1.65;color:var(--text-mid);transition:max-height .3s,padding .3s;}
+.faq-item.open .faq-a{padding:0 16px 14px;max-height:400px;}
+.faq-a strong{color:var(--green-deep);}
+
+/* CONTACT BOX */
+.contact-box{background:var(--green-deep);border-radius:12px;padding:22px 24px;color:var(--cream);}
+.contact-box h4{font-family:var(--font-h);font-size:1.05rem;color:var(--gold);margin-bottom:14px;}
+.contact-line{font-size:.88rem;color:rgba(255,255,255,.82);margin-bottom:8px;display:flex;align-items:center;gap:10px;}
+.contact-line a{color:rgba(255,255,255,.82);text-decoration:underline;}
+.contact-line a:hover{color:white;}
+.walkin-note{font-size:.78rem;color:rgba(255,255,255,.55);margin-top:12px;font-style:italic;}
+
+/* RIGHT — BOOKING FORM */
+.form-card{background:white;border-radius:18px;box-shadow:0 4px 32px rgba(0,0,0,.08);overflow:hidden;display:flex;flex-direction:column;border:1px solid var(--green-light);position:sticky;top:24px;}
+.form-head{background:var(--green-deep);padding:22px 26px;color:var(--cream);}
+.form-eye{font-size:.7rem;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold-light);font-weight:600;margin-bottom:6px;}
+.form-title{font-family:var(--font-h);font-size:1.4rem;color:var(--cream);line-height:1.15;}
+.form-sub{font-size:.85rem;color:rgba(255,255,255,.72);margin-top:6px;line-height:1.55;}
+
+.form-body{padding:24px 26px 28px;}
+.field{margin-bottom:14px;}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px;}
+.label{display:block;font-size:.74rem;font-weight:600;text-transform:uppercase;letter-spacing:.6px;color:var(--text-mid);margin-bottom:5px;}
+.label .req{color:var(--terra);}
+.label .opt{color:var(--text-light);text-transform:none;letter-spacing:0;font-weight:400;font-size:.72rem;margin-left:4px;}
+.input,.select,.textarea{width:100%;padding:10px 13px;border:1.5px solid var(--green-light);border-radius:9px;font-family:var(--font-b);font-size:.92rem;color:var(--text-dark);background:var(--warm-white);outline:none;transition:border-color .15s,box-shadow .15s;}
+.input:focus,.select:focus,.textarea:focus{border-color:var(--green-mid);box-shadow:0 0 0 3px rgba(90,122,58,.12);}
+.textarea{min-height:70px;resize:vertical;font-family:var(--font-b);}
+.input.invalid,.select.invalid{border-color:var(--terra);box-shadow:0 0 0 3px rgba(184,92,56,.12);}
+.field-help{font-size:.74rem;color:var(--text-light);margin-top:4px;line-height:1.5;}
+.kid-field{display:none;}
+.kid-field.show{display:block;}
+
+/* DATE CHIPS */
+.date-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px;}
+.date-chip{background:var(--cream);border:1.5px solid var(--green-light);color:var(--text-mid);padding:8px 12px;border-radius:8px;font-size:.82rem;font-weight:500;cursor:pointer;transition:all .15s;font-family:var(--font-b);}
+.date-chip:hover{border-color:var(--green-mid);color:var(--green-deep);}
+.date-chip.selected{background:var(--green-deep);color:white;border-color:var(--green-deep);}
+.date-chips-empty{font-size:.8rem;color:var(--text-light);font-style:italic;padding:4px 0;}
+
+.submit-btn{width:100%;background:var(--terra);color:white;border:none;padding:14px;border-radius:10px;font-size:.95rem;font-weight:600;cursor:pointer;transition:background .2s;font-family:var(--font-b);margin-top:8px;letter-spacing:.3px;}
+.submit-btn:hover{background:#9C4D2D;}
+.submit-btn:disabled{opacity:.6;cursor:not-allowed;}
+.submit-arrow{margin-left:6px;}
+
+.success-state{padding:36px 28px;text-align:center;display:none;}
+.success-state.show{display:block;}
+.success-icon{width:64px;height:64px;background:var(--green-light);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 18px;font-size:2rem;color:var(--green-deep);font-weight:700;}
+.success-state h3{font-family:var(--font-h);font-size:1.4rem;color:var(--green-deep);margin-bottom:10px;}
+.success-state p{font-size:.92rem;color:var(--text-mid);line-height:1.65;margin-bottom:8px;}
+.success-state .signoff{font-style:italic;color:var(--terra);margin-top:18px;font-size:.95rem;}
+.error-msg{background:var(--terra-pale);color:var(--terra);padding:10px 14px;border-radius:8px;font-size:.85rem;margin-top:10px;display:none;line-height:1.5;}
+.error-msg.show{display:block;}
+
+/* MOBILE */
+@media(max-width:880px){
+  .page{grid-template-columns:1fr;padding:24px 16px;gap:32px;}
+  .form-card{position:static;}
+  .class-grid{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:520px){
+  .left-col h1{font-size:1.8rem;}
+  .class-grid{grid-template-columns:1fr;}
+  .field-row{grid-template-columns:1fr;}
+}
+
+/* PRINT-FRIENDLY THUMBNAIL */
+</style>
+<template id="__bundler_thumbnail" data-bg-color="#2E5020">
+  <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+    <rect width="400" height="300" fill="#2E5020"/>
+    <rect x="32" y="40" width="160" height="14" rx="4" fill="#FAF3E8" opacity="0.7"/>
+    <rect x="32" y="62" width="80" height="6" rx="3" fill="#C9A84C" opacity="0.7"/>
+    <rect x="32" y="86" width="160" height="40" rx="6" fill="#FAF3E8" opacity="0.18"/>
+    <rect x="32" y="134" width="160" height="40" rx="6" fill="#FAF3E8" opacity="0.18"/>
+    <rect x="32" y="182" width="160" height="40" rx="6" fill="#FAF3E8" opacity="0.18"/>
+    <rect x="208" y="40" width="160" height="218" rx="10" fill="#FAF3E8" opacity="0.95"/>
+    <rect x="220" y="56" width="80" height="8" rx="3" fill="#2E5020"/>
+    <rect x="220" y="78" width="136" height="22" rx="5" fill="#2E5020" opacity="0.1"/>
+    <rect x="220" y="108" width="136" height="22" rx="5" fill="#2E5020" opacity="0.1"/>
+    <rect x="220" y="138" width="136" height="22" rx="5" fill="#2E5020" opacity="0.1"/>
+    <rect x="220" y="168" width="136" height="50" rx="5" fill="#2E5020" opacity="0.1"/>
+    <rect x="220" y="226" width="136" height="22" rx="5" fill="#B85C38"/>
+  </svg>
+</template>
+</head>
+<body>
+
+<div class="topbar">
+  <a href="index.html" class="back-link">Back to site</a>
+  <span class="topbar-brand">Roots &amp; Wisdom Studio</span>
+  <span class="topbar-phone"><a href="tel:4157912557">415-791-2557</a></span>
+</div>
+
+<div class="page">
+
+  <!-- LEFT — INFO + CLASS PICKER + FAQ -->
+  <div class="left-col">
+    <p class="eyebrow">Reserve your spot</p>
+    <h1>Book a class.<br><em>Walk-ins welcome.</em></h1>
+    <div class="divider"></div>
+    <p class="intro-p">Pick a class on the right (or tap a card below to fill it in for you), tell us when you'd like to come, and we'll confirm by text or email within a few hours.</p>
+    <p class="intro-p" style="margin-top:8px;"><strong style="color:var(--green-deep);">New to capoeira?</strong> Your first class is on us — no payment needed up front.</p>
+
+    <div style="height:32px;"></div>
+
+    <h2 class="section-h">Tap a class to select it</h2>
+    <div class="class-grid" id="classGrid">
+      <!-- Cards rendered by JS -->
+    </div>
+
+    <h2 class="section-h">Common questions</h2>
+    <div class="faq" id="faq">
+      <div class="faq-item">
+        <div class="faq-q">Is the first class really free?</div>
+        <div class="faq-a">Yes — for <strong>all capoeira classes</strong> (Kids, Youth, and Teens &amp; Adults), your first class is free for new students. Just show up. No payment, no card required up front.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What should I bring?</div>
+        <div class="faq-a">Comfortable clothes you can move in, a water bottle, and shoes with a smooth sole (dance shoes or flat sneakers) so you can turn easily without marking the floor. For capoeira, a t-shirt and comfortable workout pants. No prior experience ever needed.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">How much does it cost?</div>
+        <div class="faq-a"><strong>$30/class</strong> for capoeira and salsa. <strong>$25/class</strong> for yoga, mobility, and fitness. Packages are available — ask Claudia at the studio or mention it in the notes below.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Do I need a partner for salsa?</div>
+        <div class="faq-a">No partner needed. Our Absolute Beginner class teaches you to dance solo or with a partner — we rotate so everyone gets practice with different leads &amp; follows.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Can I just walk in?</div>
+        <div class="faq-a">Absolutely. Walk-ins are always welcome. Booking ahead just helps us know to expect you and saves you a spot if a class is busy.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Do you offer private lessons?</div>
+        <div class="faq-a">Yes — capoeira with Uriel and salsa with Luis. Pick "Private Lesson" in the form and we'll reach out to schedule.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Where are you located?</div>
+        <div class="faq-a">2029 Mt. Diablo Blvd, Walnut Creek, CA 94596. Free street parking and a public lot nearby.</div>
+      </div>
+    </div>
+
+    <div class="contact-box">
+      <h4>Prefer to call or text?</h4>
+      <div class="contact-line">📞 <a href="tel:4157912557">415-791-2557</a></div>
+      <div class="contact-line">✉ <a href="mailto:hello@rootsandwisdomstudio.com">hello@rootsandwisdomstudio.com</a></div>
+      <div class="contact-line">📍 2029 Mt. Diablo Blvd, Walnut Creek</div>
+      <div class="walkin-note">Walk-ins always welcome — no need to book ahead.</div>
+    </div>
+  </div>
+
+  <!-- RIGHT — BOOKING FORM -->
+  <div class="form-card">
+    <div class="form-head">
+      <div class="form-eye">Booking request</div>
+      <div class="form-title">Save your spot</div>
+      <div class="form-sub">Fill this out and we'll confirm by text or email — usually within a few hours.</div>
+    </div>
+
+    <form class="form-body" id="bookingForm" novalidate>
+      <div class="field-row">
+        <div>
+          <label class="label">First name <span class="req">*</span></label>
+          <input class="input" id="f-fname" name="First Name" placeholder="María" required/>
+        </div>
+        <div>
+          <label class="label">Last name <span class="req">*</span></label>
+          <input class="input" id="f-lname" name="Last Name" placeholder="López" required/>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Email <span class="req">*</span></label>
+        <input class="input" id="f-email" name="Email" type="email" placeholder="you@email.com" required/>
+      </div>
+
+      <div class="field">
+        <label class="label">Phone <span class="opt">(optional, for faster confirmation)</span></label>
+        <input class="input" id="f-phone" name="Phone" type="tel" placeholder="415-555-0100"/>
+      </div>
+
+      <div class="field">
+        <label class="label">Class <span class="req">*</span></label>
+        <select class="select" id="f-class" name="Class" required>
+          <option value="">Choose a class…</option>
+          <optgroup label="Capoeira (1st class FREE)">
+            <option>Kids Capoeira (Ages 4–7) · Tue &amp; Thu 4PM / Sat 11AM · $30</option>
+            <option>Youth Capoeira (Ages 8–13) · Tue &amp; Thu 5PM / Sat 10AM · $30</option>
+            <option>Teens &amp; Adults Capoeira (Ages 14+) · Tue 6PM / Sat 12PM · $30</option>
+          </optgroup>
+          <optgroup label="Salsa">
+            <option>Salsa Absolute Beginner · Wed 6:30PM · $30</option>
+            <option>Salsa Advanced Beginner · Wed 7:30PM · $30</option>
+            <option>Salsa Intermediate · Mon 7PM · $30</option>
+          </optgroup>
+          <optgroup label="Yoga">
+            <option>Vinyasa Yoga (Early) · Tue &amp; Thu 6AM · $25</option>
+            <option>Gentle Yoga · Tue &amp; Thu 12PM · $25</option>
+            <option>Vinyasa Yoga · Tue 7:15PM · $25</option>
+          </optgroup>
+          <optgroup label="Mobility">
+            <option>Ground-based Mobility Flow · Mon 12:30PM / Wed 2PM · $25</option>
+            <option>Teens Capoeira (Ages 14–17) · Thu 6PM · $30</option>
+          </optgroup>
+          <optgroup label="Other">
+            <option>Private Lesson (contact to schedule)</option>
+            <option>Studio Rental Inquiry</option>
+          </optgroup>
+        </select>
+      </div>
+
+      <div class="field">
+        <label class="label">Which day works? <span class="req">*</span></label>
+        <input class="input" id="f-date" name="Preferred Date" placeholder="e.g. Tuesday May 12, or 'this week'" required/>
+        <div class="date-chips" id="dateChips">
+          <div class="date-chips-empty">Pick a class above to see upcoming dates</div>
+        </div>
+      </div>
+
+      <div class="field kid-field" id="kidField">
+        <label class="label">Child's name &amp; age</label>
+        <input class="input" id="f-child" name="Child Info" placeholder="e.g. Sofia, age 6"/>
+        <div class="field-help">So we know who to expect.</div>
+      </div>
+
+      <div class="field">
+        <label class="label">Anything else? <span class="opt">(optional)</span></label>
+        <textarea class="textarea" id="f-notes" name="Notes" placeholder="Questions, injuries, how you heard about us…"></textarea>
+      </div>
+
+      <button type="submit" class="submit-btn" id="submitBtn">
+        Send Booking Request <span class="submit-arrow">→</span>
+      </button>
+
+      <div class="error-msg" id="errorMsg"></div>
+    </form>
+
+    <div class="success-state" id="successState">
+      <div class="success-icon">✓</div>
+      <h3 id="successTitle">You're all set!</h3>
+      <p id="successBody">Your booking request is on its way to our team. We'll text or email to confirm your spot — usually within a few hours.</p>
+      <p>See you at the studio.</p>
+      <p class="signoff">— Claudia</p>
+    </div>
+  </div>
+
+</div>
+
+<script>
+/* ========== CLASS DATA ========== */
+const CLASSES = [
+  {key:'mobility-mw', name:'Ground-based Mobility Flow', times:'Mon 12:30PM · Wed 2PM', tag:'mob', tagLabel:'All Levels', price:'$25', days:[1,3], time:'12:30PM', dayTimeMap:{1:'12:30PM', 3:'2:00PM'},
+   selectValue:'Ground-based Mobility Flow · Mon 12:30PM / Wed 2PM · $25'},
+  {key:'cap-adult', name:'Teens & Adults Capoeira', times:'Tue 6PM · Sat 12PM', tag:'cap', tagLabel:'Ages 14+', price:'$30', free:true, days:[2,6], time:'6PM',
+   selectValue:'Teens & Adults Capoeira (Ages 14+) · Tue 6PM / Sat 12PM · $30'},
+  {key:'cap-kids', name:'Kids Capoeira', times:'Tue & Thu 4PM · Sat 11AM', tag:'cap', tagLabel:'Ages 4–7', price:'$30', free:true, kids:true, days:[2,4,6], time:'4PM',
+   selectValue:'Kids Capoeira (Ages 4–7) · Tue & Thu 4PM / Sat 11AM · $30'},
+  {key:'cap-youth', name:'Youth Capoeira', times:'Tue & Thu 5PM · Sat 10AM', tag:'cap', tagLabel:'Ages 8–13', price:'$30', free:true, kids:true, days:[2,4,6], time:'5PM',
+   selectValue:'Youth Capoeira (Ages 8–13) · Tue & Thu 5PM / Sat 10AM · $30'},
+  {key:'salsa-beg', name:'Salsa — Absolute Beginner', times:'Wed 6:30PM', tag:'sal', tagLabel:'Beginners', price:'$30', days:[3], time:'6:30PM',
+   selectValue:'Salsa Absolute Beginner · Wed 6:30PM · $30'},
+  {key:'salsa-adv', name:'Salsa — Adv. Beginner', times:'Wed 7:30PM', tag:'sal', tagLabel:'Adv. Beginner', price:'$30', days:[3], time:'7:30PM',
+   selectValue:'Salsa Advanced Beginner · Wed 7:30PM · $30'},
+  {key:'salsa-int', name:'Salsa Intermediate', times:'Mon 7:00–8:30PM', tag:'sal', tagLabel:'Intermediate', price:'$30', days:[1], time:'7:00PM',
+   selectValue:'Salsa Intermediate · Mon 7PM · $30'},
+  {key:'yoga-vinyasa-am', name:'Vinyasa Yoga — Early', times:'Tue & Thu 6AM', tag:'yog', tagLabel:'All Levels', price:'$25', days:[2,4], time:'6AM',
+   selectValue:'Vinyasa Yoga (Early) · Tue & Thu 6AM · $25'},
+  {key:'yoga-gentle', name:'Gentle Yoga', times:'Tue & Thu 12PM', tag:'yog', tagLabel:'All Levels', price:'$25', days:[2,4], time:'12PM',
+   selectValue:'Gentle Yoga · Tue & Thu 12PM · $25'},
+  {key:'yoga-vinyasa-pm', name:'Vinyasa Yoga', times:'Tue 7:15PM', tag:'yog', tagLabel:'All Levels', price:'$25', days:[2], time:'7:15PM',
+   selectValue:'Vinyasa Yoga · Tue 7:15PM · $25'},
+  {key:'cap-teens-thu', name:'Teens Capoeira', times:'Thu 6PM', tag:'cap', tagLabel:'Ages 14–17', price:'$30', free:true, days:[4], time:'6PM',
+   selectValue:'Teens Capoeira (Ages 14–17) · Thu 6PM · $30'},
+];
+
+/* ========== RENDER CLASS CARDS ========== */
+const grid = document.getElementById('classGrid');
+CLASSES.forEach(c => {
+  const card = document.createElement('div');
+  card.className = 'class-card';
+  card.dataset.key = c.key;
+  card.innerHTML = `
+    <div class="cc-name">${c.name}</div>
+    <div class="cc-times">${c.times}</div>
+    <div class="cc-tags">
+      <span class="cc-tag tag-${c.tag}">${c.tagLabel}</span>
+      ${c.free ? '<span class="cc-tag tag-free">1st FREE</span>' : ''}
+    </div>
+    <div class="cc-price">${c.price}/class</div>
+  `;
+  card.addEventListener('click', () => selectClass(c.key));
+  grid.appendChild(card);
+});
+
+/* ========== CLASS SELECTION ========== */
+function selectClass(key) {
+  document.querySelectorAll('.class-card').forEach(c => c.classList.toggle('selected', c.dataset.key === key));
+  const cls = CLASSES.find(c => c.key === key);
+  if (!cls) return;
+  // Set the dropdown
+  const sel = document.getElementById('f-class');
+  for (let opt of sel.options) {
+    if (opt.value === cls.selectValue) { opt.selected = true; break; }
+  }
+  // Show/hide kid field
+  document.getElementById('kidField').classList.toggle('show', !!cls.kids);
+  // Render date suggestions
+  renderDateChips(cls);
+  // Smooth scroll to form on mobile
+  if (window.innerWidth < 880) {
+    document.querySelector('.form-card').scrollIntoView({ behavior:'smooth', block:'start' });
+  }
+}
+
+/* ========== DATE SUGGESTIONS ========== */
+const DAY_NAMES = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+const MONTH_NAMES = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+
+function renderDateChips(cls) {
+  const wrap = document.getElementById('dateChips');
+  wrap.innerHTML = '';
+  const today = new Date();
+  const upcoming = [];
+  // Find next 4 dates that match the class's days of week
+  for (let i = 0; i < 21 && upcoming.length < 4; i++) {
+    const d = new Date(today);
+    d.setDate(today.getDate() + i);
+    if (cls.days.includes(d.getDay())) {
+      upcoming.push(d);
+    }
+  }
+  upcoming.forEach((d, idx) => {
+    const isToday = idx === 0 && d.toDateString() === today.toDateString();
+    const dayTime = cls.dayTimeMap ? (cls.dayTimeMap[d.getDay()] || cls.time) : cls.time;
+    const label = isToday ? `Today · ${dayTime}` :
+                  `${DAY_NAMES[d.getDay()]} ${MONTH_NAMES[d.getMonth()]} ${d.getDate()} · ${dayTime}`;
+    const fullText = `${DAY_NAMES[d.getDay()]} ${MONTH_NAMES[d.getMonth()]} ${d.getDate()} at ${dayTime}`;
+    const chip = document.createElement('div');
+    chip.className = 'date-chip';
+    chip.textContent = label;
+    chip.addEventListener('click', () => {
+      document.querySelectorAll('.date-chip').forEach(c => c.classList.remove('selected'));
+      chip.classList.add('selected');
+      document.getElementById('f-date').value = fullText;
+    });
+    wrap.appendChild(chip);
+  });
+}
+
+/* ========== KID FIELD AUTO-SHOW ========== */
+document.getElementById('f-class').addEventListener('change', e => {
+  const v = e.target.value.toLowerCase();
+  const isKid = v.includes('kids') || v.includes('youth');
+  document.getElementById('kidField').classList.toggle('show', isKid);
+  // Sync card selection
+  const matched = CLASSES.find(c => c.selectValue === e.target.value);
+  document.querySelectorAll('.class-card').forEach(card => {
+    card.classList.toggle('selected', matched && card.dataset.key === matched.key);
+  });
+  if (matched) renderDateChips(matched);
+});
+
+/* ========== FAQ ACCORDION ========== */
+document.querySelectorAll('.faq-q').forEach(q => {
+  q.addEventListener('click', () => {
+    const item = q.parentElement;
+    const wasOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!wasOpen) item.classList.add('open');
+  });
+});
+
+/* ========== FORM SUBMIT ========== */
+document.getElementById('bookingForm').addEventListener('submit', async e => {
+  e.preventDefault();
+  const fname = document.getElementById('f-fname').value.trim();
+  const lname = document.getElementById('f-lname').value.trim();
+  const email = document.getElementById('f-email').value.trim();
+  const phone = document.getElementById('f-phone').value.trim();
+  const cls   = document.getElementById('f-class').value;
+  const date  = document.getElementById('f-date').value.trim();
+  const child = document.getElementById('f-child').value.trim();
+  const notes = document.getElementById('f-notes').value.trim();
+
+  // Validate
+  const errs = [];
+  const fields = [['f-fname',fname],['f-lname',lname],['f-email',email],['f-class',cls],['f-date',date]];
+  fields.forEach(([id,val]) => {
+    document.getElementById(id).classList.toggle('invalid', !val);
+    if (!val) errs.push(id);
+  });
+  if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    document.getElementById('f-email').classList.add('invalid');
+    errs.push('email-format');
+  }
+  const errEl = document.getElementById('errorMsg');
+  if (errs.length) {
+    errEl.textContent = 'Please fill in your name, email, class, and preferred date — and double-check the email format.';
+    errEl.classList.add('show');
+    return;
+  }
+  errEl.classList.remove('show');
+
+  const btn = document.getElementById('submitBtn');
+  btn.disabled = true;
+  btn.innerHTML = 'Sending…';
+
+  try {
+    const res = await fetch('https://formspree.io/f/xbjnoqkv', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        _subject: 'Booking Request – ' + cls.substring(0, 40),
+        _replyto: email,
+        Name: fname + ' ' + lname,
+        Email: email,
+        Phone: phone || '—',
+        Class: cls,
+        'Preferred Date': date,
+        'Child Info': child || '—',
+        Notes: notes || '—'
+      })
+    });
+
+    if (res.ok) {
+      document.getElementById('bookingForm').style.display = 'none';
+      document.getElementById('successTitle').textContent = `You're all set, ${fname}!`;
+      document.getElementById('successState').classList.add('show');
+      window.scrollTo({ top:0, behavior:'smooth' });
+    } else {
+      throw new Error('submit failed');
+    }
+  } catch(err) {
+    btn.disabled = false;
+    btn.innerHTML = 'Send Booking Request <span class="submit-arrow">→</span>';
+    errEl.innerHTML = 'Hmm, something went wrong. Please email <a href="mailto:hello@rootsandwisdomstudio.com" style="color:var(--terra);text-decoration:underline;">hello@rootsandwisdomstudio.com</a> or call/text <a href="tel:4157912557" style="color:var(--terra);text-decoration:underline;">415-791-2557</a> and we\'ll get you sorted.';
+    errEl.classList.add('show');
+  }
+});
+
+/* Clear invalid styling on input */
+document.querySelectorAll('.input,.select').forEach(el => {
+  el.addEventListener('input', () => el.classList.remove('invalid'));
+});
+
+/* Read ?class= URL param to pre-select */
+const params = new URLSearchParams(window.location.search);
+const preClass = params.get('class');
+if (preClass) {
+  const m = CLASSES.find(c => c.key === preClass || c.name.toLowerCase().includes(preClass.toLowerCase()));
+  if (m) selectClass(m.key);
+}
+</script>
+</body>
+</html>
