@@ -4,13 +4,16 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>Roots &amp; Wisdom Studio | Capoeira, Salsa &amp; Yoga in Walnut Creek, CA</title>
-<meta name="description" content="Roots & Wisdom Studio is a family-rooted movement, culture, and wellness studio in Walnut Creek, CA offering Capoeira, Salsa, Yoga, Mobility, workshops, and studio rental. First Capoeira class is free."/>
+<meta name="description" content="Roots & Wisdom Studio is a family-rooted movement, culture, and wellness studio in Walnut Creek, CA offering Capoeira, Salsa, Yoga, Ground Mobility, workshops, and studio rental. First Capoeira class is free."/>
 <meta name="keywords" content="Walnut Creek capoeira, Walnut Creek salsa classes, Walnut Creek yoga, dance studio Walnut Creek, kids capoeira Walnut Creek, Mt Diablo Blvd studio rental"/>
-<meta name="theme-color" content="#2E5020"/>
-<meta property="og:title" content="Roots &amp; Wisdom Studio | Walnut Creek Movement, Culture &amp; Wellness"/>
-<meta property="og:description" content="Capoeira, Salsa, Yoga, Mobility, workshops, and studio rental in the heart of Walnut Creek."/>
 <meta property="og:type" content="website"/>
-<meta property="og:image" content="assets/optimized/hero-poster.webp"/>
+<meta property="og:title" content="Roots &amp; Wisdom Studio | Walnut Creek Movement, Culture &amp; Wellness"/>
+<meta property="og:description" content="Capoeira, Salsa, Yoga, Ground Mobility, workshops, and studio rental in the heart of Walnut Creek."/>
+<meta property="og:image" content="https://rootsandwisdomstudio.com/assets/optimized/hero-poster.webp"/>
+<meta property="og:url" content="https://rootsandwisdomstudio.com/"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="theme-color" content="#2E5020"/>
+<link rel="icon" type="image/svg+xml" href="favicon.svg"/>
 <link rel="preload" as="image" href="assets/optimized/hero-poster.webp"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
@@ -24,10 +27,11 @@
   --font-h:'Lora',Georgia,serif;--font-b:'DM Sans','Segoe UI',system-ui,sans-serif;
 }
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;scroll-padding-top:70px;font-size:18px;}
+*:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:3px;}
+html{scroll-behavior:smooth;scroll-padding-top:80px;font-size:18px;}
 body{font-family:var(--font-b);background:var(--warm-white);color:var(--text-dark);line-height:1.7;}
 a{text-decoration:none;cursor:pointer;color:inherit;}
-section{scroll-margin-top:70px;padding:72px 5%;}
+section{scroll-margin-top:80px;padding:72px 5%;}
 .si{max-width:1200px;margin:auto;}
 .s-tag{font-size:.82rem;letter-spacing:3.5px;text-transform:uppercase;color:var(--terra);font-weight:600;margin-bottom:8px;}
 .s-title{font-family:var(--font-h);font-size:clamp(1.9rem,4vw,2.9rem);color:var(--green-deep);line-height:1.2;margin-bottom:14px;}
@@ -107,8 +111,8 @@ nav{position:sticky;top:0;z-index:900;background:rgba(46,80,32,.97);backdrop-fil
 
 /* TEAM */
 #team{background:var(--warm-white);}
-.team-g{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:36px;}
-.team-card{background:var(--cream);border-radius:14px;padding:26px;text-align:center;border:1px solid var(--green-light);transition:transform .2s,box-shadow .2s;}
+.team-g{display:flex;flex-wrap:wrap;justify-content:center;gap:24px;margin-top:36px;}
+.team-card{background:var(--cream);border-radius:14px;padding:26px;text-align:center;border:1px solid var(--green-light);transition:transform .2s,box-shadow .2s;flex:0 1 calc(33.333% - 16px);min-width:260px;}
 .team-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(46,80,32,.1);}
 .team-img{width:140px;height:140px;border-radius:50%;background:var(--green-light);margin:0 auto 14px;overflow:hidden;}
 .team-img img{width:100%;height:100%;object-fit:cover;display:block;}
@@ -170,7 +174,19 @@ nav{position:sticky;top:0;z-index:900;background:rgba(46,80,32,.97);backdrop-fil
 .cl-time{font-size:.88rem;font-weight:700;color:var(--text-dark);min-width:96px;}
 .cl-info{flex:1;}
 .cl-name{font-size:.95rem;font-weight:700;color:var(--green-deep);}
+.cl-name[data-panel]{cursor:pointer;text-decoration:underline;text-decoration-style:dotted;text-decoration-color:var(--green-sage);text-underline-offset:3px;transition:color .15s,text-decoration-color .15s;}
+.cl-name[data-panel]:hover{color:var(--terra);text-decoration-color:var(--terra);}
+.cl-name[data-panel]::after{content:' ⓘ';font-size:.7rem;opacity:.55;font-weight:400;vertical-align:super;}
+#class-schedule{scroll-margin-top:80px;}
+.cl-why{display:none;background:#fff;border:1px solid var(--green-light);border-left:3px solid var(--green-mid);border-radius:0 8px 8px 8px;padding:14px 18px 14px 16px;margin:0 0 8px 36px;font-size:.87rem;color:var(--text-mid);line-height:1.7;}
+.cl-why.open{display:block;}
+.cl-why-title{font-family:var(--font-h);font-size:.88rem;font-weight:700;color:var(--green-deep);margin-bottom:6px;}
+.cl-why-cta{display:inline-block;margin-top:10px;font-size:.8rem;font-weight:700;color:var(--terra);text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(184,92,56,.4);transition:text-decoration-color .15s;}
+.cl-why-cta:hover{text-decoration-color:var(--terra);}
 .cl-sub{font-size:.82rem;color:var(--text-light);margin-top:2px;}
+.cl-series{font-size:.75rem;color:var(--terra);margin-top:4px;font-weight:500;}
+.cl-series a{color:var(--terra);text-decoration:underline;text-underline-offset:2px;text-decoration-color:rgba(184,92,56,.4);}
+.cl-series a:hover{text-decoration-color:var(--terra);}
 .cl-badge{font-size:.72rem;padding:2px 8px;border-radius:8px;font-weight:600;margin-top:4px;display:inline-block;}
 .cl-price{font-size:.9rem;font-weight:700;color:var(--green-deep);white-space:nowrap;}
 .cl-cta{font-size:.8rem;background:var(--green-deep);color:#fff;padding:7px 14px;border-radius:20px;white-space:nowrap;transition:background .2s;}
@@ -281,16 +297,9 @@ footer{background:var(--text-dark);padding:32px 5% 18px;color:rgba(255,255,255,.
 .studio-photos img{width:100%;height:220px;object-fit:cover;display:block;transition:transform .35s;}
 .studio-photos img:hover{transform:scale(1.03);}
 
-/* PRICING STRIP */
-.pricing-strip{background:var(--green-deep);border-radius:12px;padding:20px 24px;margin-top:24px;display:flex;align-items:center;flex-wrap:wrap;}
-.ps-item{flex:1;min-width:120px;padding:8px 18px;text-align:center;}
-.ps-item strong{display:block;font-size:1.15rem;font-weight:800;color:var(--gold);margin-bottom:2px;}
-.ps-item span{font-size:.82rem;color:rgba(255,255,255,.72);line-height:1.4;}
-.ps-sep{width:1px;height:40px;background:rgba(255,255,255,.13);flex-shrink:0;}
-
 /* RESPONSIVE */
 @media(max-width:960px){
-  .team-g{grid-template-columns:1fr 1fr;}
+  .team-card{flex:0 1 calc(50% - 12px);}
   .pillars-g{grid-template-columns:1fr;}
   .foot-top{grid-template-columns:1fr 1fr;}
   .week-cal{grid-template-columns:repeat(3,1fr);}
@@ -298,12 +307,14 @@ footer{background:var(--text-dark);padding:32px 5% 18px;color:rgba(255,255,255,.
 @media(max-width:768px){
   .rental-g,.contact-g,.mv-cards{grid-template-columns:1fr;}
   .studio-photos{grid-template-columns:1fr 1fr;}
-  .team-g{grid-template-columns:1fr;}
+  .team-card{flex:0 1 100%;}
   .classes-intro{flex-direction:column;align-items:flex-start;}
   .chapter{grid-template-columns:52px 1fr;gap:16px;}
   .ch-num{font-size:3rem;}
-  .nav-links{display:none;}
+  .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:rgba(46,80,32,.98);flex-direction:column;padding:16px 5%;gap:14px;}
   .nav-links.open{display:flex;}
+  .nav-cta{display:none;}
+  .nav-toggle{display:block;}
   .chat-modal{right:12px;left:12px;width:auto;bottom:80px;}
   .chat-fab{right:16px;bottom:16px;}
   .foot-top{grid-template-columns:1fr;}
@@ -352,11 +363,8 @@ footer{background:var(--text-dark);padding:32px 5% 18px;color:rgba(255,255,255,.
 }
 
 
-/* LAUNCH POLISH */
+/* NETLIFY LAUNCH POLISH */
 img{max-width:100%;height:auto;}
-.nav-links a:focus-visible,.nav-cta:focus-visible,.btn-p:focus-visible,.btn-o:focus-visible,.btn-gold:focus-visible,.cl-cta:focus-visible,.form-submit:focus-visible{outline:3px solid var(--gold);outline-offset:3px;}
-.hero-c{animation:heroRise .75s ease-out both;}
-@keyframes heroRise{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:translateY(0);}}
 .photo-frame{border-radius:18px;overflow:hidden;box-shadow:0 18px 48px rgba(42,31,20,.14);background:var(--cream);}
 .photo-frame img{display:block;width:100%;height:100%;object-fit:cover;}
 #local-seo{background:linear-gradient(135deg,var(--cream) 0%,#fffaf0 100%);position:relative;overflow:hidden;}
@@ -385,7 +393,7 @@ img{max-width:100%;height:auto;}
 .form-note{font-size:.78rem;color:var(--text-light);line-height:1.55;margin-top:2px;}
 .skip-honeypot{display:none!important;}
 @media(max-width:1100px){.nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:rgba(46,80,32,.98);flex-direction:column;padding:18px 5%;gap:14px;box-shadow:0 18px 36px rgba(0,0,0,.18);}.nav-links.open{display:flex}.nav-cta{display:none}.nav-toggle{display:block}.nav-cta-mob{display:block}.nav-i{gap:18px}}
-@media(max-width:960px){.local-grid{grid-template-columns:1fr;}.hero-video{opacity:.86;}}
+@media(max-width:960px){.local-grid{grid-template-columns:1fr;}.hero-video{opacity:.88;}}
 @media(max-width:768px){#home{min-height:82vh;padding-top:82px}.h-title{font-size:clamp(2.25rem,11vw,3.4rem)}.h-sub2{font-size:.78rem;line-height:1.8}.form-row{grid-template-columns:1fr}.contact-g{gap:34px}.inquiry-card{padding:22px}.local-card{padding:24px}.studio-photos img{height:260px}.team-img{width:132px;height:132px}}
 @media(max-width:480px){.banner{font-size:.74rem;line-height:1.5}.nav-logo{font-size:1rem}.h-ctas .btn-p,.h-ctas .btn-o{width:100%;text-align:center}.cl-price,.cl-cta{margin-left:0}.cl-cta{width:100%;text-align:center}.chat-fab{padding:10px 13px}.local-tags span{font-size:.76rem}.foot-bot{padding-bottom:56px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.hero-c{animation:none}.btn-p:hover,.btn-gold:hover,.team-card:hover,.p-card:hover,.studio-photos img:hover{transform:none}.hero-video{will-change:auto}}
@@ -396,8 +404,8 @@ img{max-width:100%;height:auto;}
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "name": "Roots & Wisdom Studio",
-  "description": "Family-rooted movement, culture, and wellness studio offering Capoeira, Salsa, Yoga, Mobility, workshops, and studio rental in Walnut Creek, California.",
-  "image": "assets/optimized/hero-poster.webp",
+  "description": "Family-rooted movement, culture, and wellness studio offering Capoeira, Salsa, Yoga, Ground Mobility, workshops, and studio rental in Walnut Creek, California.",
+  "image": "https://rootsandwisdomstudio.com/assets/optimized/hero-poster.webp",
   "telephone": "+1-415-791-2557",
   "email": "hello@rootsandwisdomstudio.com",
   "address": {
@@ -437,24 +445,24 @@ img{max-width:100%;height:auto;}
   </svg>
 </template>
 
-<div class="banner" onclick="go('classes')" style="cursor:pointer;">Capoeira &nbsp;·&nbsp; Salsa &nbsp;·&nbsp; Yoga &nbsp;·&nbsp; Ground-based Mobility &nbsp;— Walnut Creek, CA &nbsp;· &nbsp;<u>See All Classes ↓</u></div>
+<div class="banner">Capoeira &nbsp;·&nbsp; Salsa &nbsp;·&nbsp; Yoga &nbsp;·&nbsp; Ground-based Mobility &nbsp;— Walnut Creek &nbsp;·&nbsp; <a href="tel:4157912557" style="color:inherit;">415-791-2557</a> &nbsp;·&nbsp; <span onclick="go('class-schedule')" style="cursor:pointer;"><u>See All Classes ↓</u></span></div>
 
 <nav id="mainNav">
   <div class="nav-i">
-    <a onclick="go('home')" class="nav-logo">Roots &amp; Wisdom Studio<span>Movement · Culture · Wellness</span></a>
+    <a href="#home" onclick="go('home');return false;" class="nav-logo">Roots &amp; Wisdom Studio<span>Movement · Culture · Wellness</span></a>
     <ul class="nav-links" id="navLinks">
-      <li><a onclick="go('mission');closeNav()">Mission</a></li>
-      <li><a onclick="go('story');closeNav()">Our Story</a></li>
-      <li><a onclick="go('classes');closeNav()">Classes</a></li>
-      <li><a onclick="go('team');closeNav()">Our Team</a></li>
-      <li><a onclick="go('rental');closeNav()">Rental</a></li>
-      <li><a onclick="go('local-seo');closeNav()">Walnut Creek</a></li>
-      <li><a onclick="go('join');closeNav()">Join Our Team</a></li>
-      <li><a onclick="go('contact');closeNav()">Contact</a></li>
+      <li><a href="#class-schedule" onclick="go('class-schedule');closeNav();return false;">Classes</a></li>
+      <li><a href="#team" onclick="go('team');closeNav();return false;">Our Team</a></li>
+      <li><a href="#mission" onclick="go('mission');closeNav();return false;">Mission</a></li>
+      <li><a href="#story" onclick="go('story');closeNav();return false;">Our Story</a></li>
+      <li><a href="#rental" onclick="go('rental');closeNav();return false;">Rental</a></li>
+      <li><a href="#local-seo" onclick="go('local-seo');closeNav();return false;">Walnut Creek</a></li>
+      <li><a href="#join" onclick="go('join');closeNav();return false;">Join Our Team</a></li>
+      <li><a href="#contact" onclick="go('contact');closeNav();return false;">Contact</a></li>
       <li><a href="booking.html" class="nav-cta-mob">Book a Class</a></li>
     </ul>
     <a href="booking.html" class="nav-cta">Book a Class</a>
-    <button class="nav-toggle" id="navToggle" aria-label="Open menu">☰</button>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">☰</button>
   </div>
 </nav>
 
@@ -468,12 +476,555 @@ img{max-width:100%;height:auto;}
     <h1 class="h-title">Rooted in Culture.<br>Growing <em>Together.</em></h1>
     <p class="h-sub2">Capoeira &nbsp;·&nbsp; Salsa &nbsp;·&nbsp; Yoga &nbsp;·&nbsp; Ground Mobility &nbsp;·&nbsp; Studio Rental &nbsp;— Mt. Diablo Blvd, Walnut Creek</p>
     <div class="h-ctas">
-      <a onclick="go('classes')" class="btn-p">Explore Classes</a>
-      <a onclick="go('story')" class="btn-o">Our Story</a>
+      <a href="#class-schedule" onclick="go('class-schedule');return false;" class="btn-p">Explore Classes</a>
     </div>
+    <p style="margin-top:14px;"><a href="#story" onclick="go('story');return false;" style="color:rgba(255,255,255,.55);font-size:.82rem;letter-spacing:.5px;text-decoration:underline;text-underline-offset:3px;">Read our story ↓</a></p>
     <div style="margin-top:24px;">
       <span style="background:var(--gold);color:var(--green-deep);padding:10px 26px;border-radius:50px;display:inline-block;font-weight:700;font-size:.95rem;letter-spacing:.3px;">First Capoeira Class — FREE for New Students</span>
     </div>
+  </div>
+</section>
+
+<!-- CLASSES -->
+<section id="classes">
+  <div class="si">
+    <p class="s-tag">What We Offer</p>
+    <h2 class="s-title">Find Your Movement</h2>
+    <div class="s-div"></div>
+    <div class="classes-intro">
+      <p class="s-desc">Whether you walk in for Capoeira, Salsa, Yoga, or Mobility — movement teaches discipline, joy, presence, and connection. Walk-ins always welcome!</p>
+      <div class="free-badge"><strong>First Capoeira Class FREE!</strong><br>New to Capoeira? Your first class is on us.</div>
+    </div>
+
+    <div style="border-radius:14px;overflow:hidden;max-height:300px;margin-bottom:36px;">
+      <img src="assets/optimized/capoeira-class-walnut-creek.webp" alt="Capoeira class at Roots &amp; Wisdom Studio in Walnut Creek" width="1600" height="720" loading="lazy" decoding="async" style="width:100%;height:300px;object-fit:cover;object-position:center 40%;display:block;"/>
+    </div>
+
+    <!-- VIEW TOGGLE -->
+    <div id="class-schedule" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:24px;">
+      <div class="class-tabs">
+        <button class="class-tab active" onclick="showView('list',this)">All Classes</button>
+        <button class="class-tab" onclick="showView('calendar',this)">Weekly Calendar</button>
+      </div>
+      <!-- LEGEND -->
+      <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:center;">
+        <span style="display:flex;align-items:center;gap:5px;font-size:.78rem;color:var(--text-mid);"><span style="width:10px;height:10px;border-radius:50%;background:var(--green-deep);display:inline-block;"></span>Capoeira</span>
+        <span style="display:flex;align-items:center;gap:5px;font-size:.78rem;color:var(--text-mid);"><span style="width:10px;height:10px;border-radius:50%;background:var(--terra);display:inline-block;"></span>Salsa</span>
+        <span style="display:flex;align-items:center;gap:5px;font-size:.78rem;color:var(--text-mid);"><span style="width:10px;height:10px;border-radius:50%;background:#3A5A8C;display:inline-block;"></span>Yoga</span>
+        <span style="display:flex;align-items:center;gap:5px;font-size:.78rem;color:var(--text-mid);"><span style="width:10px;height:10px;border-radius:50%;background:var(--green-mid);display:inline-block;"></span>Mobility</span>
+
+      </div>
+    </div>
+
+    <!-- LIST VIEW -->
+    <div id="view-list" class="class-list">
+
+      <!-- MONDAY -->
+      <div style="display:flex;align-items:center;gap:12px;margin-top:4px;margin-bottom:2px;">
+        <span style="font-family:var(--font-h);font-size:1rem;font-weight:600;color:var(--green-deep);">Monday</span>
+        <span style="flex:1;height:1px;background:var(--green-light);"></span>
+      </div>
+      <div class="cl-item">
+        <span class="cl-dot cl-dot-mobility"></span>
+        <div class="cl-day">Mon</div>
+        <div class="cl-time">12:30 PM</div>
+        <div class="cl-info">
+          <div class="cl-name">Ground-based Mobility Flow</div>
+          <div class="cl-sub">All Levels · Build functional range of motion from the floor up</div>
+        </div>
+        <div class="cl-price">$25</div>
+        <a href="booking.html?class=Ground-based+Mobility+Flow&day=Mon&time=12%3A30+PM" class="cl-cta">Reserve →</a>
+      </div>
+      <div class="cl-item">
+        <span class="cl-dot cl-dot-salsa"></span>
+        <div class="cl-day">Mon</div>
+        <div class="cl-time">7:00 PM</div>
+        <div class="cl-info">
+          <div class="cl-name">Salsa Intermediate</div>
+          <div class="cl-sub">With Luis Aguilar · Intermediate Level</div>
+        </div>
+        <div class="cl-price">$30</div>
+        <a href="booking.html?class=Salsa+Intermediate&day=Mon&time=7%3A00+PM" class="cl-cta">Reserve →</a>
+      </div>
+
+      <!-- TUESDAY -->
+      <div style="display:flex;align-items:center;gap:12px;margin-top:12px;margin-bottom:2px;">
+        <span style="font-family:var(--font-h);font-size:1rem;font-weight:600;color:var(--green-deep);">Tuesday</span>
+        <span style="flex:1;height:1px;background:var(--green-light);"></span>
+      </div>
+      <div class="cl-item">
+        <span class="cl-dot cl-dot-yoga"></span>
+        <div class="cl-day">Tue</div>
+        <div class="cl-time">6:00 AM</div>
+        <div class="cl-info">
+          <div class="cl-name">Vinyasa Yoga</div>
+          <div class="cl-sub">With Melissa Rodriguez · All Levels · Dynamic flowing sequences</div>
+          <div class="cl-series">✦ 7-Week Chakra Series · <a href="https://stillinmotion.club/chakra" target="_blank" rel="noopener">$25/wk drop-in · $180 full series</a></div>
+        </div>
+        <div class="cl-price">$25</div>
+        <a href="booking.html?class=Vinyasa+Yoga&day=Tue&time=6%3A00+AM" class="cl-cta">Reserve →</a>
+      </div>
+      <div class="cl-item">
+        <span class="cl-dot cl-dot-yoga"></span>
+        <div class="cl-day">Tue</div>
+        <div class="cl-time">12:00 PM</div>
+        <div class="cl-info">
+          <div class="cl-name">Gentle Yoga</div>
+          <div class="cl-sub">With Melissa Rodriguez · All Levels · Breath, release &amp; mindful movement</div>
+        </div>
+        <div class="cl-price">$25</div>
+        <a href="booking.html?class=Gentle+Yoga&day=Tue&time=12%3A00+PM" class="cl-cta">Reserve →</a>
+      </div>
+      <div class="cl-item">
+        <span class="cl-dot cl-dot-capoeira"></span>
+        <div class="cl-day">Tue</div>
+        <div class="cl-time">4:00 PM</div>
+        <div class="cl-info">
+          <div class="cl-name">Kids Capoeira</div>
+          <div class="cl-sub">With Uriel Arauz · Ages 4–7 · <span style="color:var(--terra);font-weight:700;">1st class FREE</span></div>
+        </div>
+        <div class="cl-price">$30</div>
+        <a href="booking.html?class=Kids+Capoeira&day=Tue&time=4%3A00+PM" class="cl-cta">Reserve →</a>
+      </div>
+      <div class="cl-item">
+        <span class="cl-dot cl-dot-capoeira"></span>
+        <div class="cl-day">Tue</div>
+        <div class="cl-time">5:00 PM</div>
+        <div class="cl-info">
+          <div class="cl-name">Youth Capoeira</div>
+          <div class="cl-sub">With Uriel Arauz · Ages 8–13 · <span style="color:var(--terra);font-weight:700;">1st class FREE</span></div>
+        </div>
+        <div class="cl-price">$30</div>
+        <a href="booking.html?class=Youth+Capoeira&day=Tue&time=5%3A00+PM" class="cl-cta">Reserve →</a>
+      </div>
+      <div class="cl-item">
+        <span class="cl-dot cl-dot-capoeira"></span>
+        <div class="cl-day">Tue</div>
+        <div class="cl-time">6:00 PM</div>
+        <div class="cl-info">
+          <div class="cl-name">Teens &amp; Adults Capoeira</div>
+          <div class="cl-sub">With Uriel Arauz · Ages 14+ · All Levels · <span style="color:var(--terra);font-weight:700;">1st class FREE</span></div>
+        </div>
+        <div class="cl-price">$30</div>
+        <a href="booking.html?class=Teens+%26amp%3B+Adults+Capoeira&day=Tue&time=6%3A00+PM" class="cl-cta">Reserve →</a>
+      </div>
+      <div class="cl-item">
+        <span class="cl-dot cl-dot-yoga"></span>
+        <div class="cl-day">Tue</div>
+        <div class="cl-time">7:15 PM</div>
+        <div class="cl-info">
+          <div class="cl-name">Vinyasa Yoga</div>
+          <div class="cl-sub">With Melissa Rodriguez · All Levels · Dynamic flowing sequences</div>
+          <div class="cl-series">✦ 7-Week Chakra Series · <a href="https://stillinmotion.club/chakra" target="_blank" rel="noopener">$25/wk drop-in · $180 full series</a></div>
+        </div>
+        <div class="cl-price">$25</div>
+        <a href="booking.html?class=Vinyasa+Yoga&day=Tue&time=7%3A15+PM" class="cl-cta">Reserve →</a>
+      </div>
+
+      <!-- WEDNESDAY -->
+      <div style="display:flex;align-items:center;gap:12px;margin-top:12px;margin-bottom:2px;">
+        <span style="font-family:var(--font-h);font-size:1rem;font-weight:600;color:var(--green-deep);">Wednesday</span>
+        <span style="flex:1;height:1px;background:var(--green-light);"></span>
+      </div>
+      <div class="cl-item">
+        <span class="cl-dot cl-dot-mobility"></span>
+        <div class="cl-day">Wed</div>
+        <div class="cl-time">2:00 PM</div>
+        <div class="cl-info">
+          <div class="cl-name">Ground-based Mobility Flow</div>
+          <div class="cl-sub">All Levels · Build functional range of motion from the floor up</div>
+        </div>
+        <div class="cl-price">$25</div>
+        <a href="booking.html?class=Ground-based+Mobility+Flow&day=Wed&time=2%3A00+PM" class="cl-cta">Reserve →</a>
+      </div>
+      <div class="cl-item">
+        <span class="cl-dot cl-dot-salsa"></span>
+        <div class="cl-day">Wed</div>
+        <div class="cl-time">6:30 PM</div>
+        <div class="cl-info">
+          <div class="cl-name">Salsa — Absolute Beginner</div>
+          <div class="cl-sub">With Luis Aguilar · No partner needed · Footwork, timing &amp; basic patterns</div>
+        </div>
+        <div class="cl-price">$30</div>
+        <a href="booking.html?class=Salsa+%E2%80%94+Absolute+Beginner&day=Wed&time=6%3A30+PM" class="cl-cta">Reserve →</a>
+      </div>
+      <div class="cl-item">
+        <span class="cl-dot cl-dot-salsa"></span>
+        <div class="cl-day">Wed</div>
+        <div class="cl-time">7:30 PM</div>
+        <div class="cl-info">
+          <div class="cl-name">Salsa — Advanced Beginner</div>
+          <div class="cl-sub">With Luis Aguilar · Some experience · Rhythm, technique &amp; musicality</div>
+        </div>
+        <div class="cl-price">$30</div>
+        <a href="booking.html?class=Salsa+%E2%80%94+Advanced+Beginner&day=Wed&time=7%3A30+PM" class="cl-cta">Reserve →</a>
+      </div>
+
+      <!-- THURSDAY -->
+      <div style="display:flex;align-items:center;gap:12px;margin-top:12px;margin-bottom:2px;">
+        <span style="font-family:var(--font-h);font-size:1rem;font-weight:600;color:var(--green-deep);">Thursday</span>
+        <span style="flex:1;height:1px;background:var(--green-light);"></span>
+      </div>
+      <div class="cl-item">
+        <span class="cl-dot cl-dot-yoga"></span>
+        <div class="cl-day">Thu</div>
+        <div class="cl-time">6:00 AM</div>
+        <div class="cl-info">
+          <div class="cl-name">Vinyasa Yoga</div>
+          <div class="cl-sub">With Melissa Rodriguez · All Levels · Dynamic flowing sequences</div>
+          <div class="cl-series">✦ 7-Week Chakra Series · <a href="https://stillinmotion.club/chakra" target="_blank" rel="noopener">$25/wk drop-in · $180 full series</a></div>
+        </div>
+        <div class="cl-price">$25</div>
+        <a href="booking.html?class=Vinyasa+Yoga&day=Thu&time=6%3A00+AM" class="cl-cta">Reserve →</a>
+      </div>
+      <div class="cl-item">
+        <span class="cl-dot cl-dot-yoga"></span>
+        <div class="cl-day">Thu</div>
+        <div class="cl-time">12:00 PM</div>
+        <div class="cl-info">
+          <div class="cl-name">Gentle Yoga</div>
+          <div class="cl-sub">With Melissa Rodriguez · All Levels · Breath, release &amp; mindful movement</div>
+        </div>
+        <div class="cl-price">$25</div>
+        <a href="booking.html?class=Gentle+Yoga&day=Thu&time=12%3A00+PM" class="cl-cta">Reserve →</a>
+      </div>
+      <div class="cl-item">
+        <span class="cl-dot cl-dot-capoeira"></span>
+        <div class="cl-day">Thu</div>
+        <div class="cl-time">4:00 PM</div>
+        <div class="cl-info">
+          <div class="cl-name">Kids Capoeira</div>
+          <div class="cl-sub">With Uriel Arauz · Ages 4–7 · <span style="color:var(--terra);font-weight:700;">1st class FREE</span></div>
+        </div>
+        <div class="cl-price">$30</div>
+        <a href="booking.html?class=Kids+Capoeira&day=Thu&time=4%3A00+PM" class="cl-cta">Reserve →</a>
+      </div>
+      <div class="cl-item">
+        <span class="cl-dot cl-dot-capoeira"></span>
+        <div class="cl-day">Thu</div>
+        <div class="cl-time">5:00 PM</div>
+        <div class="cl-info">
+          <div class="cl-name">Youth Capoeira</div>
+          <div class="cl-sub">With Uriel Arauz · Ages 8–13 · <span style="color:var(--terra);font-weight:700;">1st class FREE</span></div>
+        </div>
+        <div class="cl-price">$30</div>
+        <a href="booking.html?class=Youth+Capoeira&day=Thu&time=5%3A00+PM" class="cl-cta">Reserve →</a>
+      </div>
+      <div class="cl-item">
+        <span class="cl-dot cl-dot-capoeira"></span>
+        <div class="cl-day">Thu</div>
+        <div class="cl-time">6:00 PM</div>
+        <div class="cl-info">
+          <div class="cl-name">Teens Capoeira</div>
+          <div class="cl-sub">With Uriel Arauz · Ages 14–17 · <span style="color:var(--terra);font-weight:700;">1st class FREE</span></div>
+        </div>
+        <div class="cl-price">$30</div>
+        <a href="booking.html?class=Teens+Capoeira&day=Thu&time=6%3A00+PM" class="cl-cta">Reserve →</a>
+      </div>
+
+      <!-- SATURDAY -->
+      <div style="display:flex;align-items:center;gap:12px;margin-top:12px;margin-bottom:2px;">
+        <span style="font-family:var(--font-h);font-size:1rem;font-weight:600;color:var(--green-deep);">Saturday</span>
+        <span style="flex:1;height:1px;background:var(--green-light);"></span>
+      </div>
+      <div class="cl-item">
+        <span class="cl-dot cl-dot-capoeira"></span>
+        <div class="cl-day">Sat</div>
+        <div class="cl-time">10:00 AM</div>
+        <div class="cl-info">
+          <div class="cl-name">Youth Capoeira</div>
+          <div class="cl-sub">With Uriel Arauz · Ages 8–13 · <span style="color:var(--terra);font-weight:700;">1st class FREE</span></div>
+        </div>
+        <div class="cl-price">$30</div>
+        <a href="booking.html?class=Youth+Capoeira&day=Sat&time=10%3A00+AM" class="cl-cta">Reserve →</a>
+      </div>
+      <div class="cl-item">
+        <span class="cl-dot cl-dot-capoeira"></span>
+        <div class="cl-day">Sat</div>
+        <div class="cl-time">11:00 AM</div>
+        <div class="cl-info">
+          <div class="cl-name">Kids Capoeira</div>
+          <div class="cl-sub">With Uriel Arauz · Ages 4–7 · <span style="color:var(--terra);font-weight:700;">1st class FREE</span></div>
+        </div>
+        <div class="cl-price">$30</div>
+        <a href="booking.html?class=Kids+Capoeira&day=Sat&time=11%3A00+AM" class="cl-cta">Reserve →</a>
+      </div>
+      <div class="cl-item">
+        <span class="cl-dot cl-dot-capoeira"></span>
+        <div class="cl-day">Sat</div>
+        <div class="cl-time">12:00 PM</div>
+        <div class="cl-info">
+          <div class="cl-name">Teens &amp; Adults Capoeira</div>
+          <div class="cl-sub">With Uriel Arauz · Ages 14+ · All Levels · <span style="color:var(--terra);font-weight:700;">1st class FREE</span></div>
+        </div>
+        <div class="cl-price">$30</div>
+        <a href="booking.html?class=Teens+%26amp%3B+Adults+Capoeira&day=Sat&time=12%3A00+PM" class="cl-cta">Reserve →</a>
+      </div>
+
+      <!-- PRIVATE -->
+      <div style="display:flex;align-items:center;gap:12px;margin-top:12px;margin-bottom:2px;">
+        <span style="font-family:var(--font-h);font-size:1rem;font-weight:600;color:var(--green-deep);">Private Lessons</span>
+        <span style="flex:1;height:1px;background:var(--green-light);"></span>
+      </div>
+      <div class="cl-item">
+        <span class="cl-dot cl-dot-capoeira"></span>
+        <div class="cl-day" style="color:var(--text-light);">Flexible</div>
+        <div class="cl-time" style="color:var(--text-light);font-size:.82rem;">By Appt.</div>
+        <div class="cl-info">
+          <div class="cl-name">Private Capoeira</div>
+          <div class="cl-sub">With Uriel Arauz · Personalized one-on-one instruction</div>
+        </div>
+        <div class="cl-price" style="font-size:.82rem;color:var(--text-light);">Contact us</div>
+        <a href="mailto:hello@rootsandwisdomstudio.com?subject=Private%20Capoeira%20Lesson%20Inquiry&body=Hi%20Roots%20%26%20Wisdom%2C%20I%27m%20interested%20in%20a%20private%20capoeira%20lesson." class="cl-cta">Inquire →</a>
+      </div>
+      <div class="cl-item">
+        <span class="cl-dot cl-dot-salsa"></span>
+        <div class="cl-day" style="color:var(--text-light);">Flexible</div>
+        <div class="cl-time" style="color:var(--text-light);font-size:.82rem;">By Appt.</div>
+        <div class="cl-info">
+          <div class="cl-name">Private Salsa</div>
+          <div class="cl-sub">With Luis Aguilar · Personalized one-on-one instruction</div>
+        </div>
+        <div class="cl-price" style="font-size:.82rem;color:var(--text-light);">Contact us</div>
+        <a href="mailto:hello@rootsandwisdomstudio.com?subject=Private%20Salsa%20Lesson%20Inquiry&body=Hi%20Roots%20%26%20Wisdom%2C%20I%27m%20interested%20in%20a%20private%20salsa%20lesson." class="cl-cta">Inquire →</a>
+      </div>
+
+    </div><!-- /list view -->
+
+    <!-- CALENDAR VIEW -->
+    <div id="view-calendar" style="margin-top:0;display:none;">
+      <div class="week-cal" style="border-radius:0 0 16px 16px;border-top:none;">
+
+        <!-- MON -->
+        <div class="wday-col">
+          <div class="wday-head"><span class="wd-name">Mon</span><span class="wd-full">Monday</span></div>
+          <div class="wday-body">
+            <div class="cpill cpill-mobility" onclick="location.href='booking.html?class=Ground-based+Mobility+Flow&day=Mon&time=12%3A30+PM'" style="cursor:pointer;">
+              <span class="cpill-time">12:30 PM</span>
+              <span class="cpill-name">Mobility Flow</span>
+              <span class="cpill-instr">All Levels</span>
+            </div>
+            <div class="cpill cpill-salsa" onclick="location.href='booking.html?class=Salsa+Intermediate&day=Mon&time=7%3A00+PM'" style="cursor:pointer;">
+              <span class="cpill-time">7:00 PM</span>
+              <span class="cpill-name">Salsa Intermediate</span>
+              <span class="cpill-instr">Luis Aguilar</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- TUE -->
+        <div class="wday-col">
+          <div class="wday-head"><span class="wd-name">Tue</span><span class="wd-full">Tuesday</span></div>
+          <div class="wday-body">
+            <div class="cpill cpill-yoga" onclick="location.href='booking.html?class=Vinyasa+Yoga&day=Tue&time=6%3A00+AM'" style="cursor:pointer;">
+              <span class="cpill-time">6:00 AM</span>
+              <span class="cpill-name">Vinyasa Yoga</span>
+              <span class="cpill-instr">Melissa R.</span>
+            </div>
+            <div class="cpill cpill-yoga" onclick="location.href='booking.html?class=Gentle+Yoga&day=Tue&time=12%3A00+PM'" style="cursor:pointer;">
+              <span class="cpill-time">12:00 PM</span>
+              <span class="cpill-name">Gentle Yoga</span>
+              <span class="cpill-instr">Melissa R.</span>
+            </div>
+            <div class="cpill cpill-capoeira" onclick="location.href='booking.html?class=Kids+Capoeira&day=Tue&time=4%3A00+PM'" style="cursor:pointer;">
+              <span class="cpill-time">4:00 PM</span>
+              <span class="cpill-name">Kids Capoeira</span>
+              <span class="cpill-instr">Ages 4–7</span>
+              <span class="cpill-free">FREE</span>
+            </div>
+            <div class="cpill cpill-capoeira" onclick="location.href='booking.html?class=Youth+Capoeira&day=Tue&time=5%3A00+PM'" style="cursor:pointer;">
+              <span class="cpill-time">5:00 PM</span>
+              <span class="cpill-name">Youth Capoeira</span>
+              <span class="cpill-instr">Ages 8–13</span>
+              <span class="cpill-free">FREE</span>
+            </div>
+            <div class="cpill cpill-capoeira" onclick="location.href='booking.html?class=Teens+%26amp%3B+Adults+Capoeira&day=Tue&time=6%3A00+PM'" style="cursor:pointer;">
+              <span class="cpill-time">6:00 PM</span>
+              <span class="cpill-name">Teens &amp; Adults</span>
+              <span class="cpill-instr">Ages 14+ · All Levels</span>
+              <span class="cpill-free">FREE</span>
+            </div>
+            <div class="cpill cpill-yoga" onclick="location.href='booking.html?class=Vinyasa+Yoga&day=Tue&time=7%3A15+PM'" style="cursor:pointer;">
+              <span class="cpill-time">7:15 PM</span>
+              <span class="cpill-name">Vinyasa Yoga</span>
+              <span class="cpill-instr">Melissa R.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- WED -->
+        <div class="wday-col">
+          <div class="wday-head"><span class="wd-name">Wed</span><span class="wd-full">Wednesday</span></div>
+          <div class="wday-body">
+            <div class="cpill cpill-mobility" onclick="location.href='booking.html?class=Ground-based+Mobility+Flow&day=Wed&time=2%3A00+PM'" style="cursor:pointer;">
+              <span class="cpill-time">2:00 PM</span>
+              <span class="cpill-name">Mobility Flow</span>
+              <span class="cpill-instr">All Levels</span>
+            </div>
+            <div class="cpill cpill-salsa" onclick="location.href='booking.html?class=Salsa+%E2%80%94+Absolute+Beginner&day=Wed&time=6%3A30+PM'" style="cursor:pointer;">
+              <span class="cpill-time">6:30 PM</span>
+              <span class="cpill-name">Salsa Beginner</span>
+              <span class="cpill-instr">Luis Aguilar</span>
+            </div>
+            <div class="cpill cpill-salsa" onclick="location.href='booking.html?class=Salsa+%E2%80%94+Advanced+Beginner&day=Wed&time=7%3A30+PM'" style="cursor:pointer;">
+              <span class="cpill-time">7:30 PM</span>
+              <span class="cpill-name">Salsa Adv. Beginner</span>
+              <span class="cpill-instr">Luis Aguilar</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- THU -->
+        <div class="wday-col">
+          <div class="wday-head"><span class="wd-name">Thu</span><span class="wd-full">Thursday</span></div>
+          <div class="wday-body">
+            <div class="cpill cpill-yoga" onclick="location.href='booking.html?class=Vinyasa+Yoga&day=Thu&time=6%3A00+AM'" style="cursor:pointer;">
+              <span class="cpill-time">6:00 AM</span>
+              <span class="cpill-name">Vinyasa Yoga</span>
+              <span class="cpill-instr">Melissa R.</span>
+            </div>
+            <div class="cpill cpill-yoga" onclick="location.href='booking.html?class=Gentle+Yoga&day=Thu&time=12%3A00+PM'" style="cursor:pointer;">
+              <span class="cpill-time">12:00 PM</span>
+              <span class="cpill-name">Gentle Yoga</span>
+              <span class="cpill-instr">Melissa R.</span>
+            </div>
+            <div class="cpill cpill-capoeira" onclick="location.href='booking.html?class=Kids+Capoeira&day=Thu&time=4%3A00+PM'" style="cursor:pointer;">
+              <span class="cpill-time">4:00 PM</span>
+              <span class="cpill-name">Kids Capoeira</span>
+              <span class="cpill-instr">Ages 4–7</span>
+              <span class="cpill-free">FREE</span>
+            </div>
+            <div class="cpill cpill-capoeira" onclick="location.href='booking.html?class=Youth+Capoeira&day=Thu&time=5%3A00+PM'" style="cursor:pointer;">
+              <span class="cpill-time">5:00 PM</span>
+              <span class="cpill-name">Youth Capoeira</span>
+              <span class="cpill-instr">Ages 8–13</span>
+              <span class="cpill-free">FREE</span>
+            </div>
+            <div class="cpill cpill-capoeira" onclick="location.href='booking.html?class=Teens+Capoeira&day=Thu&time=6%3A00+PM'" style="cursor:pointer;">
+              <span class="cpill-time">6:00 PM</span>
+              <span class="cpill-name">Teens Capoeira</span>
+              <span class="cpill-instr">Ages 14–17</span>
+              <span class="cpill-free">FREE</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- FRI -->
+        <div class="wday-col">
+          <div class="wday-head"><span class="wd-name">Fri</span><span class="wd-full">Friday</span></div>
+          <div class="wday-body">
+            <div class="wday-empty"><span>No classes</span></div>
+          </div>
+        </div>
+
+        <!-- SAT -->
+        <div class="wday-col">
+          <div class="wday-head"><span class="wd-name">Sat</span><span class="wd-full">Saturday</span></div>
+          <div class="wday-body">
+            <div class="cpill cpill-capoeira" onclick="location.href='booking.html?class=Youth+Capoeira&day=Sat&time=10%3A00+AM'" style="cursor:pointer;">
+              <span class="cpill-time">10:00 AM</span>
+              <span class="cpill-name">Youth Capoeira</span>
+              <span class="cpill-instr">Ages 8–13</span>
+              <span class="cpill-free">FREE</span>
+            </div>
+            <div class="cpill cpill-capoeira" onclick="location.href='booking.html?class=Kids+Capoeira&day=Sat&time=11%3A00+AM'" style="cursor:pointer;">
+              <span class="cpill-time">11:00 AM</span>
+              <span class="cpill-name">Kids Capoeira</span>
+              <span class="cpill-instr">Ages 4–7</span>
+              <span class="cpill-free">FREE</span>
+            </div>
+            <div class="cpill cpill-capoeira" onclick="location.href='booking.html?class=Teens+%26amp%3B+Adults+Capoeira&day=Sat&time=12%3A00+PM'" style="cursor:pointer;">
+              <span class="cpill-time">12:00 PM</span>
+              <span class="cpill-name">Teens &amp; Adults</span>
+              <span class="cpill-instr">Ages 14+ · All Levels</span>
+              <span class="cpill-free">FREE</span>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /week-cal -->
+      <p style="font-size:.82rem;color:var(--text-light);margin-top:12px;text-align:center;">Tap any class above to book · Walk-ins always welcome</p>
+    </div><!-- /calendar view -->
+
+    <div class="pricing-strip">
+      <div class="ps-item"><strong>$30</strong><span>Capoeira &amp; Salsa classes</span></div>
+      <div class="ps-sep"></div>
+      <div class="ps-item"><strong>$25</strong><span>Yoga &amp; Mobility</span></div>
+      <div class="ps-sep"></div>
+      <div class="ps-item"><strong>FREE</strong><span>First Capoeira class for new students</span></div>
+      <div class="ps-sep"></div>
+      <div class="ps-item"><strong>Walk-ins</strong><span>Always welcome</span></div>
+    </div>
+
+    <!-- WHY LEARN accordion -->
+    <div class="learn-more-wrap" style="margin-bottom:48px;">
+      <div class="lm-panel" id="lm-capoeira">
+        <button class="lm-toggle" onclick="toggleLearnMore('lm-capoeira')">
+          <div class="lm-toggle-title">Why Learn Capoeira?</div>
+          <span class="lm-arrow">▼</span>
+        </button>
+        <div class="lm-body">
+          <p><strong>Kids · Ages 4–7</strong><br>
+          Capoeira is one of the rare practices that grows with a child rather than becoming something they outgrow. Parents who enrolled their kids expecting a fun after-school activity tell us they noticed changes across the board: better focus at school, more confidence in social situations, physical capability that shows up everywhere. What the practice builds in the early years compounds — and it never stays only in the studio. The first class costs you nothing. Most families don't stop there.</p>
+
+          <p><strong>Youth · Ages 8–13</strong><br>
+          The youth program is where kids find out what they're actually made of. Real technique — kicks, sweeps, acrobatic transitions, and the improvisational game of the roda — challenges them in ways that build far beyond the studio. Students who came in as uncertain eight-year-olds leave the program as coordinated, composed young people who know how to handle pressure. Parents who enroll their kids in Capoeira watch that composure show up everywhere — at school, at home, and in how they carry themselves under pressure.</p>
+
+          <p><strong>Teens · Ages 14–17</strong><br>
+          Capoeira is one of the few things that meets a teenager exactly where they are. It's physically demanding enough to earn their respect, and the roda trains self-regulation in a way no classroom can — you cannot lose your composure in the circle or you lose the game. Teens who train here leave more disciplined, more physically capable, and more comfortable in their own skin.</p>
+
+          <p><strong>Adults · Ages 18+</strong><br>
+          Capoeira gives back more the longer you stay with it. What tends to happen: physical gains come first — strength, coordination, flexibility. Then mental discipline. Then something harder to name — a relationship with a culture and a community built on resilience that doesn't exist anywhere else. Adult students who walked in describing themselves as "not athletic" develop the strength to kick high, the coordination to sweep low, and the body awareness to move through a roda with control — capabilities they didn't believe they had. The roda is open to everyone. Uriel has 30 years of practice and the patience to prove it.</p>
+
+          <p style="margin-top:4px;font-size:.85rem;color:var(--terra);font-weight:600;">First class is free for new students of any age. No experience needed.</p>
+        </div>
+      </div>
+      <div class="lm-panel" id="lm-salsa">
+        <button class="lm-toggle" onclick="toggleLearnMore('lm-salsa')">
+          <div class="lm-toggle-title">Why Learn Salsa?</div>
+          <span class="lm-arrow">▼</span>
+        </button>
+        <div class="lm-body">
+          <p><strong>Absolute Beginner</strong><br>
+          Every new student who walks through the door says the same thing after class one: "I didn't think I'd actually be dancing this fast." That's Luis's instruction. He doesn't start with steps — he starts with how to feel the music, because the students who learn that first never look mechanical. Most people go from zero to moving with real confidence within weeks of consistent attendance. The energy in this class is consistently what new students mention — they come back because it doesn't feel like learning. It feels like playing.</p>
+
+          <p><strong>Advanced Beginner</strong><br>
+          This is the level where most students either stall or break through. Luis knows exactly where the gaps are — it's the same spot for almost everyone — and closes them methodically using the Couture Dance Syllabus. Students in this class consistently describe a specific moment when the timing locked in, the connection with their partner clicked, and they stopped feeling like they were learning steps and started feeling like they were actually dancing. That moment happens here.</p>
+
+          <p><strong>Intermediate</strong><br>
+          By this level, students trained under the Couture Syllabus have a foundation that shows. The details Luis builds in — musicality, clean footwork, intentional lead and follow — are exactly the things that get noticed on the social floor. This is where students go from competent to the person other dancers want to partner with.</p>
+
+          <p style="font-size:.85rem;color:var(--text-light);margin-top:4px;">Luis Aguilar also teaches at Revivé Studio · <a href="https://www.revivedanceclasses.com/" target="_blank" rel="noopener" style="color:var(--green-mid);">revivedanceclasses.com</a></p>
+        </div>
+      </div>
+      <div class="lm-panel" id="lm-mobility">
+        <button class="lm-toggle" onclick="toggleLearnMore('lm-mobility')">
+          <div class="lm-toggle-title">Why Ground-based Mobility Flow?</div>
+          <span class="lm-arrow">▼</span>
+        </button>
+        <div class="lm-body">
+          <p>Most adults have spent years avoiding the floor. Sitting over it, standing up from it as fast as possible, treating it as a last resort. This class reverses that relationship — and the results show up fast.</p>
+          <p>Uriel built Ground-based Mobility Flow from the movement principles that make Capoeira practitioners so physically capable. In Capoeira, the floor is not a limitation — it's where everything originates. Every kick, every evasion, every transition comes from a deep, functional relationship with the ground. This class extracts that intelligence into a standalone, all-levels practice: joint circles, animal movements, low transitions, and controlled inversions.</p>
+          <p>Students routinely discover range of motion they hadn't accessed in years — hips that open, joints that move without grinding, a physical ease they forgot was possible. One session is enough to feel it. A consistent month changes how you move everywhere else. No Capoeira experience required, though Capoeira students use this class specifically to accelerate their game.</p>
+        </div>
+      </div>
+      <div class="lm-panel" id="lm-yoga">
+        <button class="lm-toggle" onclick="toggleLearnMore('lm-yoga')">
+          <div class="lm-toggle-title">Why Practice Yoga?</div>
+          <span class="lm-arrow">▼</span>
+        </button>
+        <div class="lm-body">
+          <p><strong>Gentle Yoga</strong><br>
+          Most people who need this class the most are the ones most likely to think it isn't enough. It is enough — and then some. Gentle Yoga works in the places high-intensity training ignores: chronic tension in the hips, shoulders, and jaw that most adults have simply learned to live with; a nervous system that has forgotten how to downshift; a body that has been asked to perform for years without ever being asked how it feels. Long holds, supported poses, and intentional breathwork address all of it. Give it three weeks and notice what shifts — in the studio and outside of it.</p>
+
+          <p><strong>Vinyasa</strong><br>
+          Melissa builds every sequence with purpose. Nothing in this class is filler — every transition teaches you something specific about how your body moves. Whether you're newer to the practice or more experienced, modifications and more advanced variations exist in the same room, so no one feels out of place. What students consistently notice is not just that they get stronger. It's that they get smarter about their movement — and that awareness changes how they carry themselves everywhere else.</p>
+
+          <p style="font-size:.85rem;color:var(--text-light);margin-top:4px;">Melissa Rodriguez · 500-hr RYT · <a href="https://www.revivedanceclasses.com/" target="_blank" rel="noopener" style="color:var(--green-mid);">Revivé</a> brings classes to Roots &amp; Wisdom Studio</p>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -509,7 +1060,7 @@ img{max-width:100%;height:auto;}
     <p class="s-tag">Our Story</p>
     <h2 class="s-title">How We Got Here</h2>
     <div class="s-div"></div>
-    <p class="s-desc" style="margin-bottom:36px;">Not a corporate origin story. A family story — built on showing up, honoring where we come from, weathering hard seasons, and choosing to return to what matters.</p>
+    <p class="s-desc" style="margin-bottom:36px;">Not a corporate origin story. A family story — built on showing up, weathering hard seasons, and choosing to return to what matters.</p>
 
     <div class="story-chapters">
       <div class="chapter">
@@ -570,7 +1121,7 @@ img{max-width:100%;height:auto;}
     <p class="s-tag">What We Stand For</p>
     <h2 class="s-title">Roots. Wisdom. Resilience.</h2>
     <div class="s-div"></div>
-    <p class="s-desc">Three words. One identity. The pillars that shape how we teach, how we welcome, and how we show up for our Walnut Creek community every day.</p>
+    <p class="s-desc">Three words. One identity. The pillars that shape how we teach, how we welcome, and how we show up for this community every day.</p>
     <div class="pillars-g">
       <div class="p-card">
         <div class="p-name">Roots</div>
@@ -626,7 +1177,7 @@ img{max-width:100%;height:auto;}
       </div>
 
       <div class="team-card">
-        <div class="team-img"><img src="assets/optimized/team-melissa.webp" alt="Melissa Rodriguez, Yoga instructor at Roots &amp; Wisdom Studio" width="420" height="420" loading="lazy" decoding="async" style="object-position:center 22%;"/></div>
+        <div class="team-img"><img src="assets/optimized/team-melissa.webp" alt="Melissa Rodriguez, Yoga instructor at Roots &amp; Wisdom Studio" width="420" height="420" loading="lazy" decoding="async" style="object-position:center top;"/></div>
         <h3 class="team-name">Melissa Rodriguez</h3>
         <p class="team-role">Yoga Instructor</p>
         <p class="team-bio">500-hour RYT certified. Core Vinyasa and Gentle Yoga instructor. Trained at Yoga Garden SF. Specializations in Prenatal Yoga, Restorative Yoga, Chakra Studies, Trauma-Informed Practice, and Subtle Body Energetics — rooted in a Hatha lineage. 20+ years of mind-body experience.</p>
@@ -694,522 +1245,6 @@ img{max-width:100%;height:auto;}
   </div>
 </section>
 
-<!-- CLASSES -->
-<section id="classes">
-  <div class="si">
-    <p class="s-tag">What We Offer</p>
-    <h2 class="s-title">Find Your Movement</h2>
-    <div class="s-div"></div>
-    <div class="classes-intro">
-      <p class="s-desc">Whether you walk in for Capoeira, Salsa, Yoga, or Mobility — movement teaches discipline, joy, presence, and connection. Walk-ins always welcome!</p>
-      <div class="free-badge"><strong>First Capoeira Class FREE!</strong><br>New to Capoeira? Your first class is on us.</div>
-    </div>
-
-    <div class="photo-frame" style="max-height:340px;margin-bottom:36px;">
-      <img src="assets/optimized/capoeira-class-walnut-creek.webp" alt="Capoeira class at Roots &amp; Wisdom Studio in Walnut Creek" width="1600" height="720" loading="lazy" decoding="async" style="height:340px;object-position:center 40%;"/>
-    </div>
-
-    <!-- VIEW TOGGLE -->
-    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:24px;">
-      <div class="class-tabs">
-        <button class="class-tab active" onclick="showView('list',this)">All Classes</button>
-        <button class="class-tab" onclick="showView('calendar',this)">Weekly Calendar</button>
-      </div>
-      <!-- LEGEND -->
-      <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:center;">
-        <span style="display:flex;align-items:center;gap:5px;font-size:.78rem;color:var(--text-mid);"><span style="width:10px;height:10px;border-radius:50%;background:var(--green-deep);display:inline-block;"></span>Capoeira</span>
-        <span style="display:flex;align-items:center;gap:5px;font-size:.78rem;color:var(--text-mid);"><span style="width:10px;height:10px;border-radius:50%;background:var(--terra);display:inline-block;"></span>Salsa</span>
-        <span style="display:flex;align-items:center;gap:5px;font-size:.78rem;color:var(--text-mid);"><span style="width:10px;height:10px;border-radius:50%;background:#3A5A8C;display:inline-block;"></span>Yoga</span>
-        <span style="display:flex;align-items:center;gap:5px;font-size:.78rem;color:var(--text-mid);"><span style="width:10px;height:10px;border-radius:50%;background:var(--green-mid);display:inline-block;"></span>Mobility</span>
-
-      </div>
-    </div>
-
-    <!-- LIST VIEW -->
-    <div id="view-list" class="class-list">
-
-      <!-- MONDAY -->
-      <div style="display:flex;align-items:center;gap:12px;margin-top:4px;margin-bottom:2px;">
-        <span style="font-family:var(--font-h);font-size:1rem;font-weight:600;color:var(--green-deep);">Monday</span>
-        <span style="flex:1;height:1px;background:var(--green-light);"></span>
-      </div>
-      <div class="cl-item">
-        <span class="cl-dot cl-dot-mobility"></span>
-        <div class="cl-day">Mon</div>
-        <div class="cl-time">12:30 PM</div>
-        <div class="cl-info">
-          <div class="cl-name">Ground-based Mobility Flow</div>
-          <div class="cl-sub">All Levels · Build functional range of motion from the floor up</div>
-        </div>
-        <div class="cl-price">$25</div>
-        <a href="booking.html" class="cl-cta">Book →</a>
-      </div>
-      <div class="cl-item">
-        <span class="cl-dot cl-dot-salsa"></span>
-        <div class="cl-day">Mon</div>
-        <div class="cl-time">7:00 PM</div>
-        <div class="cl-info">
-          <div class="cl-name">Salsa Intermediate</div>
-          <div class="cl-sub">With Luis Aguilar · Intermediate Level · <span style="color:var(--terra);font-weight:700;">Starts June 1</span></div>
-        </div>
-        <div class="cl-price">$30</div>
-        <a href="booking.html" class="cl-cta">Book →</a>
-      </div>
-
-      <!-- TUESDAY -->
-      <div style="display:flex;align-items:center;gap:12px;margin-top:12px;margin-bottom:2px;">
-        <span style="font-family:var(--font-h);font-size:1rem;font-weight:600;color:var(--green-deep);">Tuesday</span>
-        <span style="flex:1;height:1px;background:var(--green-light);"></span>
-      </div>
-      <div class="cl-item">
-        <span class="cl-dot cl-dot-yoga"></span>
-        <div class="cl-day">Tue</div>
-        <div class="cl-time">6:00 AM</div>
-        <div class="cl-info">
-          <div class="cl-name">Vinyasa Yoga</div>
-          <div class="cl-sub">With Melissa Rodriguez · All Levels · Dynamic flowing sequences</div>
-        </div>
-        <div class="cl-price">$25</div>
-        <a href="booking.html" class="cl-cta">Book →</a>
-      </div>
-      <div class="cl-item">
-        <span class="cl-dot cl-dot-yoga"></span>
-        <div class="cl-day">Tue</div>
-        <div class="cl-time">12:00 PM</div>
-        <div class="cl-info">
-          <div class="cl-name">Gentle Yoga</div>
-          <div class="cl-sub">With Melissa Rodriguez · All Levels · Breath, release &amp; mindful movement</div>
-        </div>
-        <div class="cl-price">$25</div>
-        <a href="booking.html" class="cl-cta">Book →</a>
-      </div>
-      <div class="cl-item">
-        <span class="cl-dot cl-dot-capoeira"></span>
-        <div class="cl-day">Tue</div>
-        <div class="cl-time">4:00 PM</div>
-        <div class="cl-info">
-          <div class="cl-name">Kids Capoeira</div>
-          <div class="cl-sub">With Uriel Arauz · Ages 4–7 · <span style="color:var(--terra);font-weight:700;">1st class FREE</span></div>
-        </div>
-        <div class="cl-price">$30</div>
-        <a href="booking.html" class="cl-cta">Book →</a>
-      </div>
-      <div class="cl-item">
-        <span class="cl-dot cl-dot-capoeira"></span>
-        <div class="cl-day">Tue</div>
-        <div class="cl-time">5:00 PM</div>
-        <div class="cl-info">
-          <div class="cl-name">Youth Capoeira</div>
-          <div class="cl-sub">With Uriel Arauz · Ages 8–13 · <span style="color:var(--terra);font-weight:700;">1st class FREE</span></div>
-        </div>
-        <div class="cl-price">$30</div>
-        <a href="booking.html" class="cl-cta">Book →</a>
-      </div>
-      <div class="cl-item">
-        <span class="cl-dot cl-dot-capoeira"></span>
-        <div class="cl-day">Tue</div>
-        <div class="cl-time">6:00 PM</div>
-        <div class="cl-info">
-          <div class="cl-name">Teens &amp; Adults Capoeira</div>
-          <div class="cl-sub">With Uriel Arauz · Ages 14+ · All Levels · <span style="color:var(--terra);font-weight:700;">1st class FREE</span></div>
-        </div>
-        <div class="cl-price">$30</div>
-        <a href="booking.html" class="cl-cta">Book →</a>
-      </div>
-      <div class="cl-item">
-        <span class="cl-dot cl-dot-yoga"></span>
-        <div class="cl-day">Tue</div>
-        <div class="cl-time">7:15 PM</div>
-        <div class="cl-info">
-          <div class="cl-name">Vinyasa Yoga</div>
-          <div class="cl-sub">With Melissa Rodriguez · All Levels · Dynamic flowing sequences</div>
-        </div>
-        <div class="cl-price">$25</div>
-        <a href="booking.html" class="cl-cta">Book →</a>
-      </div>
-
-      <!-- WEDNESDAY -->
-      <div style="display:flex;align-items:center;gap:12px;margin-top:12px;margin-bottom:2px;">
-        <span style="font-family:var(--font-h);font-size:1rem;font-weight:600;color:var(--green-deep);">Wednesday</span>
-        <span style="flex:1;height:1px;background:var(--green-light);"></span>
-      </div>
-      <div class="cl-item">
-        <span class="cl-dot cl-dot-mobility"></span>
-        <div class="cl-day">Wed</div>
-        <div class="cl-time">2:00 PM</div>
-        <div class="cl-info">
-          <div class="cl-name">Ground-based Mobility Flow</div>
-          <div class="cl-sub">All Levels · Build functional range of motion from the floor up</div>
-        </div>
-        <div class="cl-price">$25</div>
-        <a href="booking.html" class="cl-cta">Book →</a>
-      </div>
-      <div class="cl-item">
-        <span class="cl-dot cl-dot-salsa"></span>
-        <div class="cl-day">Wed</div>
-        <div class="cl-time">6:30 PM</div>
-        <div class="cl-info">
-          <div class="cl-name">Salsa — Absolute Beginner</div>
-          <div class="cl-sub">With Luis Aguilar · No partner needed · Footwork, timing &amp; basic patterns</div>
-        </div>
-        <div class="cl-price">$30</div>
-        <a href="booking.html" class="cl-cta">Book →</a>
-      </div>
-      <div class="cl-item">
-        <span class="cl-dot cl-dot-salsa"></span>
-        <div class="cl-day">Wed</div>
-        <div class="cl-time">7:30 PM</div>
-        <div class="cl-info">
-          <div class="cl-name">Salsa — Advanced Beginner</div>
-          <div class="cl-sub">With Luis Aguilar · Some experience · Rhythm, technique &amp; musicality</div>
-        </div>
-        <div class="cl-price">$30</div>
-        <a href="booking.html" class="cl-cta">Book →</a>
-      </div>
-
-      <!-- THURSDAY -->
-      <div style="display:flex;align-items:center;gap:12px;margin-top:12px;margin-bottom:2px;">
-        <span style="font-family:var(--font-h);font-size:1rem;font-weight:600;color:var(--green-deep);">Thursday</span>
-        <span style="flex:1;height:1px;background:var(--green-light);"></span>
-      </div>
-      <div class="cl-item">
-        <span class="cl-dot cl-dot-yoga"></span>
-        <div class="cl-day">Thu</div>
-        <div class="cl-time">6:00 AM</div>
-        <div class="cl-info">
-          <div class="cl-name">Vinyasa Yoga</div>
-          <div class="cl-sub">With Melissa Rodriguez · All Levels · Dynamic flowing sequences</div>
-        </div>
-        <div class="cl-price">$25</div>
-        <a href="booking.html" class="cl-cta">Book →</a>
-      </div>
-      <div class="cl-item">
-        <span class="cl-dot cl-dot-yoga"></span>
-        <div class="cl-day">Thu</div>
-        <div class="cl-time">12:00 PM</div>
-        <div class="cl-info">
-          <div class="cl-name">Gentle Yoga</div>
-          <div class="cl-sub">With Melissa Rodriguez · All Levels · Breath, release &amp; mindful movement</div>
-        </div>
-        <div class="cl-price">$25</div>
-        <a href="booking.html" class="cl-cta">Book →</a>
-      </div>
-      <div class="cl-item">
-        <span class="cl-dot cl-dot-capoeira"></span>
-        <div class="cl-day">Thu</div>
-        <div class="cl-time">4:00 PM</div>
-        <div class="cl-info">
-          <div class="cl-name">Kids Capoeira</div>
-          <div class="cl-sub">With Uriel Arauz · Ages 4–7 · <span style="color:var(--terra);font-weight:700;">1st class FREE</span></div>
-        </div>
-        <div class="cl-price">$30</div>
-        <a href="booking.html" class="cl-cta">Book →</a>
-      </div>
-      <div class="cl-item">
-        <span class="cl-dot cl-dot-capoeira"></span>
-        <div class="cl-day">Thu</div>
-        <div class="cl-time">5:00 PM</div>
-        <div class="cl-info">
-          <div class="cl-name">Youth Capoeira</div>
-          <div class="cl-sub">With Uriel Arauz · Ages 8–13 · <span style="color:var(--terra);font-weight:700;">1st class FREE</span></div>
-        </div>
-        <div class="cl-price">$30</div>
-        <a href="booking.html" class="cl-cta">Book →</a>
-      </div>
-      <div class="cl-item">
-        <span class="cl-dot cl-dot-capoeira"></span>
-        <div class="cl-day">Thu</div>
-        <div class="cl-time">6:00 PM</div>
-        <div class="cl-info">
-          <div class="cl-name">Teens Capoeira</div>
-          <div class="cl-sub">With Uriel Arauz · Ages 14–17 · <span style="color:var(--terra);font-weight:700;">1st class FREE</span></div>
-        </div>
-        <div class="cl-price">$30</div>
-        <a href="booking.html" class="cl-cta">Book →</a>
-      </div>
-
-      <!-- SATURDAY -->
-      <div style="display:flex;align-items:center;gap:12px;margin-top:12px;margin-bottom:2px;">
-        <span style="font-family:var(--font-h);font-size:1rem;font-weight:600;color:var(--green-deep);">Saturday</span>
-        <span style="flex:1;height:1px;background:var(--green-light);"></span>
-      </div>
-      <div class="cl-item">
-        <span class="cl-dot cl-dot-capoeira"></span>
-        <div class="cl-day">Sat</div>
-        <div class="cl-time">10:00 AM</div>
-        <div class="cl-info">
-          <div class="cl-name">Youth Capoeira</div>
-          <div class="cl-sub">With Uriel Arauz · Ages 8–13 · <span style="color:var(--terra);font-weight:700;">1st class FREE</span></div>
-        </div>
-        <div class="cl-price">$30</div>
-        <a href="booking.html" class="cl-cta">Book →</a>
-      </div>
-      <div class="cl-item">
-        <span class="cl-dot cl-dot-capoeira"></span>
-        <div class="cl-day">Sat</div>
-        <div class="cl-time">11:00 AM</div>
-        <div class="cl-info">
-          <div class="cl-name">Kids Capoeira</div>
-          <div class="cl-sub">With Uriel Arauz · Ages 4–7 · <span style="color:var(--terra);font-weight:700;">1st class FREE</span></div>
-        </div>
-        <div class="cl-price">$30</div>
-        <a href="booking.html" class="cl-cta">Book →</a>
-      </div>
-      <div class="cl-item">
-        <span class="cl-dot cl-dot-capoeira"></span>
-        <div class="cl-day">Sat</div>
-        <div class="cl-time">12:00 PM</div>
-        <div class="cl-info">
-          <div class="cl-name">Teens &amp; Adults Capoeira</div>
-          <div class="cl-sub">With Uriel Arauz · Ages 14+ · All Levels · <span style="color:var(--terra);font-weight:700;">1st class FREE</span></div>
-        </div>
-        <div class="cl-price">$30</div>
-        <a href="booking.html" class="cl-cta">Book →</a>
-      </div>
-
-      <!-- PRIVATE -->
-      <div style="display:flex;align-items:center;gap:12px;margin-top:12px;margin-bottom:2px;">
-        <span style="font-family:var(--font-h);font-size:1rem;font-weight:600;color:var(--green-deep);">Private Lessons</span>
-        <span style="flex:1;height:1px;background:var(--green-light);"></span>
-      </div>
-      <div class="cl-item">
-        <span class="cl-dot cl-dot-capoeira"></span>
-        <div class="cl-day" style="color:var(--text-light);">Flexible</div>
-        <div class="cl-time" style="color:var(--text-light);font-size:.82rem;">By Appt.</div>
-        <div class="cl-info">
-          <div class="cl-name">Private Capoeira</div>
-          <div class="cl-sub">With Uriel Arauz · Personalized one-on-one instruction</div>
-        </div>
-        <div class="cl-price" style="font-size:.82rem;color:var(--text-light);">Contact us</div>
-        <a href="mailto:hello@rootsandwisdomstudio.com?subject=Private%20Capoeira%20Lesson%20Inquiry&body=Hi%20Roots%20%26%20Wisdom%2C%20I%27m%20interested%20in%20a%20private%20capoeira%20lesson." class="cl-cta">Inquire →</a>
-      </div>
-      <div class="cl-item">
-        <span class="cl-dot cl-dot-salsa"></span>
-        <div class="cl-day" style="color:var(--text-light);">Flexible</div>
-        <div class="cl-time" style="color:var(--text-light);font-size:.82rem;">By Appt.</div>
-        <div class="cl-info">
-          <div class="cl-name">Private Salsa</div>
-          <div class="cl-sub">With Luis Aguilar · Personalized one-on-one instruction</div>
-        </div>
-        <div class="cl-price" style="font-size:.82rem;color:var(--text-light);">Contact us</div>
-        <a href="mailto:hello@rootsandwisdomstudio.com?subject=Private%20Salsa%20Lesson%20Inquiry&body=Hi%20Roots%20%26%20Wisdom%2C%20I%27m%20interested%20in%20a%20private%20salsa%20lesson." class="cl-cta">Inquire →</a>
-      </div>
-
-    </div><!-- /list view -->
-
-    <!-- CALENDAR VIEW -->
-    <div id="view-calendar" style="margin-top:0;">
-      <div class="week-cal" style="border-radius:0 0 16px 16px;border-top:none;">
-
-        <!-- MON -->
-        <div class="wday-col">
-          <div class="wday-head"><span class="wd-name">Mon</span><span class="wd-full">Monday</span></div>
-          <div class="wday-body">
-            <div class="cpill cpill-mobility" onclick="location.href='booking.html'" style="cursor:pointer;">
-              <span class="cpill-time">12:30 PM</span>
-              <span class="cpill-name">Mobility Flow</span>
-              <span class="cpill-instr">All Levels</span>
-            </div>
-            <div class="cpill cpill-salsa" onclick="location.href='booking.html'" style="cursor:pointer;">
-              <span class="cpill-time">7:00 PM</span>
-              <span class="cpill-name">Salsa Intermediate</span>
-              <span class="cpill-instr">Luis Aguilar</span>
-              <span class="cpill-free" style="background:var(--gold);color:var(--green-deep);">Jun 1</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- TUE -->
-        <div class="wday-col">
-          <div class="wday-head"><span class="wd-name">Tue</span><span class="wd-full">Tuesday</span></div>
-          <div class="wday-body">
-            <div class="cpill cpill-yoga" onclick="location.href='booking.html'" style="cursor:pointer;">
-              <span class="cpill-time">6:00 AM</span>
-              <span class="cpill-name">Vinyasa Yoga</span>
-              <span class="cpill-instr">Melissa R.</span>
-            </div>
-            <div class="cpill cpill-yoga" onclick="location.href='booking.html'" style="cursor:pointer;">
-              <span class="cpill-time">12:00 PM</span>
-              <span class="cpill-name">Gentle Yoga</span>
-              <span class="cpill-instr">Melissa R.</span>
-            </div>
-            <div class="cpill cpill-capoeira" onclick="location.href='booking.html'" style="cursor:pointer;">
-              <span class="cpill-time">4:00 PM</span>
-              <span class="cpill-name">Kids Capoeira</span>
-              <span class="cpill-instr">Ages 4–7</span>
-              <span class="cpill-free">FREE</span>
-            </div>
-            <div class="cpill cpill-capoeira" onclick="location.href='booking.html'" style="cursor:pointer;">
-              <span class="cpill-time">5:00 PM</span>
-              <span class="cpill-name">Youth Capoeira</span>
-              <span class="cpill-instr">Ages 8–13</span>
-              <span class="cpill-free">FREE</span>
-            </div>
-            <div class="cpill cpill-capoeira" onclick="location.href='booking.html'" style="cursor:pointer;">
-              <span class="cpill-time">6:00 PM</span>
-              <span class="cpill-name">Teens &amp; Adults</span>
-              <span class="cpill-instr">Ages 14+ · All Levels</span>
-              <span class="cpill-free">FREE</span>
-            </div>
-            <div class="cpill cpill-yoga" onclick="location.href='booking.html'" style="cursor:pointer;">
-              <span class="cpill-time">7:15 PM</span>
-              <span class="cpill-name">Vinyasa Yoga</span>
-              <span class="cpill-instr">Melissa R.</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- WED -->
-        <div class="wday-col">
-          <div class="wday-head"><span class="wd-name">Wed</span><span class="wd-full">Wednesday</span></div>
-          <div class="wday-body">
-            <div class="cpill cpill-mobility" onclick="location.href='booking.html'" style="cursor:pointer;">
-              <span class="cpill-time">2:00 PM</span>
-              <span class="cpill-name">Mobility Flow</span>
-              <span class="cpill-instr">All Levels</span>
-            </div>
-            <div class="cpill cpill-salsa" onclick="location.href='booking.html'" style="cursor:pointer;">
-              <span class="cpill-time">6:30 PM</span>
-              <span class="cpill-name">Salsa Beginner</span>
-              <span class="cpill-instr">Luis Aguilar</span>
-            </div>
-            <div class="cpill cpill-salsa" onclick="location.href='booking.html'" style="cursor:pointer;">
-              <span class="cpill-time">7:30 PM</span>
-              <span class="cpill-name">Salsa Adv. Beginner</span>
-              <span class="cpill-instr">Luis Aguilar</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- THU -->
-        <div class="wday-col">
-          <div class="wday-head"><span class="wd-name">Thu</span><span class="wd-full">Thursday</span></div>
-          <div class="wday-body">
-            <div class="cpill cpill-yoga" onclick="location.href='booking.html'" style="cursor:pointer;">
-              <span class="cpill-time">6:00 AM</span>
-              <span class="cpill-name">Vinyasa Yoga</span>
-              <span class="cpill-instr">Melissa R.</span>
-            </div>
-            <div class="cpill cpill-yoga" onclick="location.href='booking.html'" style="cursor:pointer;">
-              <span class="cpill-time">12:00 PM</span>
-              <span class="cpill-name">Gentle Yoga</span>
-              <span class="cpill-instr">Melissa R.</span>
-            </div>
-            <div class="cpill cpill-capoeira" onclick="location.href='booking.html'" style="cursor:pointer;">
-              <span class="cpill-time">4:00 PM</span>
-              <span class="cpill-name">Kids Capoeira</span>
-              <span class="cpill-instr">Ages 4–7</span>
-              <span class="cpill-free">FREE</span>
-            </div>
-            <div class="cpill cpill-capoeira" onclick="location.href='booking.html'" style="cursor:pointer;">
-              <span class="cpill-time">5:00 PM</span>
-              <span class="cpill-name">Youth Capoeira</span>
-              <span class="cpill-instr">Ages 8–13</span>
-              <span class="cpill-free">FREE</span>
-            </div>
-            <div class="cpill cpill-capoeira" onclick="location.href='booking.html'" style="cursor:pointer;">
-              <span class="cpill-time">6:00 PM</span>
-              <span class="cpill-name">Teens Capoeira</span>
-              <span class="cpill-instr">Ages 14–17</span>
-              <span class="cpill-free">FREE</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- FRI -->
-        <div class="wday-col">
-          <div class="wday-head"><span class="wd-name">Fri</span><span class="wd-full">Friday</span></div>
-          <div class="wday-body">
-            <div class="wday-empty"><span>No classes</span></div>
-          </div>
-        </div>
-
-        <!-- SAT -->
-        <div class="wday-col">
-          <div class="wday-head"><span class="wd-name">Sat</span><span class="wd-full">Saturday</span></div>
-          <div class="wday-body">
-            <div class="cpill cpill-capoeira" onclick="location.href='booking.html'" style="cursor:pointer;">
-              <span class="cpill-time">10:00 AM</span>
-              <span class="cpill-name">Youth Capoeira</span>
-              <span class="cpill-instr">Ages 8–13</span>
-              <span class="cpill-free">FREE</span>
-            </div>
-            <div class="cpill cpill-capoeira" onclick="location.href='booking.html'" style="cursor:pointer;">
-              <span class="cpill-time">11:00 AM</span>
-              <span class="cpill-name">Kids Capoeira</span>
-              <span class="cpill-instr">Ages 4–7</span>
-              <span class="cpill-free">FREE</span>
-            </div>
-            <div class="cpill cpill-capoeira" onclick="location.href='booking.html'" style="cursor:pointer;">
-              <span class="cpill-time">12:00 PM</span>
-              <span class="cpill-name">Teens &amp; Adults</span>
-              <span class="cpill-instr">Ages 14+ · All Levels</span>
-              <span class="cpill-free">FREE</span>
-            </div>
-          </div>
-        </div>
-
-      </div><!-- /week-cal -->
-      <p style="font-size:.82rem;color:var(--text-light);margin-top:12px;text-align:center;">Tap any class above to book · Walk-ins always welcome</p>
-    </div><!-- /calendar view -->
-
-    <div class="pricing-strip">
-      <div class="ps-item"><strong>$30</strong><span>Capoeira &amp; Salsa classes</span></div>
-      <div class="ps-sep"></div>
-      <div class="ps-item"><strong>$25</strong><span>Yoga &amp; Mobility</span></div>
-      <div class="ps-sep"></div>
-      <div class="ps-item"><strong>FREE</strong><span>First Capoeira class for new students</span></div>
-      <div class="ps-sep"></div>
-      <div class="ps-item"><strong>Walk-ins</strong><span>Always welcome</span></div>
-    </div>
-
-    <!-- WHY LEARN accordion -->
-    <div class="learn-more-wrap" style="margin-bottom:48px;">
-      <div class="lm-panel" id="lm-capoeira">
-        <button class="lm-toggle" onclick="toggleLearnMore('lm-capoeira')">
-          <div class="lm-toggle-title">Why Learn Capoeira?</div>
-          <span class="lm-arrow">▼</span>
-        </button>
-        <div class="lm-body">
-          <p>Capoeira offers something rare: a practice that trains the body, sharpens the mind, and nourishes the spirit — all at once. Physically, it builds strength, flexibility, coordination, and cardiovascular endurance through movement that never feels like exercise. Mentally, it cultivates focus, adaptability, and creative thinking, as players must read and respond to their partner in real time.</p>
-          <p>Beyond fitness, Capoeira is a living cultural education. Students learn Portuguese songs, African-Brazilian history, and the values of a tradition born from resilience and community. Whether you are four years old or forty, the roda welcomes you exactly as you are.</p>
-        </div>
-      </div>
-      <div class="lm-panel" id="lm-salsa">
-        <button class="lm-toggle" onclick="toggleLearnMore('lm-salsa')">
-          <div class="lm-toggle-title">Why Learn Salsa?</div>
-          <span class="lm-arrow">▼</span>
-        </button>
-        <div class="lm-body">
-          <p>Salsa is one of the most rewarding dances you can learn. It builds confidence, coordination, musicality, and social connection all at once. Whether you are a complete beginner or an experienced dancer looking to deepen your craft, salsa meets you where you are and grows with you.</p>
-          <p>In Luis's classes, students don't just learn steps — they develop a real understanding of their bodies, their movement, and their relationship to music. The Couture Dance Syllabus builds skills from the ground up, ensuring every student has a strong foundation to grow from.</p>
-        </div>
-      </div>
-      <div class="lm-panel" id="lm-mobility">
-        <button class="lm-toggle" onclick="toggleLearnMore('lm-mobility')">
-          <div class="lm-toggle-title">Why Ground-based Mobility Flow?</div>
-          <span class="lm-arrow">▼</span>
-        </button>
-        <div class="lm-body">
-          <p>Ground-based Mobility Flow is deeply rooted in the movement traditions of Capoeira. Uriel Arauz — with 30 years of capoeira practice — developed this class to share the floor-based movement intelligence that makes capoeira practitioners so remarkably agile, strong, and coordinated. In capoeira, the ground is not a limitation — it is the foundation of every movement, every ginga, every esquiva. This class distills those same principles into an accessible, all-levels practice.</p>
-          <p>Starting from the floor up, students rebuild functional range of motion, joint health, and body awareness — the skills that translate directly into every sport, discipline, and daily activity. Whether you are training capoeira or simply want to move better and feel more capable in your body, this class will change how you relate to the ground beneath you. No prior experience required.</p>
-        </div>
-      </div>
-      <div class="lm-panel" id="lm-yoga">
-        <button class="lm-toggle" onclick="toggleLearnMore('lm-yoga')">
-          <div class="lm-toggle-title">Why Practice Yoga?</div>
-          <span class="lm-arrow">▼</span>
-        </button>
-        <div class="lm-body">
-          <p>Yoga is one of the most complete practices you can bring into your life. It builds physical strength and flexibility while calming the nervous system — something few other disciplines do simultaneously. Over time, a consistent yoga practice improves posture, reduces chronic tension, deepens breath awareness, and sharpens mental focus.</p>
-          <p>Melissa's classes at Roots &amp; Wisdom offer two entry points: <strong>Gentle Yoga</strong> for those who want a grounding, accessible practice with space to breathe and release — and <strong>Vinyasa</strong> for those ready to build heat, flow, and core strength with purpose. Both are open to all levels.</p>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
 <!-- RENTAL -->
 <section id="rental">
   <div class="si">
@@ -1250,15 +1285,18 @@ img{max-width:100%;height:auto;}
         </div>
         <div class="r-card">
           <h4>Single Session</h4>
-          <p>Perfect for one-time events, workshops, and pop-up classes.</p>
+          <div class="r-price">$55<span>/hr</span></div>
+          <p>Weekday practice &amp; rehearsal · 1-hr minimum.<br><span class="r-note">Weekend rates: $95–$135/hr (2-hr min)</span></p>
         </div>
         <div class="r-card">
           <h4>Regular Weekly Rental</h4>
-          <p>For recurring weekly classes and ongoing instructors. Ask about monthly packages.</p>
+          <div class="r-price">$60<span>/hr</span></div>
+          <p>Recurring instructor blocks, pre-paid monthly.<br><span class="r-note">$55/hr with 4+ hrs/month commitment</span></p>
         </div>
         <div class="r-card prem">
-          <h4>Private Event / Full Day</h4>
-          <p>Full studio buyout for workshops, intensives, and private events. Contact us to discuss.</p>
+          <h4>Half-Day &amp; Full-Day Blocks</h4>
+          <div class="r-price">$160<span> · 4 hrs</span></div>
+          <p>Full-day (8 hrs): $300 flat — save $60 vs. hourly.<br><span class="r-note">Ideal for intensives, workshops &amp; private events</span></p>
         </div>
         <div style="text-align:center;margin-top:16px;">
           <a href="mailto:hello@rootsandwisdomstudio.com?subject=Studio%20Rental%20Inquiry&body=Hi%20Roots%20%26%20Wisdom%2C%20I%27m%20interested%20in%20renting%20the%20studio.%20Here%27s%20what%20I%27m%20planning%3A%0A%0ADate%2Fs%3A%0ATime%3A%0AGroup%20size%3A%0APurpose%3A" class="btn-p">Inquire About Rental</a>
@@ -1276,7 +1314,7 @@ img{max-width:100%;height:auto;}
     <div class="s-div"></div>
     <div class="local-grid">
       <div class="local-card">
-        <h3>Capoeira, Salsa, Yoga &amp; Mobility in the Heart of Walnut Creek</h3>
+        <h3>Capoeira, Salsa, Yoga &amp; Ground Mobility in the Heart of Walnut Creek</h3>
         <p>Roots &amp; Wisdom Studio is located at <strong>2029 Mt. Diablo Blvd., Walnut Creek, CA 94596</strong> — close to downtown Walnut Creek, Broadway Plaza, Civic Park, and nearby neighborhoods across the East Bay.</p>
         <p>Families come to us for kids Capoeira, adults come for Salsa, Yoga, Mobility, and workshops, and instructors use the studio for meaningful gatherings. Every class is taught with cultural respect, technical care, and a sense of belonging from the first visit.</p>
         <div class="local-tags" aria-label="Nearby communities served">
@@ -1285,7 +1323,7 @@ img{max-width:100%;height:auto;}
       </div>
       <div class="local-details">
         <div class="local-detail"><strong>Address</strong><span>2029 Mt. Diablo Blvd.<br>Walnut Creek, CA 94596</span></div>
-        <div class="local-detail"><strong>Best For</strong><span>Capoeira, Salsa, Yoga, Mobility, kids movement, workshops, and boutique studio rental.</span></div>
+        <div class="local-detail"><strong>Best For</strong><span>Capoeira, Salsa, Yoga, Ground Mobility, kids movement, workshops, and boutique studio rental.</span></div>
         <div class="local-detail"><strong>Get Directions</strong><a href="https://maps.google.com/?q=2029+Mt+Diablo+Blvd+Walnut+Creek+CA+94596" target="_blank" rel="noopener">Open in Google Maps ↗</a></div>
       </div>
     </div>
@@ -1377,38 +1415,14 @@ img{max-width:100%;height:auto;}
             <input type="hidden" name="form-name" value="studio-inquiry"/>
             <p class="skip-honeypot"><label>Don’t fill this out if you’re human: <input name="bot-field"/></label></p>
             <div class="form-row">
-              <div class="form-field">
-                <label for="inquiry-name">Name</label>
-                <input id="inquiry-name" name="name" autocomplete="name" required/>
-              </div>
-              <div class="form-field">
-                <label for="inquiry-email">Email</label>
-                <input id="inquiry-email" name="email" type="email" autocomplete="email" required/>
-              </div>
+              <div class="form-field"><label for="inquiry-name">Name</label><input id="inquiry-name" name="name" autocomplete="name" required/></div>
+              <div class="form-field"><label for="inquiry-email">Email</label><input id="inquiry-email" name="email" type="email" autocomplete="email" required/></div>
             </div>
             <div class="form-row">
-              <div class="form-field">
-                <label for="inquiry-phone">Phone</label>
-                <input id="inquiry-phone" name="phone" type="tel" autocomplete="tel"/>
-              </div>
-              <div class="form-field">
-                <label for="inquiry-topic">Topic</label>
-                <select id="inquiry-topic" name="topic" required>
-                  <option value="">Choose one</option>
-                  <option>Book a class</option>
-                  <option>Kids Capoeira</option>
-                  <option>Salsa / Latin dance</option>
-                  <option>Yoga / Mobility</option>
-                  <option>Studio rental</option>
-                  <option>Instructor / workshop inquiry</option>
-                  <option>Other question</option>
-                </select>
-              </div>
+              <div class="form-field"><label for="inquiry-phone">Phone</label><input id="inquiry-phone" name="phone" type="tel" autocomplete="tel"/></div>
+              <div class="form-field"><label for="inquiry-topic">Topic</label><select id="inquiry-topic" name="topic" required><option value="">Choose one</option><option>Book a class</option><option>Kids Capoeira</option><option>Salsa / Latin dance</option><option>Yoga / Ground Mobility</option><option>Studio rental</option><option>Instructor / workshop inquiry</option><option>Other question</option></select></div>
             </div>
-            <div class="form-field">
-              <label for="inquiry-message">Message</label>
-              <textarea id="inquiry-message" name="message" placeholder="Tell us what you’re looking for, preferred days/times, or any questions we can answer." required></textarea>
-            </div>
+            <div class="form-field"><label for="inquiry-message">Message</label><textarea id="inquiry-message" name="message" placeholder="Tell us what you’re looking for, preferred days/times, or any questions we can answer." required></textarea></div>
             <button class="form-submit" type="submit">Send Inquiry</button>
             <div class="form-note">This form is ready for Netlify Forms. You can also text <a href="tel:4157912557">415-791-2557</a> for the fastest response.</div>
           </form>
@@ -1431,7 +1445,7 @@ img{max-width:100%;height:auto;}
           </details>
           <details class="faq-item">
             <summary>What classes do you offer?</summary>
-            <div class="faq-answer">We offer five class categories: <strong>Yoga</strong> (Vinyasa, Restorative), <strong>Capoeira</strong> (kids, youth &amp; adults), <strong>Salsa &amp; Latin Dance</strong>, <strong>Ground-Based Mobility Flow</strong> — plus rotating workshops rooted in Latin traditions. <a onclick="go('classes')">See full schedule →</a></div>
+            <div class="faq-answer">We offer five class categories: <strong>Yoga</strong> (Vinyasa, Gentle), <strong>Capoeira</strong> (kids, youth &amp; adults), <strong>Salsa &amp; Latin Dance</strong>, <strong>Ground-Based Mobility Flow</strong> — plus rotating workshops rooted in Latin traditions. <a href="#class-schedule" onclick="go('class-schedule');return false;">See full schedule →</a></div>
           </details>
           <details class="faq-item">
             <summary>How much do classes cost?</summary>
@@ -1451,7 +1465,7 @@ img{max-width:100%;height:auto;}
           </details>
           <details class="faq-item">
             <summary>Do you offer kids classes?</summary>
-            <div class="faq-answer">Yes! We have dedicated kids capoeira classes that build strength, rhythm, confidence, and respect through music and movement. <a onclick="go('classes')">View kids schedule →</a></div>
+            <div class="faq-answer">Yes! We have dedicated kids capoeira classes that build strength, rhythm, confidence, and respect through music and movement. <a href="#class-schedule" onclick="go('class-schedule');return false;">View kids schedule →</a></div>
           </details>
           <details class="faq-item">
             <summary>How do I book a class?</summary>
@@ -1483,14 +1497,14 @@ img{max-width:100%;height:auto;}
       </div>
       <div class="foot-col">
         <h4>Navigate</h4>
-        <a onclick="go('mission')">Mission &amp; Vision</a>
-        <a onclick="go('story')">Our Story</a>
-        <a onclick="go('classes')">Classes</a>
-        <a onclick="go('team')">Our Team</a>
-        <a onclick="go('rental')">Studio Rental</a>
-        <a onclick="go('local-seo')">Walnut Creek Local</a>
-        <a onclick="go('join')">Join Our Team</a>
-        <a onclick="go('contact')">Contact</a>
+        <a href="#mission" onclick="go('mission');return false;">Mission &amp; Vision</a>
+        <a href="#story" onclick="go('story');return false;">Our Story</a>
+        <a href="#class-schedule" onclick="go('class-schedule');return false;">Classes</a>
+        <a href="#team" onclick="go('team');return false;">Our Team</a>
+        <a href="#rental" onclick="go('rental');return false;">Studio Rental</a>
+        <a href="#local-seo" onclick="go('local-seo');return false;">Walnut Creek Local</a>
+        <a href="#join" onclick="go('join');return false;">Join Our Team</a>
+        <a href="#contact" onclick="go('contact');return false;">Contact</a>
       </div>
       <div class="foot-col">
         <h4>Our Network</h4>
@@ -1536,6 +1550,111 @@ function toggleLearnMore(id) {
   var panel = document.getElementById(id);
   if (panel) panel.classList.toggle('open');
 }
+// Inline decision panels — outcome first, obstacle removed, micro-CTA built from row's existing link.
+(function() {
+  var why = {
+    'kids-capoeira': {
+      title: 'What kids take home from this class',
+      text: 'Capoeira is one of the few activities that grows with a child rather than aging out of them. The confidence, discipline, and joy it builds in the early years compounds — and it never stays only in the studio.',
+      cta: 'Reserve their free first class →'
+    },
+    'youth-capoeira': {
+      title: 'What youth students walk away with',
+      text: 'Students who came in awkward at 8 leave this program as coordinated, composed young people who know how to handle pressure — in the roda and beyond.',
+      cta: 'Reserve their free first class →'
+    },
+    'teens-capoeira': {
+      title: 'What keeps students here for years',
+      text: 'Capoeira gives back more the longer you stay with it — strength and agility compound, mental discipline deepens, and a connection to culture and community takes root that doesn\'t exist anywhere else. That\'s what keeps serious students coming back year after year.',
+      cta: 'Reserve your free first class →'
+    },
+    'private-capoeira': {
+      title: 'Private Capoeira with Uriel Arauz',
+      text: 'Thirty years of practice, one student, zero distractions. Fully flexible scheduling, built entirely around your goals.',
+      cta: 'Inquire about a private session →'
+    },
+    'salsa-beginner': {
+      title: 'What new students say after class one',
+      text: '"I didn\'t think I\'d actually be dancing this fast." Every new student says some version of this. No partner needed. No rhythm required.',
+      cta: 'Reserve your spot →'
+    },
+    'salsa-advanced-beginner': {
+      title: 'Where it finally clicks',
+      text: 'This is the level where the timing locks in and you stop thinking about your feet. Luis knows exactly where the gaps are — and closes them.',
+      cta: 'Reserve your spot →'
+    },
+    'salsa-intermediate': {
+      title: 'The class that gets you noticed',
+      text: 'Students trained at this level under Luis\'s Couture Syllabus are the ones other people want to dance with on the social floor. New session begins Monday, June 1.',
+      cta: 'Reserve your spot →'
+    },
+    'private-salsa': {
+      title: 'Private Salsa with Luis Aguilar',
+      text: 'Luis has moved students from absolute beginner to social floor confidence faster in private sessions than any group class can. Fully tailored to what you need.',
+      cta: 'Inquire about a private session →'
+    },
+    'yoga-vinyasa': {
+      title: 'What you leave with',
+      text: 'You\'ll leave stronger than you came in — and more aware of your body than you\'ve been in years. Modifications and more advanced variations in the same room, so every level belongs here. Currently running as part of Melissa\'s 7-Week Chakra Series — drop in for $25/wk or join the full journey for $180.',
+      cta: 'Reserve your spot →'
+    },
+    'yoga-gentle': {
+      title: 'What changes in the first few weeks',
+      text: 'This class works in the places other workouts ignore — chronic tension, a nervous system that can\'t downshift, a body that\'s been asked to perform without ever being asked how it feels.',
+      cta: 'Reserve your spot →'
+    },
+    'mobility': {
+      title: 'What happens after one session',
+      text: 'Uriel built this class from the movement principles that make Capoeira practitioners so physically capable — but you don\'t need any martial arts background. This is a fully standalone practice, open to everyone. Students consistently discover range of motion they hadn\'t accessed in years. One session is enough to feel it.',
+      cta: 'Reserve your spot →'
+    }
+  };
+
+  // Map class name text patterns to why-keys (most specific first)
+  var map = [
+    [/kids capoeira/i,           'kids-capoeira'],
+    [/youth capoeira/i,          'youth-capoeira'],
+    [/teens? & adults? capoeira/i,'teens-capoeira'],
+    [/teens? capoeira/i,         'teens-capoeira'],
+    [/private capoeira/i,        'private-capoeira'],
+    [/absolute beginner/i,       'salsa-beginner'],
+    [/advanced beginner/i,       'salsa-advanced-beginner'],
+    [/salsa intermediate/i,      'salsa-intermediate'],
+    [/private salsa/i,           'private-salsa'],
+    [/vinyasa yoga/i,            'yoga-vinyasa'],
+    [/gentle yoga/i,             'yoga-gentle'],
+    [/mobility/i,                'mobility']
+  ];
+
+  document.querySelectorAll('.cl-name').forEach(function(el) {
+    var text = el.textContent;
+    for (var i = 0; i < map.length; i++) {
+      if (map[i][0].test(text)) {
+        var key = map[i][1];
+        var w = why[key];
+        el.setAttribute('data-panel', key);
+        el.setAttribute('title', 'Learn about this class →');
+        var clItem = el.closest('.cl-item');
+        var rowLink = clItem.querySelector('.cl-cta');
+        var href = rowLink ? rowLink.getAttribute('href') : 'booking.html';
+        var wd = document.createElement('div');
+        wd.className = 'cl-why';
+        wd.innerHTML = '<div class="cl-why-title">' + w.title + '</div><p>' + w.text + '</p>' +
+          '<a href="' + href + '" class="cl-why-cta">' + w.cta + '</a>';
+        clItem.parentNode.insertBefore(wd, clItem.nextSibling);
+        el.addEventListener('click', (function(whyDiv) {
+          return function(e) {
+            e.stopPropagation();
+            var opening = !whyDiv.classList.contains('open');
+            document.querySelectorAll('.cl-why.open').forEach(function(o){ o.classList.remove('open'); });
+            if (opening) whyDiv.classList.add('open');
+          };
+        })(wd));
+        break;
+      }
+    }
+  });
+})();
 function go(id) {
   const el = document.getElementById(id);
   if (!el) return;
@@ -1546,7 +1665,10 @@ function go(id) {
 }
 function closeNav() { document.getElementById('navLinks').classList.remove('open'); }
 document.getElementById('navToggle').addEventListener('click', function() {
-  document.getElementById('navLinks').classList.toggle('open');
+  const links = document.getElementById('navLinks');
+  links.classList.toggle('open');
+  this.setAttribute('aria-expanded', links.classList.contains('open') ? 'true' : 'false');
+  this.setAttribute('aria-label', links.classList.contains('open') ? 'Close menu' : 'Open menu');
 });
 document.addEventListener('click', function(e) {
   const nav = document.getElementById('mainNav');
