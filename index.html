@@ -161,9 +161,9 @@ nav{position:sticky;top:0;z-index:900;background:rgba(46,80,32,.97);backdrop-fil
 .cpill-mobility{background:var(--green-mid);color:#fff;}
 
 /* CLASS LIST VIEW */
-.class-list{display:flex;flex-direction:column;gap:10px;}
-.cl-item{background:var(--cream);border-radius:12px;padding:16px 20px;display:flex;align-items:center;gap:20px;border:1px solid var(--green-light);transition:box-shadow .2s;}
-.cl-item:hover{box-shadow:0 6px 20px rgba(46,80,32,.1);}
+.class-list{display:flex;flex-direction:column;gap:12px;}
+.cl-item{background:var(--cream);border-radius:14px;padding:18px 22px;display:flex;align-items:center;gap:22px;border:1px solid var(--green-light);transition:box-shadow .2s,transform .2s;}
+.cl-item:hover{box-shadow:0 8px 24px rgba(46,80,32,.12);transform:translateY(-1px);}
 .cl-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;}
 .cl-dot-capoeira{background:var(--green-deep);}
 .cl-dot-salsa{background:var(--terra);}
@@ -172,25 +172,25 @@ nav{position:sticky;top:0;z-index:900;background:rgba(46,80,32,.97);backdrop-fil
 .cl-dot-mobility{background:var(--green-mid);}
 .cl-day{font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--terra);min-width:80px;}
 .cl-time{font-size:.88rem;font-weight:700;color:var(--text-dark);min-width:96px;}
-.cl-info{flex:1;}
-.cl-name{font-size:.95rem;font-weight:700;color:var(--green-deep);}
+.cl-info{flex:1;min-width:0;}
+.cl-name{font-size:1rem;font-weight:800;color:var(--green-deep);line-height:1.32;}
 .cl-name[data-panel]{cursor:pointer;text-decoration:underline;text-decoration-style:dotted;text-decoration-color:var(--green-sage);text-underline-offset:3px;transition:color .15s,text-decoration-color .15s;}
 .cl-name[data-panel]:hover{color:var(--terra);text-decoration-color:var(--terra);}
-.cl-name[data-panel]::after{content:' ⓘ';font-size:.7rem;opacity:.55;font-weight:400;vertical-align:super;}
+.cl-name[data-panel]::after{content:' · details';font-family:var(--font-b);font-size:.68rem;letter-spacing:.04em;text-transform:uppercase;color:var(--terra);opacity:.8;font-weight:700;vertical-align:baseline;}
 #class-schedule{scroll-margin-top:80px;}
 .cl-why{display:none;background:#fff;border:1px solid var(--green-light);border-left:3px solid var(--green-mid);border-radius:0 8px 8px 8px;padding:14px 18px 14px 16px;margin:0 0 8px 36px;font-size:.87rem;color:var(--text-mid);line-height:1.7;}
 .cl-why.open{display:block;}
 .cl-why-title{font-family:var(--font-h);font-size:.88rem;font-weight:700;color:var(--green-deep);margin-bottom:6px;}
 .cl-why-cta{display:inline-block;margin-top:10px;font-size:.8rem;font-weight:700;color:var(--terra);text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(184,92,56,.4);transition:text-decoration-color .15s;}
 .cl-why-cta:hover{text-decoration-color:var(--terra);}
-.cl-sub{font-size:.82rem;color:var(--text-light);margin-top:2px;}
+.cl-sub{font-size:.84rem;color:var(--text-light);margin-top:4px;line-height:1.45;}
 .cl-series{font-size:.75rem;color:var(--terra);margin-top:4px;font-weight:500;}
 .cl-series a{color:var(--terra);text-decoration:underline;text-underline-offset:2px;text-decoration-color:rgba(184,92,56,.4);}
 .cl-series a:hover{text-decoration-color:var(--terra);}
 .cl-badge{font-size:.72rem;padding:2px 8px;border-radius:8px;font-weight:600;margin-top:4px;display:inline-block;}
 .cl-price{font-size:.9rem;font-weight:700;color:var(--green-deep);white-space:nowrap;}
-.cl-cta{font-size:.8rem;background:var(--green-deep);color:#fff;padding:7px 14px;border-radius:20px;white-space:nowrap;transition:background .2s;}
-.cl-cta:hover{background:var(--green-mid);}
+.cl-cta{font-size:.82rem;background:var(--green-deep);color:#fff;padding:9px 16px;border-radius:22px;white-space:nowrap;transition:background .2s,transform .2s;box-shadow:0 4px 12px rgba(46,80,32,.16);font-weight:800;}
+.cl-cta:hover{background:var(--green-mid);transform:translateY(-1px);}
 
 /* PRICING STRIP */
 .pricing-strip{background:var(--green-deep);border-radius:12px;padding:20px 24px;margin-top:24px;display:flex;align-items:center;flex-wrap:wrap;}
@@ -398,6 +398,58 @@ img{max-width:100%;height:auto;}
 @media(max-width:480px){.banner{font-size:.74rem;line-height:1.5}.nav-logo{font-size:1rem}.h-ctas .btn-p,.h-ctas .btn-o{width:100%;text-align:center}.cl-price,.cl-cta{margin-left:0}.cl-cta{width:100%;text-align:center}.chat-fab{padding:10px 13px}.local-tags span{font-size:.76rem}.foot-bot{padding-bottom:56px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.hero-c{animation:none}.btn-p:hover,.btn-gold:hover,.team-card:hover,.p-card:hover,.studio-photos img:hover{transform:none}.hero-video{will-change:auto}}
 
+
+
+/* FINAL PRE-LAUNCH QA FIXES */
+html,body{max-width:100%;overflow-x:hidden;}
+.banner{line-height:1.45;white-space:normal;overflow-wrap:anywhere;}
+.banner a,.banner span{white-space:nowrap;}
+.hero-c{width:min(760px,100%);padding-inline:8px;}
+.h-eye,.h-sub2{overflow-wrap:normal;word-break:normal;hyphens:none;}
+.h-sub2{max-width:680px;margin-left:auto;margin-right:auto;line-height:1.75;}
+.cl-name[data-panel]{text-decoration-thickness:1px;}
+.cl-why{margin-top:-4px;margin-bottom:12px;}
+@media(max-width:1100px){
+  .nav-links{max-height:calc(100vh - 96px);overflow-y:auto;}
+}
+@media(max-width:768px){
+  .banner{padding:9px 12px;font-size:0;letter-spacing:.15px;white-space:normal;}
+  .banner a,.banner span{font-size:.74rem;line-height:1.45;}
+  .banner a::before{content:'Walnut Creek · ';}
+  .banner span::before{content:' · ';}
+  #home{padding-left:18px;padding-right:18px;align-items:center;min-height:calc(100vh - 98px);}
+  .h-eye{font-size:0;letter-spacing:2px;line-height:1.8;max-width:300px;margin-left:auto;margin-right:auto;}
+  .h-eye::before{content:'WALNUT CREEK · EST. 2011';display:block;font-size:.66rem;letter-spacing:2px;line-height:1.8;color:var(--gold);}
+  .h-title{font-size:clamp(2.2rem,12.5vw,3.1rem);line-height:1.08;max-width:330px;margin-left:auto;margin-right:auto;}
+  .h-sub2{font-size:.72rem;letter-spacing:1px;line-height:1.85;max-width:315px;margin:16px auto 28px;}
+  .h-sub2::before{content:'Capoeira · Salsa · Yoga';display:block;}
+  .h-sub2{font-size:0;}
+  .h-sub2::after{content:'Ground Mobility · Studio Rental · Walnut Creek';display:block;font-size:.72rem;letter-spacing:1px;line-height:1.85;color:rgba(255,255,255,.88);}
+  .h-sub2::before{font-size:.72rem;letter-spacing:1px;line-height:1.85;color:rgba(255,255,255,.88);}
+  .btn-p{padding:14px 28px;font-size:.92rem;}
+  .chat-fab{display:none;}
+  .cl-item{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:10px 12px;padding:17px 16px;}
+  .cl-dot{grid-column:1;grid-row:1;}
+  .cl-day{grid-column:1;grid-row:2;min-width:0;font-size:.68rem;}
+  .cl-time{grid-column:2;grid-row:1;font-size:.82rem;min-width:0;}
+  .cl-info{grid-column:2 / 4;grid-row:2;}
+  .cl-price{grid-column:3;grid-row:1;justify-self:end;margin-left:0;}
+  .cl-cta{grid-column:1 / 4;grid-row:3;width:100%;text-align:center;margin:2px 0 0;padding:11px 16px;}
+  .cl-name{font-size:.96rem;}
+  .cl-name[data-panel]::after{display:inline-block;margin-left:2px;font-size:.62rem;}
+  .cl-sub{font-size:.8rem;line-height:1.45;}
+  .cl-why{margin:0 0 12px 0;border-radius:12px;padding:14px 15px;font-size:.84rem;}
+}
+@media(max-width:480px){
+  .banner{font-size:0;padding:8px 10px;display:block;}
+  .banner a,.banner span{font-size:.72rem;}
+  .nav-logo{max-width:260px;}
+  .nav-logo span{letter-spacing:2px;}
+  #home{padding-top:46px;padding-bottom:64px;}
+  .h-title{font-size:clamp(2.15rem,12vw,2.95rem);max-width:310px;}
+  .free-badge{width:100%;}
+}
+
 </style>
 <script type="application/ld+json">
 {
@@ -476,9 +528,9 @@ img{max-width:100%;height:auto;}
     <h1 class="h-title">Rooted in Culture.<br>Growing <em>Together.</em></h1>
     <p class="h-sub2">Capoeira &nbsp;·&nbsp; Salsa &nbsp;·&nbsp; Yoga &nbsp;·&nbsp; Ground Mobility &nbsp;·&nbsp; Studio Rental &nbsp;— Mt. Diablo Blvd, Walnut Creek</p>
     <div class="h-ctas">
-      <a href="#class-schedule" onclick="go('class-schedule');return false;" class="btn-p">Explore Classes</a>
+      <a href="booking.html" class="btn-p">Book Your First Class</a>
     </div>
-    <p style="margin-top:14px;"><a href="#story" onclick="go('story');return false;" style="color:rgba(255,255,255,.55);font-size:.82rem;letter-spacing:.5px;text-decoration:underline;text-underline-offset:3px;">Read our story ↓</a></p>
+    <p style="margin-top:14px;"><a href="#class-schedule" onclick="go('class-schedule');return false;" style="color:rgba(255,255,255,.72);font-size:.82rem;letter-spacing:.5px;text-decoration:underline;text-underline-offset:3px;">View weekly schedule ↓</a></p>
     <div style="margin-top:24px;">
       <span style="background:var(--gold);color:var(--green-deep);padding:10px 26px;border-radius:50px;display:inline-block;font-weight:700;font-size:.95rem;letter-spacing:.3px;">First Capoeira Class — FREE for New Students</span>
     </div>
@@ -606,7 +658,7 @@ img{max-width:100%;height:auto;}
           <div class="cl-sub">With Uriel Arauz · Ages 14+ · All Levels · <span style="color:var(--terra);font-weight:700;">1st class FREE</span></div>
         </div>
         <div class="cl-price">$30</div>
-        <a href="booking.html?class=Teens+%26amp%3B+Adults+Capoeira&day=Tue&time=6%3A00+PM" class="cl-cta">Reserve →</a>
+        <a href="booking.html?class=Teens+%26+Adults+Capoeira&day=Tue&time=6%3A00+PM" class="cl-cta">Reserve →</a>
       </div>
       <div class="cl-item">
         <span class="cl-dot cl-dot-yoga"></span>
@@ -758,7 +810,7 @@ img{max-width:100%;height:auto;}
           <div class="cl-sub">With Uriel Arauz · Ages 14+ · All Levels · <span style="color:var(--terra);font-weight:700;">1st class FREE</span></div>
         </div>
         <div class="cl-price">$30</div>
-        <a href="booking.html?class=Teens+%26amp%3B+Adults+Capoeira&day=Sat&time=12%3A00+PM" class="cl-cta">Reserve →</a>
+        <a href="booking.html?class=Teens+%26+Adults+Capoeira&day=Sat&time=12%3A00+PM" class="cl-cta">Reserve →</a>
       </div>
 
       <!-- PRIVATE -->
@@ -838,7 +890,7 @@ img{max-width:100%;height:auto;}
               <span class="cpill-instr">Ages 8–13</span>
               <span class="cpill-free">FREE</span>
             </div>
-            <div class="cpill cpill-capoeira" onclick="location.href='booking.html?class=Teens+%26amp%3B+Adults+Capoeira&day=Tue&time=6%3A00+PM'" style="cursor:pointer;">
+            <div class="cpill cpill-capoeira" onclick="location.href='booking.html?class=Teens+%26+Adults+Capoeira&day=Tue&time=6%3A00+PM'" style="cursor:pointer;">
               <span class="cpill-time">6:00 PM</span>
               <span class="cpill-name">Teens &amp; Adults</span>
               <span class="cpill-instr">Ages 14+ · All Levels</span>
@@ -933,7 +985,7 @@ img{max-width:100%;height:auto;}
               <span class="cpill-instr">Ages 4–7</span>
               <span class="cpill-free">FREE</span>
             </div>
-            <div class="cpill cpill-capoeira" onclick="location.href='booking.html?class=Teens+%26amp%3B+Adults+Capoeira&day=Sat&time=12%3A00+PM'" style="cursor:pointer;">
+            <div class="cpill cpill-capoeira" onclick="location.href='booking.html?class=Teens+%26+Adults+Capoeira&day=Sat&time=12%3A00+PM'" style="cursor:pointer;">
               <span class="cpill-time">12:00 PM</span>
               <span class="cpill-name">Teens &amp; Adults</span>
               <span class="cpill-instr">Ages 14+ · All Levels</span>
