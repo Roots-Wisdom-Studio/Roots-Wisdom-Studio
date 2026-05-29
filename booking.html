@@ -259,7 +259,7 @@ body{font-family:var(--font-b);background:var(--cream);color:var(--text-dark);mi
           <optgroup label="Salsa">
             <option>Salsa Absolute Beginner · Wed 6:30PM · $30</option>
             <option>Salsa Advanced Beginner · Wed 7:30PM · $30</option>
-            <option>Salsa Intermediate (Coming Soon) · Mon 7PM · $30</option>
+            <option disabled>Salsa Intermediate (Coming Soon) · Mon 7PM · $30</option>
           </optgroup>
           <optgroup label="Yoga">
             <option>Vinyasa Yoga (Early) · Tue &amp; Thu 6AM · $25</option>
@@ -330,7 +330,7 @@ const CLASSES = [
   {key:'salsa-adv', name:'Salsa — Adv. Beginner', times:'Wed 7:30PM', tag:'sal', tagLabel:'Adv. Beginner', price:'$30', days:[3], time:'7:30PM',
    selectValue:'Salsa Advanced Beginner · Wed 7:30PM · $30'},
   {key:'salsa-int', name:'Salsa Intermediate (Coming Soon)', times:'Mon 7:00–8:30PM', tag:'sal', tagLabel:'Intermediate', price:'$30', days:[1], time:'7:00PM',
-   selectValue:'Salsa Intermediate (Coming Soon) · Mon 7PM · $30'},
+   selectValue:'Salsa Intermediate (Coming Soon) · Mon 7PM · $30', disabled:true},
   {key:'yoga-vinyasa-am', name:'Vinyasa Yoga — Early', times:'Tue & Thu 6AM', tag:'yog', tagLabel:'All Levels', price:'$25', days:[2,4], time:'6AM',
    selectValue:'Vinyasa Yoga (Early) · Tue & Thu 6AM · $25'},
   {key:'yoga-gentle', name:'Gentle Yoga', times:'Tue & Thu 12PM', tag:'yog', tagLabel:'All Levels', price:'$25', days:[2,4], time:'12PM',
@@ -356,7 +356,13 @@ CLASSES.forEach(c => {
     </div>
     <div class="cc-price">${c.price}/class</div>
   `;
-  card.addEventListener('click', () => selectClass(c.key));
+  if (c.disabled) {
+    card.style.opacity = '0.6';
+    card.style.cursor = 'not-allowed';
+    card.title = 'This class is currently on pause';
+  } else {
+    card.addEventListener('click', () => selectClass(c.key));
+  }
   grid.appendChild(card);
 });
 
