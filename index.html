@@ -25,6 +25,14 @@
   --gold:#C9A84C;--gold-light:#E8D08A;
   --text-dark:#2A1F14;--text-mid:#5C4033;--text-light:#8A7060;
   --font-h:'Lora',Georgia,serif;--font-b:'DM Sans','Segoe UI',system-ui,sans-serif;
+  --cream-v6:#f8f1e8;
+  --card-v6:#fffdf9;
+  --green-v6:#235536;
+  --sage-v6:#91a77d;
+  --orange-v6:#bb562d;
+  --brown-v6:#4b342c;
+  --line-v6:#e7d6c7;
+
 }
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
 *:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:3px;}
@@ -450,6 +458,197 @@ html,body{max-width:100%;overflow-x:hidden;}
   .free-badge{width:100%;}
 }
 
+
+    /* V6 Studio Rental Styles */
+    .v6-rental-grid {
+      display: grid;
+      grid-template-columns: 520px 1fr;
+      gap: 66px;
+      align-items: start;
+    }
+    .v6-left { padding-top:0; }
+    .v6-eyebrow {
+      color: var(--orange-v6);
+      font-weight: 700;
+      letter-spacing: .28em;
+      font-size: 18px;
+      margin: 0 0 14px;
+    }
+    .v6-h1 {
+      margin: 0;
+      color: var(--green-v6);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 70px;
+      line-height: 1.03;
+      font-weight: 500;
+    }
+    .v6-orange-rule {
+      width: 62px;
+      height: 4px;
+      background: var(--orange-v6);
+      border-radius: 3px;
+      margin: 27px 0 27px;
+    }
+    .v6-intro {
+      font-size: 18px;
+      line-height: 1.55;
+      font-weight: 600;
+      margin: 0 0 25px;
+      max-width: 510px;
+    }
+    .v6-amenities { margin-top:10px; }
+    .v6-amenity {
+      height: 43px;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid var(--line-v6);
+      font-size: 17px;
+    }
+    .v6-check {
+      width: 19px; height: 19px; border-radius: 50%;
+      background: var(--green-v6); color: white;
+      display: inline-flex; align-items: center; justify-content: center;
+      font-size: 12px; font-weight: 700; margin-right: 16px; flex: none;
+    }
+    .v6-section-title {
+      color: var(--green-v6);
+      font-weight: 700;
+      font-size: 18px;
+      margin: 27px 0 12px;
+    }
+    .v6-tags { display: flex; flex-wrap: wrap; gap: 10px; }
+    .v6-tag {
+      color: var(--orange-v6);
+      border: 1px solid #d8a98f;
+      border-radius: 24px;
+      padding: 9px 16px;
+      background: rgba(255,255,255,.22);
+      font-size: 15px;
+    }
+    .v6-notes { margin-top: 25px; }
+    .v6-note {
+      display: grid; grid-template-columns: 22px 1fr; gap: 10px;
+      font-size: 14px; line-height: 1.45; margin: 12px 0;
+    }
+    .v6-note-icon { color: #9d6a51; font-size: 17px; }
+    .v6-right { display: flex; flex-direction: column; }
+    .v6-photos {
+      display: grid;
+      grid-template-columns: 1.23fr 1.03fr .98fr;
+      gap: 8px;
+      height: 250px;
+      margin-bottom: 20px;
+    }
+    .v6-photos img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+    }
+    .v6-photos img:first-child { border-radius: 16px 0 0 16px; }
+    .v6-photos img:last-child { border-radius: 0 16px 16px 0; }
+    .v6-pricing { display: flex; flex-direction: column; gap: 8px; }
+    .v6-card {
+      min-height: 138px;
+      background: rgba(255,255,255,.72);
+      border-radius: 16px;
+      display: grid;
+      grid-template-columns: 120px 210px 1fr;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 1px 0 rgba(130,100,80,.05);
+    }
+    .v6-card::before {
+      content: "";
+      position: absolute; left: 0; top: 0; bottom: 0; width: 4px;
+      background: var(--sage-v6);
+    }
+    .v6-card.orange::before { background: var(--orange-v6); }
+    .v6-icon-wrap {
+      display: flex; align-items: center; justify-content: center;
+      height: 100%;
+      border-right: 2px solid #efe2d8;
+    }
+    .v6-icon {
+      width: 74px; height: 74px; border-radius: 50%;
+      background: var(--sage-v6); color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 35px;
+    }
+    .v6-card.orange .v6-icon { background: var(--orange-v6); }
+    .v6-price-col { padding: 0 24px; }
+    .v6-card-title {
+      color: var(--green-v6);
+      font-weight: 700;
+      font-size: 20px;
+      margin-bottom: 8px;
+    }
+    .v6-price {
+      color: var(--orange-v6);
+      font-size: 43px;
+      line-height: 1;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+    .v6-price small { font-size: 22px; }
+    .v6-starting {
+      color: var(--brown-v6);
+      font-size: 17px;
+      margin-bottom: 2px;
+    }
+    .v6-desc {
+      font-size: 15.5px;
+      line-height: 1.5;
+      padding: 20px 32px 20px 20px;
+    }
+    .v6-events {
+      min-height: 213px;
+      grid-template-columns: 120px 1fr;
+    }
+    .v6-events-content { padding: 20px 30px; }
+    .v6-line-price {
+      font-size: 17px;
+      line-height: 1.55;
+      font-weight: 700;
+    }
+    .v6-orange-text { color: var(--orange-v6); }
+    .v6-events-copy {
+      margin-top: 7px;
+      font-size: 14.5px;
+      line-height: 1.45;
+    }
+    .v6-cta {
+      align-self: center;
+      margin-top: 16px;
+      padding: 15px 48px;
+      min-width: 270px;
+      border-radius: 40px;
+      background: var(--orange-v6);
+      color: #fff;
+      text-decoration: none;
+      text-align: center;
+      font-size: 19px;
+      font-weight: 700;
+    }
+    @media (max-width: 1100px) {
+      .v6-rental-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+      .v6-h1 { font-size: 58px; }
+      .v6-photos { height: 230px; }
+    }
+    @media (max-width: 720px) {
+      .v6-h1 { font-size: 46px; }
+      .v6-photos { grid-template-columns: 1fr; height: auto; }
+      .v6-photos img { height: 210px; border-radius: 14px !important; }
+      .v6-card, .v6-events {
+        grid-template-columns: 84px 1fr;
+      }
+      .v6-icon-wrap { border-right: 0; }
+      .v6-icon { width: 58px; height: 58px; font-size: 28px; }
+      .v6-price-col { padding: 18px 18px 6px; }
+      .v6-desc { grid-column: 2; padding: 0 18px 18px; }
+      .v6-events-content { padding: 18px; }
+    }
 </style>
 <script type="application/ld+json">
 {
@@ -1298,65 +1497,99 @@ html,body{max-width:100%;overflow-x:hidden;}
 </section>
 
 <!-- RENTAL -->
-<section id="rental">
+
+<section id="rental" style="background: var(--cream-v6);">
   <div class="si">
-    <div class="rental-g">
-      <div>
-        <p class="s-tag">Studio Rental</p>
-        <h2 class="s-title">Your Vision,<br>Our Space.</h2>
-        <div class="s-div"></div>
-        <p class="s-desc">A fully renovated, purpose-built movement studio available for rent. New luxury vinyl floors, mirrors, lighting, and soundproof panels.</p>
-        <ul class="feat-list">
-          <li>Luxury vinyl floors</li>
-          <li>Wall-to-wall mirrors</li>
-          <li>Soundproof panels (back wall)</li>
-          <li>Professional lighting</li>
-          <li>Sound system available</li>
-          <li>Private restroom</li>
-          <li>Street parking + nearby lots</li>
-          <li>2029 Mt. Diablo Blvd, Walnut Creek</li>
-        </ul>
-        <div class="ideal-label">Perfect For:</div>
-        <div class="ideal-for">
-          <span class="ideal-tag">Yoga Classes</span>
-          <span class="ideal-tag">Dance Rehearsals</span>
-          <span class="ideal-tag">Fitness Training</span>
-          <span class="ideal-tag">Martial Arts</span>
-          <span class="ideal-tag">Workshops</span>
-          <span class="ideal-tag">Private Events</span>
-          <span class="ideal-tag">Photo Shoots</span>
-          <span class="ideal-tag">Pop-Up Classes</span>
+    <div class="v6-rental-grid">
+      <div class="v6-left">
+        <p class="v6-eyebrow">STUDIO RENTAL</p>
+        <h2 class="v6-h1">Your Vision,<br>Our Space.</h2>
+        <div class="v6-orange-rule"></div>
+        <p class="v6-intro">A fully renovated, purpose-built movement studio available for rent. Luxury vinyl floors, wall-to-wall mirrors, soundproof panels, bright, adjustable lighting, and a sound system.</p>
+
+        <div class="v6-amenities">
+          <div class="v6-amenity"><span class="v6-check">✓</span>Luxury vinyl floors</div>
+          <div class="v6-amenity"><span class="v6-check">✓</span>Wall-to-wall mirrors</div>
+          <div class="v6-amenity"><span class="v6-check">✓</span>Soundproof panels</div>
+          <div class="v6-amenity"><span class="v6-check">✓</span>Bright, adjustable lighting</div>
+          <div class="v6-amenity"><span class="v6-check">✓</span>Sound system</div>
+          <div class="v6-amenity"><span class="v6-check">✓</span>Private restroom</div>
+          <div class="v6-amenity"><span class="v6-check">✓</span>Street parking + nearby lots</div>
+          <div class="v6-amenity"><span class="v6-check">✓</span>2029 Mt. Diablo Blvd, Walnut Creek</div>
         </div>
-        <p style="font-size:.82rem;color:var(--text-light);margin-top:14px;font-style:italic;line-height:1.65;">* Cleaning fee applies for events. Minimum 1-hour rental.<br>Contact us for custom packages and monthly instructor rates.</p>
+
+        <div class="v6-section-title">Perfect For:</div>
+        <div class="v6-tags">
+          <span class="v6-tag">Yoga Classes</span>
+          <span class="v6-tag">Dance Rehearsals</span>
+          <span class="v6-tag">Fitness Training</span>
+          <span class="v6-tag">Martial Arts</span>
+          <span class="v6-tag">Workshops</span>
+          <span class="v6-tag">Private Events</span>
+          <span class="v6-tag">Photo Shoots</span>
+          <span class="v6-tag">Pop-Up Classes</span>
+        </div>
+
+        <div class="v6-notes">
+          <div class="v6-note"><span class="v6-note-icon">▣</span><span>Recurring rentals are paid monthly in advance.</span></div>
+          <div class="v6-note"><span class="v6-note-icon">✧</span><span>Cleaning fee: $30 for one-time classes/rehearsals when additional cleaning is needed; $75 for workshops and private events.</span></div>
+          <div class="v6-note"><span class="v6-note-icon">♙</span><span>Custom instructor partnerships may be available.</span></div>
+        </div>
       </div>
-      <div class="r-cards">
-        <div class="studio-photos" style="margin-bottom:20px;margin-top:0;">
-          <img src="assets/optimized/studio-interior-1.webp" alt="Roots &amp; Wisdom Studio interior on Mt. Diablo Blvd in Walnut Creek" width="900" height="650" loading="lazy" decoding="async"/>
-          <img src="assets/optimized/studio-interior-2.webp" alt="Renovated Roots &amp; Wisdom Studio movement space" width="900" height="650" loading="lazy" decoding="async"/>
-          <img src="assets/optimized/studio-interior-3.webp" alt="Warm boutique dance and wellness studio in Walnut Creek" width="900" height="650" loading="lazy" decoding="async"/>
+
+      <div class="v6-right">
+        <div class="v6-photos">
+          <img src="assets/optimized/studio-interior-1.webp" alt="Studio 1">
+          <img src="assets/optimized/studio-interior-2.webp" alt="Studio 2">
+          <img src="assets/optimized/studio-interior-3.webp" alt="Studio 3">
         </div>
-        <div class="r-card">
-          <h4>Single Session</h4>
-          <div class="r-price">$55<span>/hr</span></div>
-          <p>Weekday practice &amp; rehearsal · 1-hr minimum.<br><span class="r-note">Weekend rates: $95–$135/hr (2-hr min)</span></p>
+
+        <div class="v6-pricing">
+          <div class="v6-card">
+            <div class="v6-icon-wrap"><div class="v6-icon">🔄</div></div>
+            <div class="v6-price-col">
+              <div class="v6-card-title">Weekly Recurring</div>
+              <div class="v6-price">$70<small>/hr</small></div>
+            </div>
+            <div class="v6-desc">For instructors reserving the same weekly class time and paying monthly in advance. 1-hour minimum.</div>
+          </div>
+
+          <div class="v6-card">
+            <div class="v6-icon-wrap"><div class="v6-icon">📅</div></div>
+            <div class="v6-price-col">
+              <div class="v6-card-title">One-Time Weekday</div>
+              <div class="v6-price">$85<small>/hr</small></div>
+            </div>
+            <div class="v6-desc">For classes, rehearsals, private sessions, and occasional bookings Monday-Friday. 1-hour minimum.</div>
+          </div>
+
+          <div class="v6-card">
+            <div class="v6-icon-wrap"><div class="v6-icon">🗓️</div></div>
+            <div class="v6-price-col">
+              <div class="v6-card-title">Weekend Class</div>
+              <div class="v6-starting">Starting at</div>
+              <div class="v6-price">$100<small>/hr</small></div>
+            </div>
+            <div class="v6-desc">For one-time classes, rehearsals, and private sessions on Saturday or Sunday. 2-hour minimum.</div>
+          </div>
+
+          <div class="v6-card v6-events v6-orange">
+            <div class="v6-icon-wrap"><div class="v6-icon">👥</div></div>
+            <div class="v6-events-content">
+              <div class="v6-card-title">Workshops & Private Events</div>
+              <div class="v6-line-price">Special Workshop — <span class="v6-orange-text">Starting at $125/hr</span></div>
+              <div class="v6-line-price">Private Event — <span class="v6-orange-text">Starting at $150/hr</span></div>
+              <div class="v6-events-copy">For intensives, wellness experiences, socials, receptions, or gatherings involving food, decorations, or vendors. 2-hour minimum for workshops. 3-hour minimum for private events. Cleaning fee applies.</div>
+            </div>
+          </div>
         </div>
-        <div class="r-card">
-          <h4>Regular Weekly Rental</h4>
-          <div class="r-price">$60<span>/hr</span></div>
-          <p>Recurring instructor blocks, pre-paid monthly.<br><span class="r-note">$55/hr with 4+ hrs/month commitment</span></p>
-        </div>
-        <div class="r-card prem">
-          <h4>Half-Day &amp; Full-Day Blocks</h4>
-          <div class="r-price">$160<span> · 4 hrs</span></div>
-          <p>Full-day (8 hrs): $300 flat — save $60 vs. hourly.<br><span class="r-note">Ideal for intensives, workshops &amp; private events</span></p>
-        </div>
-        <div style="text-align:center;margin-top:16px;">
-          <a href="mailto:hello@rootsandwisdomstudio.com?subject=Studio%20Rental%20Inquiry&body=Hi%20Roots%20%26%20Wisdom%2C%20I%27m%20interested%20in%20renting%20the%20studio.%20Here%27s%20what%20I%27m%20planning%3A%0A%0ADate%2Fs%3A%0ATime%3A%0AGroup%20size%3A%0APurpose%3A" class="btn-p">Inquire About Rental</a>
-        </div>
+
+        <a href="mailto:hello@rootsandwisdomstudio.com?subject=Studio%20Rental%20Inquiry" class="v6-cta">Inquire About Rental</a>
       </div>
     </div>
   </div>
 </section>
+
 
 <!-- LOCAL SEO / WALNUT CREEK -->
 <section id="local-seo">
