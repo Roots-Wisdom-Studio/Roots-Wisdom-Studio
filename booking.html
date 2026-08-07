@@ -259,11 +259,14 @@ body{font-family:var(--font-b);background:var(--cream);color:var(--text-dark);mi
         <select class="select" id="f-class" name="Class" required>
           <option value="">Choose a class…</option>
           <optgroup label="Capoeira (1st class FREE)">
-            <option>Kids Capoeira (Ages 4–7) · Tue &amp; Thu 4PM / Sat 11AM · 1st Class FREE</option>
-            <option>Youth Capoeira (Ages 8–13) · Tue &amp; Thu 5PM / Sat 10AM · 1st Class FREE</option>
-            <option>Teens &amp; Adults Capoeira (Ages 14+) · Tue 6PM / Sat 12PM · 1st Class FREE</option>
-            <option>Teens Capoeira (Ages 14–17) · Thu 6PM · 1st Class FREE</option>
-            <option>All-Kids Community Class (Last Sat of Month) · 11AM · 1st Class FREE</option>
+            <option>Kids Capoeira (Ages 4–7) · Tue &amp; Thu 4:00 PM · 1st Class FREE</option>
+            <option>Kids Capoeira (Ages 4–7) · Saturday 11:00 AM · 1st Class FREE</option>
+            <option>Youth Capoeira (Ages 8–13) · Tue &amp; Thu 5:00 PM · 1st Class FREE</option>
+            <option>Youth Capoeira (Ages 8–13) · Saturday 10:00 AM · 1st Class FREE</option>
+            <option>Teens &amp; Adults Capoeira (Ages 14+) · Tuesday 6:00 PM · 1st Class FREE</option>
+            <option>Teens &amp; Adults Capoeira (Ages 14+) · Saturday 12:00 PM · 1st Class FREE</option>
+            <option>Teens Capoeira (Ages 14–17) · Thursday 6:00 PM · 1st Class FREE</option>
+            <option>All-Kids Community Class (Last Saturday of Month) · 11:00 AM · 1st Class FREE</option>
           </optgroup>
           <optgroup label="Salsa">
             <option>Salsa Absolute Beginner · Wed 6:30PM · $30</option>
@@ -326,30 +329,36 @@ body{font-family:var(--font-b);background:var(--cream);color:var(--text-dark);mi
 <script>
 /* ========== CLASS DATA ========== */
 const CLASSES = [
-  {key:'mobility-mw', name:'Ground-based Mobility Flow', times:'Mon 12:30PM · Wed 2PM', tag:'mob', tagLabel:'All Levels', price:'$25', days:[1,3], time:'12:30PM', dayTimeMap:{1:'12:30PM', 3:'2:00PM'},
+  {key:'cap-kids-weekday', name:'Kids Capoeira', times:'Tue & Thu 4:00 PM', tag:'cap', tagLabel:'Ages 4–7', price:'$30', free:true, kids:true, days:[2,4], time:'4:00 PM',
+   selectValue:'Kids Capoeira (Ages 4–7) · Tue & Thu 4:00 PM · 1st Class FREE'},
+  {key:'cap-kids-sat', name:'Kids Capoeira', times:'Saturday 11:00 AM', tag:'cap', tagLabel:'Ages 4–7', price:'$30', free:true, kids:true, days:[6], time:'11:00 AM', skipLastSaturday:true,
+   selectValue:'Kids Capoeira (Ages 4–7) · Saturday 11:00 AM · 1st Class FREE'},
+  {key:'cap-youth-weekday', name:'Youth Capoeira', times:'Tue & Thu 5:00 PM', tag:'cap', tagLabel:'Ages 8–13', price:'$30', free:true, kids:true, days:[2,4], time:'5:00 PM',
+   selectValue:'Youth Capoeira (Ages 8–13) · Tue & Thu 5:00 PM · 1st Class FREE'},
+  {key:'cap-youth-sat', name:'Youth Capoeira', times:'Saturday 10:00 AM', tag:'cap', tagLabel:'Ages 8–13', price:'$30', free:true, kids:true, days:[6], time:'10:00 AM', skipLastSaturday:true,
+   selectValue:'Youth Capoeira (Ages 8–13) · Saturday 10:00 AM · 1st Class FREE'},
+  {key:'cap-adult-tue', name:'Teens & Adults Capoeira', times:'Tuesday 6:00 PM', tag:'cap', tagLabel:'Ages 14+', price:'$30', free:true, days:[2], time:'6:00 PM',
+   selectValue:'Teens & Adults Capoeira (Ages 14+) · Tuesday 6:00 PM · 1st Class FREE'},
+  {key:'cap-adult-sat', name:'Teens & Adults Capoeira', times:'Saturday 12:00 PM', tag:'cap', tagLabel:'Ages 14+', price:'$30', free:true, days:[6], time:'12:00 PM',
+   selectValue:'Teens & Adults Capoeira (Ages 14+) · Saturday 12:00 PM · 1st Class FREE'},
+  {key:'cap-teens-thu', name:'Teens Capoeira', times:'Thursday 6:00 PM', tag:'cap', tagLabel:'Ages 14–17', price:'$30', free:true, days:[4], time:'6:00 PM',
+   selectValue:'Teens Capoeira (Ages 14–17) · Thursday 6:00 PM · 1st Class FREE'},
+  {key:'cap-community', name:'All-Kids Community Class', times:'Last Saturday of Month · 11:00 AM', tag:'cap', tagLabel:'All Kids', price:'$30', free:true, kids:true, days:[6], time:'11:00 AM',
+   selectValue:'All-Kids Community Class (Last Saturday of Month) · 11:00 AM · 1st Class FREE'},
+  {key:'mobility-mw', name:'Ground-based Mobility Flow', times:'Mon 12:30 PM · Wed 2:00 PM', tag:'mob', tagLabel:'All Levels', price:'$25', days:[1,3], time:'12:30 PM', dayTimeMap:{1:'12:30 PM', 3:'2:00 PM'},
    selectValue:'Ground-based Mobility Flow · Mon 12:30PM / Wed 2PM · $25'},
-  {key:'cap-adult', name:'Teens & Adults Capoeira', times:'Tue 6PM · Sat 12PM', tag:'cap', tagLabel:'Ages 14+', price:'$30', free:true, days:[2,6], time:'6PM', dayTimeMap:{2:'6:00PM', 6:'12:00PM'},
-   selectValue:'Teens & Adults Capoeira (Ages 14+) · Tue 6PM / Sat 12PM · 1st Class FREE'},
-  {key:'cap-kids', name:'Kids Capoeira', times:'Tue & Thu 4PM · Sat 11AM', tag:'cap', tagLabel:'Ages 4–7', price:'$30', free:true, kids:true, days:[2,4,6], time:'4PM', dayTimeMap:{2:'4:00PM', 4:'4:00PM', 6:'11:00AM'},
-   selectValue:'Kids Capoeira (Ages 4–7) · Tue & Thu 4PM / Sat 11AM · 1st Class FREE'},
-  {key:'cap-youth', name:'Youth Capoeira', times:'Tue & Thu 5PM · Sat 10AM', tag:'cap', tagLabel:'Ages 8–13', price:'$30', free:true, kids:true, days:[2,4,6], time:'5PM', dayTimeMap:{2:'5:00PM', 4:'5:00PM', 6:'10:00AM'},
-   selectValue:'Youth Capoeira (Ages 8–13) · Tue & Thu 5PM / Sat 10AM · 1st Class FREE'},
-  {key:'cap-community', name:'All-Kids Community Class', times:'Last Sat of Month 11AM', tag:'cap', tagLabel:'All Kids', price:'$30', free:true, kids:true, days:[6], time:'11AM',
-   selectValue:'All-Kids Community Class (Last Sat of Month) · 11AM · 1st Class FREE'},
-  {key:'salsa-beg', name:'Salsa — Absolute Beginner', times:'Wed 6:30PM', tag:'sal', tagLabel:'Beginners', price:'$30', days:[3], time:'6:30PM',
+  {key:'salsa-beg', name:'Salsa — Absolute Beginner', times:'Wed 6:30 PM', tag:'sal', tagLabel:'Beginners', price:'$30', days:[3], time:'6:30 PM',
    selectValue:'Salsa Absolute Beginner · Wed 6:30PM · $30'},
-  {key:'salsa-adv', name:'Salsa — Adv. Beginner', times:'Wed 7:30PM', tag:'sal', tagLabel:'Adv. Beginner', price:'$30', days:[3], time:'7:30PM',
+  {key:'salsa-adv', name:'Salsa — Adv. Beginner', times:'Wed 7:30 PM', tag:'sal', tagLabel:'Adv. Beginner', price:'$30', days:[3], time:'7:30 PM',
    selectValue:'Salsa Advanced Beginner · Wed 7:30PM · $30'},
-  {key:'salsa-int', name:'Salsa Intermediate (Coming Soon)', times:'Mon 7:00–8:30PM', tag:'sal', tagLabel:'Intermediate', price:'$30', days:[1], time:'7:00PM',
+  {key:'salsa-int', name:'Salsa Intermediate (Coming Soon)', times:'Mon 7:00–8:30 PM', tag:'sal', tagLabel:'Intermediate', price:'$30', days:[1], time:'7:00 PM',
    selectValue:'Salsa Intermediate (Coming Soon) · Mon 7PM · $30', disabled:true},
-  {key:'yoga-vinyasa-am', name:'Vinyasa Yoga — Early', times:'Tue & Thu 6AM', tag:'yog', tagLabel:'All Levels', price:'$25', days:[2,4], time:'6AM',
+  {key:'yoga-vinyasa-am', name:'Vinyasa Yoga — Early', times:'Tue & Thu 6:00 AM', tag:'yog', tagLabel:'All Levels', price:'$25', days:[2,4], time:'6:00 AM',
    selectValue:'Vinyasa Yoga (Early) · Tue & Thu 6AM · $25'},
-  {key:'yoga-gentle', name:'Gentle Yoga', times:'Tue & Thu 12PM', tag:'yog', tagLabel:'All Levels', price:'$25', days:[2,4], time:'12PM',
+  {key:'yoga-gentle', name:'Gentle Yoga', times:'Tue & Thu 12:00 PM', tag:'yog', tagLabel:'All Levels', price:'$25', days:[2,4], time:'12:00 PM',
    selectValue:'Gentle Yoga · Tue & Thu 12PM · $25'},
-  {key:'yoga-vinyasa-pm', name:'Vinyasa Yoga', times:'Tue 7:15PM', tag:'yog', tagLabel:'All Levels', price:'$25', days:[2], time:'7:15PM',
+  {key:'yoga-vinyasa-pm', name:'Vinyasa Yoga', times:'Tue 7:15 PM', tag:'yog', tagLabel:'All Levels', price:'$25', days:[2], time:'7:15 PM',
    selectValue:'Vinyasa Yoga · Tue 7:15PM · $25'},
-  {key:'cap-teens-thu', name:'Teens Capoeira', times:'Thu 6PM', tag:'cap', tagLabel:'Ages 14–17', price:'$30', free:true, days:[4], time:'6PM',
-   selectValue:'Teens Capoeira (Ages 14–17) · Thu 6PM · 1st Class FREE'},
 ];
 
 /* ========== RENDER CLASS CARDS ========== */
@@ -363,7 +372,7 @@ CLASSES.forEach(c => {
     <div class="cc-times">${c.times}</div>
     <div class="cc-tags">
       <span class="cc-tag tag-${c.tag}">${c.tagLabel}</span>
-      ${c.free ? '<span class="cc-tag tag-free">1st FREE</span>' : ''}
+      ${c.free ? '<span class="cc-tag tag-free">1st Class FREE</span>' : ''}
     </div>
     <div class="cc-price">${c.price}/class</div>
   `;
@@ -428,15 +437,11 @@ function renderDateChips(cls, dayOverride = null) {
         if (nextDay.getMonth() !== d.getMonth()) {
           upcoming.push(d);
         }
-      } else if (cls.key === 'cap-kids' || cls.key === 'cap-youth') {
-        // Regular Saturday classes are skipped on the last Saturday of the month
-        if (d.getDay() === 6) {
-          const nextDay = new Date(d);
-          nextDay.setDate(d.getDate() + 7);
-          if (nextDay.getMonth() === d.getMonth()) {
-            upcoming.push(d);
-          }
-        } else {
+      } else if (cls.skipLastSaturday) {
+        // Weekly kids' Saturday classes are replaced by the community class on the last Saturday.
+        const nextDay = new Date(d);
+        nextDay.setDate(d.getDate() + 7);
+        if (nextDay.getMonth() === d.getMonth()) {
           upcoming.push(d);
         }
       } else {
@@ -603,11 +608,15 @@ const params = new URLSearchParams(window.location.search);
 const preClass = params.get('class');
 const preDay = params.get('day');
 if (preClass) {
-  const m = CLASSES.find(c => c.key === preClass || c.name.toLowerCase().includes(preClass.toLowerCase()));
-  if (m) {
-    const dayIndex = preDay ? DAY_NAMES.findIndex(day => day.toLowerCase() === preDay.slice(0,3).toLowerCase()) : -1;
-    selectClass(m.key, dayIndex >= 0 ? dayIndex : null);
-  }
+  const dayIndex = preDay ? DAY_NAMES.findIndex(day => day.toLowerCase() === preDay.slice(0,3).toLowerCase()) : -1;
+  const normalizedClass = preClass.toLowerCase();
+  const candidates = CLASSES.filter(c =>
+    c.key === preClass ||
+    c.name.toLowerCase().includes(normalizedClass) ||
+    normalizedClass.includes(c.name.toLowerCase())
+  );
+  const m = (dayIndex >= 0 ? candidates.find(c => c.days.includes(dayIndex)) : null) || candidates[0];
+  if (m) selectClass(m.key, dayIndex >= 0 ? dayIndex : null);
 }
 </script>
 </body>
