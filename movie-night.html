@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Big Hero 6 Movie Night — Roots &amp; Wisdom Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --green-deep:#2E5020;--green-mid:#5A7A3A;--green-sage:#8FAF72;--green-light:#D6E8C0;
+  --terra:#B85C38;--terra-light:#D4845E;--terra-pale:#F2DDD3;
+  --cream:#FAF3E8;--warm-white:#FFFDF8;
+  --gold:#C9A84C;--gold-light:#E8D08A;
+  --text-dark:#2A1F14;--text-mid:#5C4033;--text-light:#8A7060;
+  --font-h:'Lora',Georgia,serif;--font-b:'DM Sans','Segoe UI',system-ui,sans-serif;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{font-size:16px;} /* Slightly smaller base for better fit */
+body{font-family:var(--font-b);background:var(--cream);color:var(--text-dark);min-height:100vh;display:flex;flex-direction:column;}
+
+/* TOP BAR */
+.topbar{background:var(--green-deep);padding:10px 24px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;}
+.back-link{color:rgba(255,255,255,.65);font-size:.8rem;text-decoration:none;letter-spacing:.5px;text-transform:uppercase;transition:color .2s;display:flex;align-items:center;gap:6px;}
+.back-link:hover{color:#fff;}
+.back-link::before{content:'←';}
+.topbar-brand{font-family:var(--font-h);color:var(--cream);font-size:0.95rem;}
+.topbar-phone{font-size:.75rem;color:var(--green-sage);}
+.topbar-phone a{color:inherit;text-decoration:none;}
+
+/* LAYOUT */
+.page{flex:1;display:grid;grid-template-columns:1fr 440px;max-width:1180px;margin:0 auto;width:100%;padding:30px 24px;gap:40px;align-items:start;}
+
+/* LEFT — INFO */
+.left-col h1{font-family:var(--font-h);font-size:2.2rem;color:var(--green-deep);line-height:1.1;margin-bottom:6px;}
+.left-col h1 em{color:var(--terra);font-style:italic;font-weight:400;}
+.eyebrow{font-size:.7rem;letter-spacing:2px;text-transform:uppercase;color:var(--terra);font-weight:600;margin-bottom:10px;}
+.intro-p{font-size:.92rem;color:var(--text-mid);line-height:1.6;margin-bottom:12px;max-width:50ch;}
+.divider{width:36px;height:2px;background:var(--terra);border-radius:1px;margin:16px 0;}
+
+.details-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin-bottom:20px;}
+.detail-item{background:white;border-radius:10px;padding:12px;border:1.5px solid var(--green-light);}
+.detail-label{font-size:.65rem;text-transform:uppercase;letter-spacing:1px;color:var(--text-light);margin-bottom:3px;font-weight:600;}
+.detail-value{font-family:var(--font-h);font-size:1rem;color:var(--green-deep);}
+
+/* DEADLINE NOTE */
+.deadline-note {
+  background: var(--terra-pale);
+  border-left: 4px solid var(--terra);
+  border-radius: 8px;
+  padding: 16px;
+  margin: 20px 0;
+}
+.deadline-title {
+  font-weight: 700;
+  color: var(--terra);
+  font-size: 0.9rem;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.deadline-text {
+  font-size: 0.88rem;
+  color: var(--text-dark);
+  line-height: 1.5;
+}
+
+/* RIGHT — FORM */
+.form-card{background:white;border-radius:16px;box-shadow:0 4px 24px rgba(0,0,0,.06);overflow:hidden;display:flex;flex-direction:column;border:1px solid var(--green-light);position:sticky;top:20px;}
+.form-head{background:var(--green-deep);padding:18px 22px;color:var(--cream);}
+.form-eye{font-size:.65rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold-light);font-weight:600;margin-bottom:4px;}
+.form-title{font-family:var(--font-h);font-size:1.25rem;color:var(--cream);line-height:1.15;}
+.form-sub{font-size:.78rem;color:rgba(255,255,255,.72);margin-top:4px;line-height:1.45;}
+
+.form-body{padding:20px 22px 24px;}
+.field{margin-bottom:12px;}
+.label{display:block;font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.6px;color:var(--text-mid);margin-bottom:4px;}
+.label .req{color:var(--terra);}
+.input,.textarea{width:100%;padding:9px 12px;border:1.5px solid var(--green-light);border-radius:8px;font-family:var(--font-b);font-size:.88rem;color:var(--text-dark);background:var(--warm-white);outline:none;transition:border-color .15s;}
+.input:focus,.textarea:focus{border-color:var(--green-mid);box-shadow:0 0 0 3px rgba(90,122,58,.08);}
+.textarea{min-height:50px;resize:vertical;}
+.input.invalid{border-color:var(--terra);}
+
+/* CREW PRICING BOX */
+.pricing-box {
+  background: var(--warm-white);
+  border: 1.5px solid var(--green-light);
+  border-radius: 10px;
+  padding: 14px;
+  margin-bottom: 16px;
+}
+.pricing-title {
+  font-size: .7rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--terra);
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.pricing-total {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--green-deep);
+  margin-bottom: 6px;
+}
+.pricing-details {
+  font-size: .75rem;
+  color: var(--text-mid);
+  line-height: 1.4;
+}
+
+/* ZELLE BOX */
+.zelle-box{
+  background: #fff;
+  border: 1.5px dashed var(--gold);
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  margin-top: 5px;
+}
+.zelle-qr{
+  width: 100%;
+  max-width: 280px;
+  height: auto;
+  margin: 0 auto 10px;
+  display: block;
+}
+.zelle-info{
+  font-size: .82rem;
+  color: var(--text-mid);
+  line-height: 1.5;
+}
+.zelle-memo {
+  display: inline-block;
+  background: var(--terra-pale);
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: .8rem;
+  margin-top: 8px;
+  color: var(--terra);
+  font-weight: 700;
+}
+
+.submit-btn{width:100%;background:var(--terra);color:white;border:none;padding:14px;border-radius:8px;font-size:.9rem;font-weight:600;cursor:pointer;transition:background .2s;font-family:var(--font-b);margin-top:20px;letter-spacing:.5px;text-transform:uppercase;}
+.submit-btn:hover{background:#9C4D2D;}
+
+.success-state{padding:30px 20px;text-align:center;display:none;}
+.success-state.show{display:block;}
+.success-icon{width:56px;height:56px;background:var(--green-light);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 15px;font-size:1.8rem;color:var(--green-deep);font-weight:700;}
+.success-state h3{font-family:var(--font-h);font-size:1.3rem;color:var(--green-deep);margin-bottom:8px;}
+.success-state p{font-size:.88rem;color:var(--text-mid);line-height:1.6;margin-bottom:6px;}
+.error-msg{background:var(--terra-pale);color:var(--terra);padding:8px 12px;border-radius:8px;font-size:.8rem;margin-top:8px;display:none;}
+
+@media(max-width:880px){
+  .page{grid-template-columns:1fr;padding:20px 16px;gap:24px;}
+  .form-card{position:static;}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <a href="/" class="back-link">Back to site</a>
+  <span class="topbar-brand">Roots &amp; Wisdom Studio</span>
+  <span class="topbar-phone"><a href="tel:4157912557">415-791-2557</a></span>
+</div>
+
+<div class="page">
+  <div class="left-col">
+    <p class="eyebrow">Community Event</p>
+    <h1>Parents’ Night Out &amp;<br><em>Movie Night: Big Hero 6</em></h1>
+    <div class="divider"></div>
+    <p class="intro-p">A night of adventure for the kids, a well-deserved break for you. Join our Sitio Alegre Capoeira crew at Roots and Wisdom Studio for a cinematic evening in San Fransokyo!</p>
+    
+    <div class="details-grid">
+      <div class="detail-item">
+        <div class="detail-label">When</div>
+        <div class="detail-value">Friday, Aug 14</div>
+      </div>
+      <div class="detail-item">
+        <div class="detail-label">Time</div>
+        <div class="detail-value">5:00 – 7:30 PM</div>
+      </div>
+      <div class="detail-item">
+        <div class="detail-label">Where</div>
+        <div class="detail-value">Roots &amp; Wisdom Studio</div>
+      </div>
+      <div class="detail-item">
+        <div class="detail-label">Included</div>
+        <div class="detail-value">Drinks &amp; Snacks</div>
+      </div>
+    </div>
+
+    <h2 style="font-family:var(--font-h);color:var(--green-deep);margin-bottom:8px;font-size:1.3rem;">Kids: Bring Your Crew!</h2>
+    <p class="intro-p">Invite your friends, cousins, and family to join the movie night! We’ll have plenty of popcorn, drinks, and a cozy setup to enjoy the story of Baymax and Hiro.</p>
+
+    <h2 style="font-family:var(--font-h);color:var(--green-deep);margin-bottom:8px;font-size:1.3rem;">Parents: Your Time is Yours.</h2>
+    <p class="intro-p">Drop off the kids and enjoy a quiet dinner in Walnut Creek or time for yourself. Want to stay? You’re more than welcome to watch with us and connect with our community.</p>
+    
+    <!-- DEADLINE NOTE -->
+    <div class="deadline-note">
+      <div class="deadline-title">Sign-Up Deadline</div>
+      <p class="deadline-text">Please reserve your spot by <strong>Tuesday, August 11</strong>. We need a minimum number of participants to confirm the event. If the event is canceled, all payments will be fully refunded.</p>
+    </div>
+
+    <p class="intro-p" style="font-style:italic;font-size:.8rem;color:var(--text-light);">* Cancellation Policy: Cancellations are accepted up to 2 days prior to the event (by Wednesday, August 12) for a full refund.</p>
+  </div>
+
+  <div class="form-card">
+    <div class="form-head" id="formHead">
+      <div class="form-eye">Registration</div>
+      <div class="form-title">Join the Crew</div>
+      <div class="form-sub">Secure your spot below. Sibling &amp; Crew discounts applied.</div>
+    </div>
+
+    <form class="form-body" id="movieForm" novalidate>
+      <div class="field">
+        <label class="label">Parent Name <span class="req">*</span></label>
+        <input class="input" id="p-name" name="Parent Name" placeholder="Your name" required/>
+      </div>
+      
+      <div class="field">
+        <label class="label">Email <span class="req">*</span></label>
+        <input class="input" id="p-email" name="Email" type="email" placeholder="you@email.com" required/>
+      </div>
+
+      <div class="field">
+        <label class="label">Number of Children <span class="req">*</span></label>
+        <select class="input" id="c-count" name="Child Count" required onchange="calculateTotal()">
+          <option value="1">1 Child — $25</option>
+          <option value="2">2 Children — $45 ($25 + $20 crew rate)</option>
+          <option value="3">3 Children — $65 ($25 + $20x2)</option>
+          <option value="4">4 Children — $85 ($25 + $20x3)</option>
+          <option value="5">5 Children — $105 ($25 + $20x4)</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label class="label">Child(ren) Name(s) & Age(s) <span class="req">*</span></label>
+        <textarea class="textarea" id="c-names" name="Children Names" placeholder="e.g. Leo (6), Sarah (8)" required></textarea>
+      </div>
+
+      <div class="field">
+        <label class="label">Allergy Information <span class="req">*</span></label>
+        <textarea class="textarea" id="p-allergies" name="Allergies" placeholder="Please list any allergies or 'None'" required></textarea>
+      </div>
+
+      <!-- CREW PRICING BOX -->
+      <div class="pricing-box">
+        <div class="pricing-title">Crew Pricing</div>
+        <div class="pricing-total">Total: <span id="totalDisplay">$25</span></div>
+        <div class="pricing-details">
+          • <strong>$25</strong> for the first child<br>
+          • <strong>$20</strong> for each additional sibling, cousin, or friend!
+        </div>
+      </div>
+
+      <!-- ZELLE BOX -->
+      <div class="zelle-box">
+        <div class="pricing-title" style="margin-bottom:8px;">Payment via Zelle</div>
+        <img src="/assets/zelle-qr-final.png" alt="Zelle QR Code" class="zelle-qr">
+        <div class="zelle-info">
+          <div class="zelle-memo">Memo: 08/14 Movie Night + Kid's Name</div>
+        </div>
+      </div>
+
+      <div id="errorMsg" class="error-msg"></div>
+      <button type="submit" class="submit-btn" id="submitBtn">Complete Registration</button>
+    </form>
+
+    <div class="success-state" id="successState">
+      <div class="success-icon">✓</div>
+      <h3 id="successTitle">You're all set!</h3>
+      <p>We've received your registration request. Once we confirm your Zelle payment, your spot is officially secured.</p>
+      <p>See you and the crew on Friday!</p>
+      <p class="signoff">— The Roots &amp; Wisdom Team</p>
+    </div>
+  </div>
+</div>
+
+<script>
+function calculateTotal() {
+  const count = parseInt(document.getElementById('c-count').value);
+  const total = 25 + (count - 1) * 20;
+  document.getElementById('totalDisplay').textContent = '$' + total;
+}
+
+document.getElementById('movieForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  
+  const name = document.getElementById('p-name').value.trim();
+  const email = document.getElementById('p-email').value.trim();
+  const children = document.getElementById('c-names').value.trim();
+  const allergies = document.getElementById('p-allergies').value.trim();
+  
+  // Validate
+  const errs = [];
+  if(!name) errs.push('p-name');
+  if(!email || !/\S+@\S+\.\S+/.test(email)) errs.push('p-email');
+  if(!children) errs.push('c-names');
+  if(!allergies) errs.push('p-allergies');
+  
+  document.querySelectorAll('.input, .textarea').forEach(el => el.classList.remove('invalid'));
+  errs.forEach(id => {
+    if(id !== 'email-format') document.getElementById(id).classList.add('invalid');
+  });
+  
+  const errEl = document.getElementById('errorMsg');
+  if(errs.length) {
+    errEl.textContent = 'Please fill in all required fields and check your email format.';
+    errEl.classList.add('show');
+    return;
+  }
+  errEl.classList.remove('show');
+  
+  const btn = document.getElementById('submitBtn');
+  btn.disabled = true;
+  btn.textContent = 'Sending...';
+  
+  try {
+    const res = await fetch('https://formspree.io/f/xvzlyejn', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        _subject: 'Movie Night Registration – ' + name,
+        _replyto: email,
+        Parent: name,
+        Email: email,
+        'Number of Kids': document.getElementById('c-count').value,
+        Children: children,
+        Allergies: allergies,
+        'Total Amount': document.getElementById('totalDisplay').textContent,
+        Type: 'Movie Night'
+      })
+    });
+    
+    if(res.ok) {
+      document.getElementById('movieForm').style.display = 'none';
+      document.getElementById('formHead').style.display = 'none';
+      document.getElementById('successState').classList.add('show');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      throw new Error('Submit failed');
+    }
+  } catch(err) {
+    btn.disabled = false;
+    btn.textContent = 'Complete Registration';
+    errEl.textContent = 'Something went wrong. Please try again or contact us directly.';
+    errEl.classList.add('show');
+  }
+});
+</script>
+
+</body>
+</html>
