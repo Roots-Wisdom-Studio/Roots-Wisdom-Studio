@@ -99,9 +99,11 @@ body{font-family:var(--font-b);background:var(--cream);color:var(--text-dark);mi
 .kid-field.show{display:block;}
 
 /* DATE CHIPS */
-.date-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px;}
-.date-chip{background:var(--cream);border:1.5px solid var(--green-light);color:var(--text-mid);padding:8px 12px;border-radius:8px;font-size:.82rem;font-weight:500;cursor:pointer;transition:all .15s;font-family:var(--font-b);}
+.date-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px;padding:4px;border:2px solid transparent;border-radius:10px;}
+.date-chips.invalid{border-color:var(--terra);background:rgba(184,92,56,.04);}
+.date-chip{appearance:none;background:var(--cream);border:1.5px solid var(--green-light);color:var(--text-mid);padding:8px 12px;border-radius:8px;font-size:.82rem;font-weight:500;cursor:pointer;transition:all .15s;font-family:var(--font-b);}
 .date-chip:hover{border-color:var(--green-mid);color:var(--green-deep);}
+.date-chip:focus-visible{outline:3px solid var(--gold);outline-offset:2px;}
 .date-chip.selected{background:var(--green-deep);color:white;border-color:var(--green-deep);}
 .date-chips-empty{font-size:.8rem;color:var(--text-light);font-style:italic;padding:4px 0;}
 
@@ -260,6 +262,7 @@ body{font-family:var(--font-b);background:var(--cream);color:var(--text-dark);mi
             <option>Kids Capoeira (Ages 4–7) · Tue &amp; Thu 4PM / Sat 11AM · 1st Class FREE</option>
             <option>Youth Capoeira (Ages 8–13) · Tue &amp; Thu 5PM / Sat 10AM · 1st Class FREE</option>
             <option>Teens &amp; Adults Capoeira (Ages 14+) · Tue 6PM / Sat 12PM · 1st Class FREE</option>
+            <option>Teens Capoeira (Ages 14–17) · Thu 6PM · 1st Class FREE</option>
             <option>All-Kids Community Class (Last Sat of Month) · 11AM · 1st Class FREE</option>
           </optgroup>
           <optgroup label="Salsa">
@@ -274,7 +277,6 @@ body{font-family:var(--font-b);background:var(--cream);color:var(--text-dark);mi
           </optgroup>
           <optgroup label="Mobility">
             <option>Ground-based Mobility Flow · Mon 12:30PM / Wed 2PM · $25</option>
-            <option>Teens Capoeira (Ages 14–17) · Thu 6PM · $30</option>
           </optgroup>
           <optgroup label="Other">
             <option>Private Lesson (contact to schedule)</option>
@@ -285,10 +287,11 @@ body{font-family:var(--font-b);background:var(--cream);color:var(--text-dark);mi
 
       <div class="field">
         <label class="label">Which day works? <span class="req">*</span></label>
-        <input class="input" id="f-date" name="Preferred Date" placeholder="e.g. Tuesday May 12, or 'this week'" required/>
-        <div class="date-chips" id="dateChips">
+        <input type="hidden" id="f-date" name="Preferred Date"/>
+        <div class="date-chips" id="dateChips" role="group" aria-label="Available class dates">
           <div class="date-chips-empty">Pick a class above to see upcoming dates</div>
         </div>
+        <div class="field-help">Choose one of the available dates above. Dates are limited to the selected class schedule.</div>
       </div>
 
       <div class="field kid-field" id="kidField">
@@ -346,7 +349,7 @@ const CLASSES = [
   {key:'yoga-vinyasa-pm', name:'Vinyasa Yoga', times:'Tue 7:15PM', tag:'yog', tagLabel:'All Levels', price:'$25', days:[2], time:'7:15PM',
    selectValue:'Vinyasa Yoga · Tue 7:15PM · $25'},
   {key:'cap-teens-thu', name:'Teens Capoeira', times:'Thu 6PM', tag:'cap', tagLabel:'Ages 14–17', price:'$30', free:true, days:[4], time:'6PM',
-   selectValue:'Teens Capoeira (Ages 14–17) · Thu 6PM · $30'},
+   selectValue:'Teens Capoeira (Ages 14–17) · Thu 6PM · 1st Class FREE'},
 ];
 
 /* ========== RENDER CLASS CARDS ========== */
@@ -375,7 +378,7 @@ CLASSES.forEach(c => {
 });
 
 /* ========== CLASS SELECTION ========== */
-function selectClass(key) {
+function selectClass(key, dayOverride = null) {
   document.querySelectorAll('.class-card').forEach(c => c.classList.toggle('selected', c.dataset.key === key));
   const cls = CLASSES.find(c => c.key === key);
   if (!cls) return;
@@ -386,8 +389,8 @@ function selectClass(key) {
   }
   // Show/hide kid field
   document.getElementById('kidField').classList.toggle('show', !!cls.kids);
-  // Render date suggestions
-  renderDateChips(cls);
+  // Render date suggestions, optionally restricted by a schedule-link day
+  renderDateChips(cls, dayOverride);
   // Smooth scroll to form on mobile
   if (window.innerWidth < 880) {
     document.querySelector('.form-card').scrollIntoView({ behavior:'smooth', block:'start' });
@@ -398,16 +401,26 @@ function selectClass(key) {
 const DAY_NAMES = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
 const MONTH_NAMES = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 
-function renderDateChips(cls) {
+function renderDateChips(cls, dayOverride = null) {
   const wrap = document.getElementById('dateChips');
+  const dateInput = document.getElementById('f-date');
+  const allowedDays = Number.isInteger(dayOverride) && cls.days.includes(dayOverride)
+    ? [dayOverride]
+    : cls.days;
+
+  // A class change must invalidate any previously selected date.
+  dateInput.value = '';
+  wrap.classList.remove('invalid');
   wrap.innerHTML = '';
+
   const today = new Date();
   const upcoming = [];
-  // Find next 4 dates that match the class's days of week
-  for (let i = 0; i < 45 && upcoming.length < 4; i++) {
+  const searchWindow = cls.key === 'cap-community' ? 150 : 45;
+  // Find the next 4 dates that match only the selected class's valid weekdays.
+  for (let i = 0; i < searchWindow && upcoming.length < 4; i++) {
     const d = new Date(today);
     d.setDate(today.getDate() + i);
-    if (cls.days.includes(d.getDay())) {
+    if (allowedDays.includes(d.getDay())) {
       // Special logic for Last Saturday of Month Community Class
       if (cls.key === 'cap-community') {
         const nextDay = new Date(d);
@@ -431,19 +444,31 @@ function renderDateChips(cls) {
       }
     }
   }
+  if (!upcoming.length) {
+    wrap.innerHTML = '<div class="date-chips-empty">No upcoming dates are currently available for this class.</div>';
+    return;
+  }
+
   upcoming.forEach((d, idx) => {
     const isToday = idx === 0 && d.toDateString() === today.toDateString();
     const dayTime = cls.dayTimeMap ? (cls.dayTimeMap[d.getDay()] || cls.time) : cls.time;
     const label = isToday ? `Today · ${dayTime}` :
                   `${DAY_NAMES[d.getDay()]} ${MONTH_NAMES[d.getMonth()]} ${d.getDate()} · ${dayTime}`;
     const fullText = `${DAY_NAMES[d.getDay()]} ${MONTH_NAMES[d.getMonth()]} ${d.getDate()} at ${dayTime}`;
-    const chip = document.createElement('div');
+    const chip = document.createElement('button');
+    chip.type = 'button';
     chip.className = 'date-chip';
     chip.textContent = label;
+    chip.setAttribute('aria-pressed', 'false');
     chip.addEventListener('click', () => {
-      document.querySelectorAll('.date-chip').forEach(c => c.classList.remove('selected'));
+      wrap.querySelectorAll('.date-chip').forEach(c => {
+        c.classList.remove('selected');
+        c.setAttribute('aria-pressed', 'false');
+      });
       chip.classList.add('selected');
-      document.getElementById('f-date').value = fullText;
+      chip.setAttribute('aria-pressed', 'true');
+      dateInput.value = fullText;
+      wrap.classList.remove('invalid');
     });
     wrap.appendChild(chip);
   });
@@ -459,7 +484,32 @@ document.getElementById('f-class').addEventListener('change', e => {
   document.querySelectorAll('.class-card').forEach(card => {
     card.classList.toggle('selected', matched && card.dataset.key === matched.key);
   });
-  if (matched) renderDateChips(matched);
+  if (matched) {
+    renderDateChips(matched);
+  } else {
+    const wrap = document.getElementById('dateChips');
+    const dateInput = document.getElementById('f-date');
+    dateInput.value = '';
+    wrap.classList.remove('invalid');
+    wrap.innerHTML = '';
+
+    if (e.target.value) {
+      const scheduleChip = document.createElement('button');
+      scheduleChip.type = 'button';
+      scheduleChip.className = 'date-chip';
+      scheduleChip.textContent = 'Contact me to schedule';
+      scheduleChip.setAttribute('aria-pressed', 'false');
+      scheduleChip.addEventListener('click', () => {
+        scheduleChip.classList.add('selected');
+        scheduleChip.setAttribute('aria-pressed', 'true');
+        dateInput.value = 'To be scheduled with studio';
+        wrap.classList.remove('invalid');
+      });
+      wrap.appendChild(scheduleChip);
+    } else {
+      wrap.innerHTML = '<div class="date-chips-empty">Pick a class above to see upcoming dates</div>';
+    }
+  }
 });
 
 /* ========== FAQ ACCORDION ========== */
@@ -486,11 +536,14 @@ document.getElementById('bookingForm').addEventListener('submit', async e => {
 
   // Validate
   const errs = [];
-  const fields = [['f-fname',fname],['f-lname',lname],['f-email',email],['f-class',cls],['f-date',date]];
+  const fields = [['f-fname',fname],['f-lname',lname],['f-email',email],['f-class',cls]];
   fields.forEach(([id,val]) => {
     document.getElementById(id).classList.toggle('invalid', !val);
     if (!val) errs.push(id);
   });
+  const dateWrap = document.getElementById('dateChips');
+  dateWrap.classList.toggle('invalid', !date);
+  if (!date) errs.push('f-date');
   if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
     document.getElementById('f-email').classList.add('invalid');
     errs.push('email-format');
@@ -548,9 +601,13 @@ document.querySelectorAll('.input,.select').forEach(el => {
 /* Read ?class= URL param to pre-select */
 const params = new URLSearchParams(window.location.search);
 const preClass = params.get('class');
+const preDay = params.get('day');
 if (preClass) {
   const m = CLASSES.find(c => c.key === preClass || c.name.toLowerCase().includes(preClass.toLowerCase()));
-  if (m) selectClass(m.key);
+  if (m) {
+    const dayIndex = preDay ? DAY_NAMES.findIndex(day => day.toLowerCase() === preDay.slice(0,3).toLowerCase()) : -1;
+    selectClass(m.key, dayIndex >= 0 ? dayIndex : null);
+  }
 }
 </script>
 </body>
