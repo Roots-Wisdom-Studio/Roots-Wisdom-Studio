@@ -404,7 +404,7 @@ function renderDateChips(cls) {
   const today = new Date();
   const upcoming = [];
   // Find next 4 dates that match the class's days of week
-  for (let i = 0; i < 21 && upcoming.length < 4; i++) {
+  for (let i = 0; i < 45 && upcoming.length < 4; i++) {
     const d = new Date(today);
     d.setDate(today.getDate() + i);
     if (cls.days.includes(d.getDay())) {
