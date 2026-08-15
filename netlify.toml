@@ -40,9 +40,14 @@
   status = 301
 
 [[redirects]]
-  from = "/walnut-creek"
-  to = "/#local-seo"
-  status = 301
+from = "/walnut-creek"
+to = "/#local-seo"
+status = 301
+
+[[redirects]]
+  from = "/salsa-social"
+  to = "/salsa-social.html"
+  status = 200
 
 [[headers]]
   for = "/*"
