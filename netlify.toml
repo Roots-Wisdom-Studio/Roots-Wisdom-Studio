@@ -25,11 +25,6 @@
   status = 200
 
 [[redirects]]
-  from = "/calendar"
-  to = "/Calendar"
-  status = 301
-
-[[redirects]]
   from = "/booking"
   to = "/booking.html"
   status = 200
