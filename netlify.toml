@@ -21,7 +21,12 @@
 
 [[redirects]]
   from = "/Calendar"
-  to = "https://roots-wisdom-calendar.claudiagui0915.chatgpt.site/"
+  to = "/calendar.html"
+  status = 200
+
+[[redirects]]
+  from = "/calendar"
+  to = "/Calendar"
   status = 301
 
 [[redirects]]

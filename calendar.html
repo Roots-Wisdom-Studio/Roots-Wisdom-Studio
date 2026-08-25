@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Calendar | Roots & Wisdom Studio</title>
+  <meta name="description" content="Upcoming Roots & Wisdom Studio classes and community events in Walnut Creek.">
+  <meta property="og:title" content="Roots & Wisdom Studio Calendar">
+  <meta property="og:description" content="Classes, community events, and special dates at Roots & Wisdom Studio.">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="calendar.css">
+</head>
+<body>
+  <main>
+    <header class="hero">
+      <nav class="topline" aria-label="Studio identity">
+        <a href="/" aria-label="Roots and Wisdom Studio home">ROOTS &amp; WISDOM STUDIO</a>
+        <span>WALNUT CREEK</span>
+      </nav>
+      <div class="hero-grid">
+        <div>
+          <p class="eyebrow">THE CALM, CLEAR STUDIO CALENDAR</p>
+          <h1>What’s happening<br>at our house?</h1>
+          <p class="intro">Choose your community and see what’s next. One clear place for classes, gatherings, and special events.</p>
+        </div>
+        <aside class="next-card" aria-live="polite">
+          <span class="pulse"></span>
+          <p id="next-label">NEXT UP FOR WHOLE STUDIO</p>
+          <strong id="next-title">Loading the calendar…</strong>
+          <span id="next-meta"></span>
+        </aside>
+      </div>
+    </header>
+
+    <section class="control-wrap" aria-label="Choose calendar group">
+      <div class="step-label">
+        <span>1</span>
+        <div>
+          <strong>Choose your community</strong>
+          <small>Your view updates to show what is coming up.</small>
+        </div>
+      </div>
+      <div class="group-grid" id="group-filters" role="group" aria-label="Calendar group filters"></div>
+    </section>
+
+    <section class="calendar-section" aria-live="polite">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow dark">YOUR LIVE VIEW</p>
+          <h2 id="group-title">Whole Studio</h2>
+          <p>Upcoming confirmed classes and studio events. Updated August 24, 2026.</p>
+        </div>
+        <label class="switch">
+          <input id="special-only" type="checkbox">
+          <span></span>
+          Show special events only
+        </label>
+      </div>
+
+      <div id="program-note"></div>
+      <div class="event-list" id="event-list"></div>
+
+      <section class="host-bios" id="host-bios" aria-label="Salsa hosts">
+        <div id="bio-dj-super-chino" class="bio-card">
+          <span>ON THE MUSIC</span>
+          <h3>DJ Super Chino</h3>
+          <p>Jairo Aguilar has spent 25+ years behind the booth and brings a dancer’s ear to every set. A longtime Bay Area Latin DJ, he is known for reading the room and keeping the floor moving.</p>
+          <a href="https://www.dj-chino.com/" target="_blank" rel="noreferrer">Visit DJ Super Chino’s website ↗</a>
+        </div>
+        <div id="bio-luis-aguilar" class="bio-card">
+          <span>LEADING THE FLOOR</span>
+          <h3>Luis Aguilar</h3>
+          <p>Lead Salsa Director at Roots &amp; Wisdom Studio. Luis is a two-time World Salsa Champion, director, choreographer, and instructor with 30+ years in the craft.</p>
+          <a href="https://www.revivedanceclasses.com/" target="_blank" rel="noreferrer">Visit Luis’s teaching website ↗</a>
+        </div>
+      </section>
+    </section>
+
+    <section class="sanity-note">
+      <span>STUDIO SANITY RULE</span>
+      <p>If it isn’t on this page, it isn’t ready to announce. Events marked “Save the Date” have a confirmed date, while the time, location, or other details may still be coming soon.</p>
+    </section>
+
+    <footer>
+      <p><strong>Roots &amp; Wisdom Studio</strong><br>2029 Mt. Diablo Blvd. · Walnut Creek, CA 94596</p>
+      <p>Movement · culture · community<br><a href="/">rootsandwisdomstudio.com</a></p>
+    </footer>
+  </main>
+  <script src="calendar.js"></script>
+</body>
+</html>
