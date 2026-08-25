@@ -20,6 +20,11 @@
   compress = true
 
 [[redirects]]
+  from = "/Calendar"
+  to = "https://roots-wisdom-calendar.claudiagui0915.chatgpt.site/"
+  status = 301
+
+[[redirects]]
   from = "/booking"
   to = "/booking.html"
   status = 200
