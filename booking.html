@@ -168,7 +168,7 @@ body{font-family:var(--font-b);background:var(--cream);color:var(--text-dark);mi
     <p class="eyebrow">Reserve your spot</p>
     <h1>Book a class.<br><em>Walk-ins welcome.</em></h1>
     <div class="divider"></div>
-    <p class="intro-p">Pick a class on the right (or tap a card below to fill it in for you), tell us when you'd like to come, and we'll confirm by text or email within a few hours.</p>
+    <p class="intro-p">Choose a class card or select your class in the booking form. Then choose a date and we’ll confirm your spot by text or email.</p>
     <p class="intro-p" style="margin-top:8px;"><strong style="color:var(--green-deep);">New to capoeira?</strong> Your first class is on us — no payment needed up front.</p>
 
     <div style="height:32px;"></div>
@@ -195,7 +195,7 @@ body{font-family:var(--font-b);background:var(--cream);color:var(--text-dark);mi
       </div>
       <div class="faq-item">
         <div class="faq-q">How much does it cost?</div>
-        <div class="faq-a"><strong>$30/class</strong> for capoeira and salsa. <strong>$25/class</strong> for yoga, mobility, and fitness. Packages are available — ask Claudia at the studio or mention it in the notes below.</div>
+        <div class="faq-a">Capoeira and Salsa classes are $30 per class. Ground-based Mobility Flow is $25 per class. Yoga pricing will be announced with the new schedule.</div>
       </div>
       <div class="faq-item">
         <div class="faq-q">Do I need a partner for salsa?</div>
@@ -273,13 +273,11 @@ body{font-family:var(--font-b);background:var(--cream);color:var(--text-dark);mi
             <option>Salsa Advanced Beginner · Wed 7:30PM · $30</option>
             <option disabled>Salsa Intermediate (Coming Soon) · Mon 7PM · $30</option>
           </optgroup>
-          <optgroup label="Yoga">
-            <option>Vinyasa Yoga (Early) · Tue &amp; Thu 6AM · $25</option>
-            <option>Gentle Yoga · Tue &amp; Thu 12PM · $25</option>
-            <option>Vinyasa Yoga · Tue 7:15PM · $25</option>
-          </optgroup>
           <optgroup label="Mobility">
             <option>Ground-based Mobility Flow · Mon 12:30PM / Wed 2PM · $25</option>
+          </optgroup>
+          <optgroup label="Yoga Returning Soon">
+            <option disabled>Yoga — Returning Soon · Class and instructor details will be shared once confirmed.</option>
           </optgroup>
           <optgroup label="Other">
             <option>Private Lesson (contact to schedule)</option>
@@ -353,12 +351,8 @@ const CLASSES = [
    selectValue:'Salsa Advanced Beginner · Wed 7:30PM · $30'},
   {key:'salsa-int', name:'Salsa Intermediate (Coming Soon)', times:'Mon 7:00–8:30 PM', tag:'sal', tagLabel:'Intermediate', price:'$30', days:[1], time:'7:00 PM',
    selectValue:'Salsa Intermediate (Coming Soon) · Mon 7PM · $30', disabled:true},
-  {key:'yoga-vinyasa-am', name:'Vinyasa Yoga — Early', times:'Tue & Thu 6:00 AM', tag:'yog', tagLabel:'All Levels', price:'$25', days:[2,4], time:'6:00 AM',
-   selectValue:'Vinyasa Yoga (Early) · Tue & Thu 6AM · $25'},
-  {key:'yoga-gentle', name:'Gentle Yoga', times:'Tue & Thu 12:00 PM', tag:'yog', tagLabel:'All Levels', price:'$25', days:[2,4], time:'12:00 PM',
-   selectValue:'Gentle Yoga · Tue & Thu 12PM · $25'},
-  {key:'yoga-vinyasa-pm', name:'Vinyasa Yoga', times:'Tue 7:15 PM', tag:'yog', tagLabel:'All Levels', price:'$25', days:[2], time:'7:15 PM',
-   selectValue:'Vinyasa Yoga · Tue 7:15PM · $25'},
+  {key:'yoga-coming-soon', name:'Yoga — Returning Soon', times:'Class and instructor details will be shared once confirmed.', tag:'yog', tagLabel:'Returning Soon', price:'', priceLabel:'Returning Soon', days:[], time:'',
+   selectValue:'Yoga — Returning Soon · Class and instructor details will be shared once confirmed.', disabled:true},
 ];
 
 /* ========== RENDER CLASS CARDS ========== */
@@ -374,7 +368,7 @@ CLASSES.forEach(c => {
       <span class="cc-tag tag-${c.tag}">${c.tagLabel}</span>
       ${c.free ? '<span class="cc-tag tag-free">1st Class FREE</span>' : ''}
     </div>
-    <div class="cc-price">${c.price}/class</div>
+    <div class="cc-price">${c.priceLabel || `${c.price}/class`}</div>
   `;
   if (c.disabled) {
     card.style.opacity = '0.6';

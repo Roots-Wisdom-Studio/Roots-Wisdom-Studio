@@ -3,12 +3,13 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Roots &amp; Wisdom Studio | Capoeira, Salsa &amp; Yoga in Walnut Creek, CA</title>
-<meta name="description" content="Roots & Wisdom Studio is a family-rooted movement, culture, and wellness studio in Walnut Creek, CA offering Capoeira, Salsa, Yoga, Ground Mobility, workshops, and studio rental. First Capoeira class is free."/>
-<meta name="keywords" content="Walnut Creek capoeira, Walnut Creek salsa classes, Walnut Creek yoga, dance studio Walnut Creek, kids capoeira Walnut Creek, Mt Diablo Blvd studio rental"/>
+<title>Roots &amp; Wisdom Studio | Capoeira, Salsa, Samba &amp; Yoga in Walnut Creek, CA</title>
+<meta name="description" content="Roots & Wisdom Studio is a family-rooted movement, culture, and wellness studio in Walnut Creek, CA offering Capoeira, Salsa, Samba, Ground Mobility, Yoga Returning Soon, workshops, and studio rental. First Capoeira class is free."/>
+<meta name="keywords" content="Walnut Creek capoeira, Walnut Creek salsa classes, Walnut Creek samba classes, Walnut Creek yoga, dance studio Walnut Creek, kids capoeira Walnut Creek, Mt Diablo Blvd studio rental"/>
+<link rel="canonical" href="https://rootsandwisdomstudio.com/"/>
 <meta property="og:type" content="website"/>
 <meta property="og:title" content="Roots &amp; Wisdom Studio | Walnut Creek Movement, Culture &amp; Wellness"/>
-<meta property="og:description" content="Capoeira, Salsa, Yoga, Ground Mobility, workshops, and studio rental in the heart of Walnut Creek."/>
+<meta property="og:description" content="Capoeira, Salsa, Samba, Ground Mobility, Yoga Returning Soon, cultural workshops, and studio rental in the heart of Walnut Creek."/>
 <meta property="og:image" content="https://rootsandwisdomstudio.com/assets/optimized/hero-poster.webp"/>
 <meta property="og:url" content="https://rootsandwisdomstudio.com/"/>
 <meta name="twitter:card" content="summary_large_image"/>
@@ -35,6 +36,7 @@
 
 }
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+[hidden]{display:none!important;}
 *:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:3px;}
 html{scroll-behavior:smooth;scroll-padding-top:80px;font-size:18px;}
 body{font-family:var(--font-b);background:var(--warm-white);color:var(--text-dark);line-height:1.7;}
@@ -119,15 +121,15 @@ nav{position:sticky;top:0;z-index:900;background:rgba(46,80,32,.97);backdrop-fil
 
 /* TEAM */
 #team{background:var(--warm-white);}
-.team-g{display:flex;flex-wrap:wrap;justify-content:center;gap:24px;margin-top:36px;}
-.team-card{background:var(--cream);border-radius:14px;padding:26px;text-align:center;border:1px solid var(--green-light);transition:transform .2s,box-shadow .2s;flex:0 1 calc(33.333% - 16px);min-width:260px;}
+.team-g{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:18px;margin-top:36px;}
+.team-card{background:var(--cream);border-radius:14px;padding:22px 18px;text-align:center;border:1px solid var(--green-light);transition:transform .2s,box-shadow .2s;display:flex;flex-direction:column;align-items:stretch;}
 .team-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(46,80,32,.1);}
 .team-img{width:140px;height:140px;border-radius:50%;background:var(--green-light);margin:0 auto 14px;overflow:hidden;}
 .team-img img{width:100%;height:100%;object-fit:cover;display:block;}
 .team-name{font-family:var(--font-h);font-size:1.1rem;color:var(--green-deep);margin-bottom:3px;}
 .team-role{font-size:.82rem;color:var(--terra);font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;}
-.team-bio{font-size:.88rem;color:var(--text-mid);line-height:1.78;}
-.team-social{display:flex;gap:7px;justify-content:center;margin-top:12px;flex-wrap:wrap;}
+.team-bio{font-size:.88rem;color:var(--text-mid);line-height:1.78;width:100%;}
+.team-social{display:flex;gap:7px;justify-content:center;margin-top:auto;padding-top:12px;flex-wrap:wrap;}
 .team-social a{padding:4px 14px;border-radius:20px;background:var(--green-light);font-size:.8rem;font-weight:600;color:var(--green-deep);transition:background .2s,color .2s;}
 .team-social a:hover{background:var(--green-deep);color:var(--cream);}
 
@@ -159,12 +161,14 @@ nav{position:sticky;top:0;z-index:900;background:rgba(46,80,32,.97);backdrop-fil
 .cpill-time{font-size:.7rem;font-weight:700;display:block;margin-bottom:2px;opacity:.85;}
 .cpill-name{font-size:.75rem;font-weight:700;line-height:1.25;display:block;}
 .cpill-instr{font-size:.68rem;opacity:.75;display:block;margin-top:1px;}
+.cpill-register{font-size:.64rem;font-weight:800;display:block;margin-top:5px;text-transform:uppercase;letter-spacing:.35px;}
 .cpill-free{position:absolute;top:4px;right:4px;background:rgba(255,255,255,.9);color:var(--terra);font-size:.58rem;font-weight:800;padding:1px 4px;border-radius:4px;line-height:1.4;}
 
 /* PILL COLORS */
 .cpill-capoeira{background:var(--green-deep);color:var(--cream);}
 .cpill-salsa{background:var(--terra);color:#fff;}
 .cpill-yoga{background:#3A5A8C;color:#fff;}
+.cpill-samba{background:var(--gold);color:var(--green-deep);}
 .cpill-fitness{background:var(--brown);color:#fff;}
 .cpill-mobility{background:var(--green-mid);color:#fff;}
 
@@ -176,6 +180,7 @@ nav{position:sticky;top:0;z-index:900;background:rgba(46,80,32,.97);backdrop-fil
 .cl-dot-capoeira{background:var(--green-deep);}
 .cl-dot-salsa{background:var(--terra);}
 .cl-dot-yoga{background:#3A5A8C;}
+.cl-dot-samba{background:var(--gold);}
 .cl-dot-fitness{background:var(--brown);}
 .cl-dot-mobility{background:var(--green-mid);}
 .cl-day{font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--terra);min-width:80px;}
@@ -307,15 +312,16 @@ footer{background:var(--text-dark);padding:32px 5% 18px;color:rgba(255,255,255,.
 
 /* RESPONSIVE */
 @media(max-width:960px){
-  .team-card{flex:0 1 calc(50% - 12px);}
+  .team-g{grid-template-columns:repeat(2,minmax(0,1fr));}
   .pillars-g{grid-template-columns:1fr;}
   .foot-top{grid-template-columns:1fr 1fr;}
   .week-cal{grid-template-columns:repeat(3,1fr);}
 }
 @media(max-width:768px){
+  .banner{display:none!important;}
   .rental-g,.contact-g,.mv-cards{grid-template-columns:1fr;}
   .studio-photos{grid-template-columns:1fr 1fr;}
-  .team-card{flex:0 1 100%;}
+  .team-g{grid-template-columns:1fr;}
   .classes-intro{flex-direction:column;align-items:flex-start;}
   .chapter{grid-template-columns:52px 1fr;gap:16px;}
   .ch-num{font-size:3rem;}
@@ -430,9 +436,9 @@ html,body{max-width:100%;overflow-x:hidden;}
   .h-eye::before{content:'WALNUT CREEK · EST. 2011';display:block;font-size:.66rem;letter-spacing:2px;line-height:1.8;color:var(--gold);}
   .h-title{font-size:clamp(2.2rem,12.5vw,3.1rem);line-height:1.08;max-width:330px;margin-left:auto;margin-right:auto;}
   .h-sub2{font-size:.72rem;letter-spacing:1px;line-height:1.85;max-width:315px;margin:16px auto 28px;}
-  .h-sub2::before{content:'Capoeira · Salsa · Yoga';display:block;}
+  .h-sub2::before{content:'CAPOEIRA · SALSA · SAMBA · GROUND MOBILITY · YOGA (RETURNING SOON)';display:block;}
   .h-sub2{font-size:0;}
-  .h-sub2::after{content:'Ground Mobility · Studio Rental · Walnut Creek';display:block;font-size:.72rem;letter-spacing:1px;line-height:1.85;color:rgba(255,255,255,.88);}
+  .h-sub2::after{content:'';display:none;}
   .h-sub2::before{font-size:.72rem;letter-spacing:1px;line-height:1.85;color:rgba(255,255,255,.88);}
   .btn-p{padding:14px 28px;font-size:.92rem;}
   .chat-fab{display:none;}
@@ -649,13 +655,32 @@ html,body{max-width:100%;overflow-x:hidden;}
       .v6-desc { grid-column: 2; padding: 0 18px 18px; }
       .v6-events-content { padding: 18px; }
     }
+    .team-img-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;padding:16px;color:var(--green-deep);font-size:.7rem;font-weight:700;letter-spacing:.5px;background:linear-gradient(145deg,var(--terra-pale),var(--green-light));}
+    .samba-preview-note{font-size:.72rem;color:var(--terra);font-weight:700;margin-top:4px;}
+    .samba-workshop-feature{display:grid;grid-template-columns:auto 1fr auto;gap:20px;align-items:center;background:linear-gradient(135deg,var(--green-deep),#1f4318);color:var(--cream);border:1px solid rgba(201,168,76,.5);border-radius:16px;padding:22px 24px;margin:0 0 30px;box-shadow:0 12px 30px rgba(46,80,32,.16);}
+    .samba-workshop-date{width:74px;height:74px;border-radius:50%;background:var(--gold);color:var(--green-deep);display:flex;flex-direction:column;align-items:center;justify-content:center;font-weight:800;line-height:1;text-transform:uppercase;letter-spacing:1px;}
+    .samba-workshop-date strong{font-family:var(--font-h);font-size:1.8rem;}
+    .samba-workshop-copy .eyebrow{color:var(--gold-light);font-size:.68rem;letter-spacing:2px;text-transform:uppercase;font-weight:800;}
+    .samba-workshop-copy h3{font-family:var(--font-h);font-size:1.35rem;margin:3px 0 5px;}
+    .samba-workshop-copy p{font-size:.88rem;color:rgba(255,255,255,.8);line-height:1.55;}
+    .samba-workshop-link{background:var(--terra);color:#fff;padding:11px 18px;border-radius:24px;font-weight:800;font-size:.84rem;white-space:nowrap;text-align:center;}
+    .discipline-filters{display:flex;gap:8px;flex-wrap:wrap;margin:-8px 0 22px;}
+    .discipline-filter{padding:8px 16px;border-radius:24px;border:1px solid var(--green-light);background:var(--cream);color:var(--green-deep);font:600 .8rem var(--font-b);transition:all .18s;}
+    .discipline-filter:hover,.discipline-filter.active{background:var(--green-deep);border-color:var(--green-deep);color:var(--cream);}
+    .discipline-filter[data-filter="samba"].active{background:var(--gold);border-color:var(--gold);color:var(--green-deep);}
+    .schedule-filter-note{display:none;grid-template-columns:1fr auto;gap:16px;align-items:center;background:#fff8df;border:1px solid rgba(201,168,76,.55);border-left:4px solid var(--gold);border-radius:12px;padding:15px 18px;margin-bottom:18px;color:var(--text-mid);font-size:.86rem;line-height:1.55;}
+    .schedule-filter-note strong{display:block;color:var(--green-deep);font-family:var(--font-h);font-size:1rem;}
+    .schedule-filter-note a{color:var(--terra);font-weight:800;white-space:nowrap;}
+    .week-cal.discipline-filtered{grid-template-columns:repeat(auto-fit,minmax(160px,1fr))!important;}
+    @media(max-width:768px){.samba-workshop-feature{grid-template-columns:auto 1fr}.samba-workshop-link{grid-column:1 / -1}.discipline-filters{overflow-x:auto;flex-wrap:nowrap;padding-bottom:4px}.discipline-filter{flex:0 0 auto}.schedule-filter-note{grid-template-columns:1fr}.schedule-filter-note a{white-space:normal}}
+    @media(max-width:480px){.samba-workshop-feature{grid-template-columns:1fr;text-align:center}.samba-workshop-date{margin:auto}.samba-workshop-link{width:100%}}
 </style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "name": "Roots & Wisdom Studio",
-  "description": "Family-rooted movement, culture, and wellness studio offering Capoeira, Salsa, Yoga, Ground Mobility, workshops, and studio rental in Walnut Creek, California.",
+  "description": "Family-rooted movement, culture, and wellness studio offering Capoeira, Salsa, Samba, Ground Mobility, Yoga Returning Soon, cultural workshops, and studio rental in Walnut Creek, California.",
   "image": "https://rootsandwisdomstudio.com/assets/optimized/hero-poster.webp",
   "telephone": "+1-415-791-2557",
   "email": "hello@rootsandwisdomstudio.com",
@@ -696,13 +721,14 @@ html,body{max-width:100%;overflow-x:hidden;}
   </svg>
 </template>
 
-<div class="banner">Capoeira &nbsp;·&nbsp; Salsa &nbsp;·&nbsp; Yoga &nbsp;·&nbsp; Ground-based Mobility &nbsp;— Walnut Creek &nbsp;·&nbsp; <a href="tel:4157912557" style="color:inherit;">415-791-2557</a> &nbsp;·&nbsp; <span onclick="go('class-schedule')" style="cursor:pointer;"><u>See All Classes ↓</u></span></div>
+<div class="banner">Capoeira &nbsp;·&nbsp; Salsa &nbsp;·&nbsp; Samba &nbsp;·&nbsp; Ground-based Mobility Flow &nbsp;·&nbsp; Yoga Returning Soon &nbsp;— Walnut Creek &nbsp;·&nbsp; <a href="tel:4157912557" style="color:inherit;">415-791-2557</a> &nbsp;·&nbsp; <span onclick="go('class-schedule')" style="cursor:pointer;"><u>See All Classes ↓</u></span></div>
 
 <nav id="mainNav">
   <div class="nav-i">
     <a href="#home" onclick="go('home');return false;" class="nav-logo">Roots &amp; Wisdom Studio<span>Movement · Culture · Wellness</span></a>
     <ul class="nav-links" id="navLinks">
       <li><a href="#class-schedule" onclick="go('class-schedule');closeNav();return false;">Classes</a></li>
+      <li><a href="samba.html">Samba</a></li>
       <li><a href="#team" onclick="go('team');closeNav();return false;">Our Team</a></li>
       <li><a href="#mission" onclick="go('mission');closeNav();return false;">Mission</a></li>
       <li><a href="#story" onclick="go('story');closeNav();return false;">Our Story</a></li>
@@ -725,7 +751,7 @@ html,body{max-width:100%;overflow-x:hidden;}
   <div class="hero-c">
     <p class="h-eye">Walnut Creek, CA · Est. 2011 · Family-Rooted Studio</p>
     <h1 class="h-title">Rooted in Culture.<br>Growing <em>Together.</em></h1>
-    <p class="h-sub2">Capoeira &nbsp;·&nbsp; Salsa &nbsp;·&nbsp; Yoga &nbsp;·&nbsp; Ground Mobility &nbsp;·&nbsp; Studio Rental &nbsp;— Mt. Diablo Blvd, Walnut Creek</p>
+    <p class="h-sub2">CAPOEIRA &nbsp;·&nbsp; SALSA &nbsp;·&nbsp; SAMBA &nbsp;·&nbsp; GROUND MOBILITY &nbsp;·&nbsp; YOGA (RETURNING SOON)</p>
     <div class="h-ctas">
       <a href="booking.html" class="btn-p">Book Your First Class</a>
     </div>
@@ -743,13 +769,23 @@ html,body{max-width:100%;overflow-x:hidden;}
     <h2 class="s-title">Find Your Movement</h2>
     <div class="s-div"></div>
     <div class="classes-intro">
-      <p class="s-desc">Whether you walk in for Capoeira, Salsa, Yoga, or Mobility — movement teaches discipline, joy, presence, and connection. Walk-ins always welcome!</p>
+      <p class="s-desc">Whether you come for Capoeira, Salsa, Samba, Ground-based Mobility Flow, or Yoga Returning Soon — movement teaches discipline, joy, presence, and connection. Vem Sambar! is an independently operated six-week guest program with Isabel.</p>
       <div class="free-badge"><strong>First Capoeira Class FREE!</strong><br>New to Capoeira? Your first class is on us.</div>
     </div>
 
     <div style="border-radius:14px;overflow:hidden;max-height:300px;margin-bottom:36px;">
       <img src="assets/optimized/capoeira-class-walnut-creek.webp" alt="Capoeira class at Roots &amp; Wisdom Studio in Walnut Creek" width="1600" height="720" loading="lazy" decoding="async" style="width:100%;height:300px;object-fit:cover;object-position:center 40%;display:block;"/>
     </div>
+
+    <article class="samba-workshop-feature" id="samba-workshop-feature" data-workshop-promo aria-labelledby="samba-workshop-feature-title">
+      <div class="samba-workshop-date"><span>Sep</span><strong>29</strong></div>
+      <div class="samba-workshop-copy">
+        <span class="eyebrow">One-night welcome workshop · $30</span>
+        <h3 id="samba-workshop-feature-title">Samba Workshop with Live Percussion</h3>
+        <p>Tuesday, September 29 · 7:30–8:30 PM · Isabel De Montiel with featured percussionists Marcos and Gui · Beginners welcome.</p>
+      </div>
+      <a class="samba-workshop-link" href="https://form.jotform.com/262537356025154" target="_blank" rel="noopener" aria-label="Register now for the $30 September 29 Samba workshop">Register Now →</a>
+    </article>
 
     <!-- VIEW TOGGLE -->
     <div id="class-schedule" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:24px;">
@@ -761,10 +797,24 @@ html,body{max-width:100%;overflow-x:hidden;}
       <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:center;">
         <span style="display:flex;align-items:center;gap:5px;font-size:.78rem;color:var(--text-mid);"><span style="width:10px;height:10px;border-radius:50%;background:var(--green-deep);display:inline-block;"></span>Capoeira</span>
         <span style="display:flex;align-items:center;gap:5px;font-size:.78rem;color:var(--text-mid);"><span style="width:10px;height:10px;border-radius:50%;background:var(--terra);display:inline-block;"></span>Salsa</span>
-        <span style="display:flex;align-items:center;gap:5px;font-size:.78rem;color:var(--text-mid);"><span style="width:10px;height:10px;border-radius:50%;background:#3A5A8C;display:inline-block;"></span>Yoga</span>
-        <span style="display:flex;align-items:center;gap:5px;font-size:.78rem;color:var(--text-mid);"><span style="width:10px;height:10px;border-radius:50%;background:var(--green-mid);display:inline-block;"></span>Mobility</span>
+        <span style="display:flex;align-items:center;gap:5px;font-size:.78rem;color:var(--text-mid);"><span style="width:10px;height:10px;border-radius:50%;background:var(--gold);display:inline-block;"></span>Samba</span>
+        <span style="display:flex;align-items:center;gap:5px;font-size:.78rem;color:var(--text-mid);"><span style="width:10px;height:10px;border-radius:50%;background:var(--green-mid);display:inline-block;"></span>Ground-based Mobility Flow</span>
+        <span style="display:flex;align-items:center;gap:5px;font-size:.78rem;color:var(--text-mid);"><span style="width:10px;height:10px;border-radius:50%;background:#3A5A8C;display:inline-block;"></span>Yoga Returning Soon</span>
 
       </div>
+    </div>
+
+    <div class="discipline-filters" aria-label="Filter the weekly schedule by program">
+      <button class="discipline-filter active" type="button" data-filter="all" aria-pressed="true">All Programs</button>
+      <button class="discipline-filter" type="button" data-filter="capoeira" aria-pressed="false">Capoeira</button>
+      <button class="discipline-filter" type="button" data-filter="salsa" aria-pressed="false">Salsa</button>
+      <button class="discipline-filter" type="button" data-filter="samba" aria-pressed="false">Samba</button>
+      <button class="discipline-filter" type="button" data-filter="mobility" aria-pressed="false">Ground-based Mobility Flow</button>
+      <button class="discipline-filter" type="button" data-filter="yoga" aria-pressed="false">Yoga Returning Soon</button>
+    </div>
+    <div class="schedule-filter-note" id="samba-filter-note" aria-live="polite">
+      <div><strong>Samba with Isabel</strong><span data-workshop-promo>Welcome workshop: September 29 · 7:30–8:30 PM · $30 · Marcos and Gui on live percussion.<br></span>Vem Sambar!: October 6–November 10 · Tuesdays, 7:30–8:30 PM · $180 full series.</div>
+      <a href="samba.html">View Samba details →</a>
     </div>
 
     <!-- LIST VIEW -->
@@ -804,29 +854,6 @@ html,body{max-width:100%;overflow-x:hidden;}
         <span style="flex:1;height:1px;background:var(--green-light);"></span>
       </div>
       <div class="cl-item">
-        <span class="cl-dot cl-dot-yoga"></span>
-        <div class="cl-day">Tue</div>
-        <div class="cl-time">6:00 AM</div>
-        <div class="cl-info">
-          <div class="cl-name">Vinyasa Yoga</div>
-          <div class="cl-sub">With Melissa Rodriguez · All Levels · Dynamic flowing sequences</div>
-          <div class="cl-series">✦ 7-Week Chakra Series · <a href="https://stillinmotion.club/chakra" target="_blank" rel="noopener">$25/wk drop-in · $180 full series</a></div>
-        </div>
-        <div class="cl-price">$25</div>
-        <a href="booking.html?class=Vinyasa+Yoga&day=Tue&time=6%3A00+AM" class="cl-cta">Reserve →</a>
-      </div>
-      <div class="cl-item">
-        <span class="cl-dot cl-dot-yoga"></span>
-        <div class="cl-day">Tue</div>
-        <div class="cl-time">12:00 PM</div>
-        <div class="cl-info">
-          <div class="cl-name">Gentle Yoga</div>
-          <div class="cl-sub">With Melissa Rodriguez · All Levels · Breath, release &amp; mindful movement</div>
-        </div>
-        <div class="cl-price">$25</div>
-        <a href="booking.html?class=Gentle+Yoga&day=Tue&time=12%3A00+PM" class="cl-cta">Reserve →</a>
-      </div>
-      <div class="cl-item">
         <span class="cl-dot cl-dot-capoeira"></span>
         <div class="cl-day">Tue</div>
         <div class="cl-time">4:00 PM</div>
@@ -860,16 +887,16 @@ html,body{max-width:100%;overflow-x:hidden;}
         <a href="booking.html?class=Teens+%26+Adults+Capoeira&day=Tue&time=6%3A00+PM" class="cl-cta">Reserve →</a>
       </div>
       <div class="cl-item">
-        <span class="cl-dot cl-dot-yoga"></span>
+        <span class="cl-dot cl-dot-samba"></span>
         <div class="cl-day">Tue</div>
-        <div class="cl-time">7:15 PM</div>
+        <div class="cl-time">7:30 PM</div>
         <div class="cl-info">
-          <div class="cl-name">Vinyasa Yoga</div>
-          <div class="cl-sub">With Melissa Rodriguez · All Levels · Dynamic flowing sequences</div>
-          <div class="cl-series">✦ 7-Week Chakra Series · <a href="https://stillinmotion.club/chakra" target="_blank" rel="noopener">$25/wk drop-in · $180 full series</a></div>
+          <div class="cl-name">Vem Sambar! — Six-Week Samba Journey</div>
+          <div class="cl-sub">With Isabel De Montiel · Ages 16+ · Complete beginners welcome · Closed cohort</div>
+          <div class="samba-preview-note">October 6–November 10 · $180 full series · No drop-ins · Registration open</div>
         </div>
-        <div class="cl-price">$25</div>
-        <a href="booking.html?class=Vinyasa+Yoga&day=Tue&time=7%3A15+PM" class="cl-cta">Reserve →</a>
+        <div class="cl-price">$180</div>
+        <a href="https://form.jotform.com/262537661593163" target="_blank" rel="noopener" class="cl-cta" aria-label="Register now for the $180 six-week Vem Sambar series">Register Now →</a>
       </div>
 
       <!-- WEDNESDAY -->
@@ -915,29 +942,6 @@ html,body{max-width:100%;overflow-x:hidden;}
       <div style="display:flex;align-items:center;gap:12px;margin-top:12px;margin-bottom:2px;">
         <span style="font-family:var(--font-h);font-size:1rem;font-weight:600;color:var(--green-deep);">Thursday</span>
         <span style="flex:1;height:1px;background:var(--green-light);"></span>
-      </div>
-      <div class="cl-item">
-        <span class="cl-dot cl-dot-yoga"></span>
-        <div class="cl-day">Thu</div>
-        <div class="cl-time">6:00 AM</div>
-        <div class="cl-info">
-          <div class="cl-name">Vinyasa Yoga</div>
-          <div class="cl-sub">With Melissa Rodriguez · All Levels · Dynamic flowing sequences</div>
-          <div class="cl-series">✦ 7-Week Chakra Series · <a href="https://stillinmotion.club/chakra" target="_blank" rel="noopener">$25/wk drop-in · $180 full series</a></div>
-        </div>
-        <div class="cl-price">$25</div>
-        <a href="booking.html?class=Vinyasa+Yoga&day=Thu&time=6%3A00+AM" class="cl-cta">Reserve →</a>
-      </div>
-      <div class="cl-item">
-        <span class="cl-dot cl-dot-yoga"></span>
-        <div class="cl-day">Thu</div>
-        <div class="cl-time">12:00 PM</div>
-        <div class="cl-info">
-          <div class="cl-name">Gentle Yoga</div>
-          <div class="cl-sub">With Melissa Rodriguez · All Levels · Breath, release &amp; mindful movement</div>
-        </div>
-        <div class="cl-price">$25</div>
-        <a href="booking.html?class=Gentle+Yoga&day=Thu&time=12%3A00+PM" class="cl-cta">Reserve →</a>
       </div>
       <div class="cl-item">
         <span class="cl-dot cl-dot-capoeira"></span>
@@ -1070,16 +1074,6 @@ html,body{max-width:100%;overflow-x:hidden;}
         <div class="wday-col">
           <div class="wday-head"><span class="wd-name">Tue</span><span class="wd-full">Tuesday</span></div>
           <div class="wday-body">
-            <div class="cpill cpill-yoga" onclick="location.href='booking.html?class=Vinyasa+Yoga&day=Tue&time=6%3A00+AM'" style="cursor:pointer;">
-              <span class="cpill-time">6:00 AM</span>
-              <span class="cpill-name">Vinyasa Yoga</span>
-              <span class="cpill-instr">Melissa R.</span>
-            </div>
-            <div class="cpill cpill-yoga" onclick="location.href='booking.html?class=Gentle+Yoga&day=Tue&time=12%3A00+PM'" style="cursor:pointer;">
-              <span class="cpill-time">12:00 PM</span>
-              <span class="cpill-name">Gentle Yoga</span>
-              <span class="cpill-instr">Melissa R.</span>
-            </div>
             <div class="cpill cpill-capoeira" onclick="location.href='booking.html?class=Kids+Capoeira&day=Tue&time=4%3A00+PM'" style="cursor:pointer;">
               <span class="cpill-time">4:00 PM</span>
               <span class="cpill-name">Kids Capoeira</span>
@@ -1098,11 +1092,12 @@ html,body{max-width:100%;overflow-x:hidden;}
               <span class="cpill-instr">Ages 14+ · All Levels</span>
               <span class="cpill-free">FREE</span>
             </div>
-            <div class="cpill cpill-yoga" onclick="location.href='booking.html?class=Vinyasa+Yoga&day=Tue&time=7%3A15+PM'" style="cursor:pointer;">
-              <span class="cpill-time">7:15 PM</span>
-              <span class="cpill-name">Vinyasa Yoga</span>
-              <span class="cpill-instr">Melissa R.</span>
-            </div>
+            <a class="cpill cpill-samba" href="https://form.jotform.com/262537661593163" target="_blank" rel="noopener" aria-label="Register for the six-week Vem Sambar series">
+              <span class="cpill-time">7:30 PM</span>
+              <span class="cpill-name">Vem Sambar!</span>
+              <span class="cpill-instr">Isabel · Oct. 6–Nov. 10</span>
+              <span class="cpill-register">Register Now →</span>
+            </a>
           </div>
         </div>
 
@@ -1132,16 +1127,6 @@ html,body{max-width:100%;overflow-x:hidden;}
         <div class="wday-col">
           <div class="wday-head"><span class="wd-name">Thu</span><span class="wd-full">Thursday</span></div>
           <div class="wday-body">
-            <div class="cpill cpill-yoga" onclick="location.href='booking.html?class=Vinyasa+Yoga&day=Thu&time=6%3A00+AM'" style="cursor:pointer;">
-              <span class="cpill-time">6:00 AM</span>
-              <span class="cpill-name">Vinyasa Yoga</span>
-              <span class="cpill-instr">Melissa R.</span>
-            </div>
-            <div class="cpill cpill-yoga" onclick="location.href='booking.html?class=Gentle+Yoga&day=Thu&time=12%3A00+PM'" style="cursor:pointer;">
-              <span class="cpill-time">12:00 PM</span>
-              <span class="cpill-name">Gentle Yoga</span>
-              <span class="cpill-instr">Melissa R.</span>
-            </div>
             <div class="cpill cpill-capoeira" onclick="location.href='booking.html?class=Kids+Capoeira&day=Thu&time=4%3A00+PM'" style="cursor:pointer;">
               <span class="cpill-time">4:00 PM</span>
               <span class="cpill-name">Kids Capoeira</span>
@@ -1197,17 +1182,19 @@ html,body{max-width:100%;overflow-x:hidden;}
         </div>
 
       </div><!-- /week-cal -->
-      <p style="font-size:.82rem;color:var(--text-light);margin-top:12px;text-align:center;">Tap any class above to book · Walk-ins always welcome</p>
+      <p style="font-size:.82rem;color:var(--text-light);margin-top:12px;text-align:center;">Tap any class above for details · Vem Sambar! requires full-series registration with Isabel</p>
     </div><!-- /calendar view -->
 
     <div class="pricing-strip">
       <div class="ps-item"><strong>$30</strong><span>Capoeira &amp; Salsa classes</span></div>
       <div class="ps-sep"></div>
-      <div class="ps-item"><strong>$25</strong><span>Yoga &amp; Mobility</span></div>
+      <div class="ps-item"><strong>$25</strong><span>Ground-based Mobility Flow</span></div>
+      <div class="ps-sep"></div>
+      <div class="ps-item"><strong>TBA</strong><span>Yoga Returning Soon</span></div>
+      <div class="ps-sep"></div>
+      <a class="ps-item" href="https://form.jotform.com/262537661593163" target="_blank" rel="noopener" aria-label="Register now for the $180 six-week Vem Sambar series"><strong>$30 / $180</strong><span>Samba workshop / full six-week series · Register Now →</span></a>
       <div class="ps-sep"></div>
       <div class="ps-item"><strong>FREE</strong><span>First Capoeira class for new students</span></div>
-      <div class="ps-sep"></div>
-      <div class="ps-item"><strong>Walk-ins</strong><span>Always welcome</span></div>
     </div>
 
     <!-- WHY LEARN accordion -->
@@ -1251,6 +1238,19 @@ html,body{max-width:100%;overflow-x:hidden;}
           <p style="font-size:.85rem;color:var(--text-light);margin-top:4px;">Luis Aguilar also teaches at Revivé Studio · <a href="https://www.revivedanceclasses.com/" target="_blank" rel="noopener" style="color:var(--green-mid);">revivedanceclasses.com</a></p>
         </div>
       </div>
+      <div class="lm-panel" id="lm-samba">
+        <button class="lm-toggle" onclick="toggleLearnMore('lm-samba')">
+          <div class="lm-toggle-title">Why Learn Samba?</div>
+          <span class="lm-arrow">▼</span>
+        </button>
+        <div class="lm-body">
+          <p><strong>Rhythm you learn with your whole body</strong><br>
+          Samba builds coordination, musicality, posture, and confidence at the same time. Isabel teaches the steps with their Brazilian cultural context still attached, so beginners learn more than choreography—they learn how the movement listens and responds to the music.</p>
+          <p><strong>A clear six-week journey</strong><br>
+          Vem Sambar! gives complete beginners enough time to build a real foundation without the pressure of drop-ins or performance expectations. Each Tuesday develops the technique, expression, and musical understanding introduced the week before.</p>
+          <p style="font-size:.85rem;color:var(--terra);font-weight:700;margin-top:4px;">Six-week series: $180 · September 29 welcome workshop: $30 · <a href="https://form.jotform.com/262537661593163" target="_blank" rel="noopener" style="color:var(--green-deep);">Register Now →</a></p>
+        </div>
+      </div>
       <div class="lm-panel" id="lm-mobility">
         <button class="lm-toggle" onclick="toggleLearnMore('lm-mobility')">
           <div class="lm-toggle-title">Why Ground-based Mobility Flow?</div>
@@ -1268,13 +1268,7 @@ html,body{max-width:100%;overflow-x:hidden;}
           <span class="lm-arrow">▼</span>
         </button>
         <div class="lm-body">
-          <p><strong>Gentle Yoga</strong><br>
-          Most people who need this class the most are the ones most likely to think it isn't enough. It is enough — and then some. Gentle Yoga works in the places high-intensity training ignores: chronic tension in the hips, shoulders, and jaw that most adults have simply learned to live with; a nervous system that has forgotten how to downshift; a body that has been asked to perform for years without ever being asked how it feels. Long holds, supported poses, and intentional breathwork address all of it. Give it three weeks and notice what shifts — in the studio and outside of it.</p>
-
-          <p><strong>Vinyasa</strong><br>
-          Melissa builds every sequence with purpose. Nothing in this class is filler — every transition teaches you something specific about how your body moves. Whether you're newer to the practice or more experienced, modifications and more advanced variations exist in the same room, so no one feels out of place. What students consistently notice is not just that they get stronger. It's that they get smarter about their movement — and that awareness changes how they carry themselves everywhere else.</p>
-
-          <p style="font-size:.85rem;color:var(--text-light);margin-top:4px;">Melissa Rodriguez · 500-hr RYT · <a href="https://www.revivedanceclasses.com/" target="_blank" rel="noopener" style="color:var(--green-mid);">Revivé</a> brings classes to Roots &amp; Wisdom Studio</p>
+          <p>Yoga is returning soon. Class and instructor details will be shared once confirmed.</p>
         </div>
       </div>
     </div>
@@ -1341,7 +1335,7 @@ html,body{max-width:100%;overflow-x:hidden;}
           <p>Luis arrived in the United States from Nicaragua at 9. At 15, he discovered salsa, and that changed everything. He went on to become a two-time World Salsa Champion (On2), founder of Couture Dance Alliance, and co-founder of Revivé Studio in Millbrae.</p>
           <blockquote>"Technique is a universal language that enables you to never have to limit yourself artistically." — Luis Aguilar</blockquote>
           <p>Their brother Jairo — DJ Super Chino — came from Nicaragua at 12 and brings 25+ years of Latin DJ mastery and an embodied understanding of how music moves people.</p>
-          <p>Melissa Rodriguez — a 500-hour RYT yoga instructor of Mexican roots, raised in Texas — joined the Roots &amp; Wisdom family to bring grounded, intentional yoga to the studio.</p>
+          <p>
           <p><strong>This history is the foundation.</strong></p>
         </div>
       </div>
@@ -1405,14 +1399,13 @@ html,body{max-width:100%;overflow-x:hidden;}
     <p class="s-tag">Our Team</p>
     <h2 class="s-title">Meet the Team</h2>
     <div class="s-div"></div>
-    <p class="s-desc">Three decades of mastery. Professional management. Family at the core.</p>
+    <p class="s-desc">Experienced teachers, artists, and community builders bringing Capoeira, Salsa, Samba, and Mobility to our community—with Yoga returning soon.</p>
     <div class="team-g">
-
       <div class="team-card">
         <div class="team-img"><img src="assets/optimized/team-uriel.webp" alt="Uriel Arauz, Capoeira instructor at Roots &amp; Wisdom Studio" width="420" height="420" loading="lazy" decoding="async"/></div>
         <h3 class="team-name">Uriel Arauz</h3>
-        <p class="team-role">Capoeira Instructor · Founder Sitio Alegre</p>
-        <p class="team-bio">30 years of capoeira. A direct student of Mestre Preguiça, whose lineage traces to Mestre Bimba, the creator of Capoeira Regional. Founder of Sitio Alegre Capoeira Group. Teaching in Walnut Creek since 2011.</p>
+        <p class="team-role">Capoeira &amp; Mobility Instructor · Founder of Sitio Alegre Capoeira</p>
+        <p class="team-bio">30 years of capoeira. A direct student of Mestre Preguiça, whose lineage traces to Mestre Bimba, the creator of Capoeira Regional. Founder of Sitio Alegre Capoeira Group. He developed and teaches Ground-based Mobility Flow. Teaching in Walnut Creek since 2011.</p>
         <div class="team-social">
           <a href="https://instagram.com/uriel_sitioalegre" target="_blank" rel="noopener">Instagram ↗</a>
           <a href="https://www.sitioalegrecapoeira.com/" target="_blank" rel="noopener">Website ↗</a>
@@ -1422,7 +1415,7 @@ html,body{max-width:100%;overflow-x:hidden;}
       <div class="team-card">
         <div class="team-img"><img src="assets/optimized/team-luis.webp" alt="Luis Aguilar, Salsa instructor at Roots &amp; Wisdom Studio" width="420" height="420" loading="lazy" decoding="async"/></div>
         <h3 class="team-name">Luis Aguilar</h3>
-        <p class="team-role">Master Salsa Instructor · Director · Choreographer</p>
+        <p class="team-role">Master Salsa Instructor · Founder of Couture Dance Alliance · Co-founder of Revivé Studio</p>
         <p class="team-bio">30+ years in the craft. Two-time World Salsa Champion — On2 division. Titles include the World Latin Dance Cup and US Salsa Open. Founder of Couture Dance Alliance. Co-founder of Revivé Studio in Millbrae. Teaching since 2005.</p>
         <div class="team-social">
           <a href="https://instagram.com/aguilardancepro" target="_blank" rel="noopener">Instagram ↗</a>
@@ -1430,24 +1423,15 @@ html,body{max-width:100%;overflow-x:hidden;}
         </div>
       </div>
 
-      <div class="team-card">
-        <div class="team-img"><img src="assets/optimized/team-melissa.webp" alt="Melissa Rodriguez, Yoga instructor at Roots &amp; Wisdom Studio" width="420" height="420" loading="lazy" decoding="async" style="object-position:center top;"/></div>
-        <h3 class="team-name">Melissa Rodriguez</h3>
-        <p class="team-role">Yoga Instructor</p>
-        <p class="team-bio">500-hour RYT certified. Core Vinyasa and Gentle Yoga instructor. Trained at Yoga Garden SF. Specializations in Prenatal Yoga, Restorative Yoga, Chakra Studies, Trauma-Informed Practice, and Subtle Body Energetics — rooted in a Hatha lineage. 20+ years of mind-body experience.</p>
+      <div class="team-card" id="isabel-team-card">
+        <div class="team-img"><img src="assets/preview/isabel-samba-instructor-portrait.png" alt="Isabel De Montiel, Samba instructor and founder of Carisma Dance Academy" width="984" height="800" loading="lazy" decoding="async"/></div>
+        <h3 class="team-name">Isabel De Montiel</h3>
+        <p class="team-role">Samba Instructor · Founder of Carisma Dance Academy</p>
+        <p class="team-bio">Born and raised in Rio de Janeiro, Isabel is a former professional Salsa competitor with more than 18 years of dance experience. She founded Carisma Dance Academy and specializes in welcoming beginners. Her motto: Movement. Poise. Confidence.</p>
         <div class="team-social">
-          <a href="https://instagram.com/movement_w_mel" target="_blank" rel="noopener">Instagram ↗</a>
-          <a href="https://www.stillinmotion.club/" target="_blank" rel="noopener">Website ↗</a>
-        </div>
-      </div>
-
-      <div class="team-card">
-        <div class="team-img"><img src="assets/optimized/team-claudia.webp" alt="Claudia Aguilar, Studio Manager at Roots &amp; Wisdom Studio" width="420" height="420" loading="lazy" decoding="async"/></div>
-        <h3 class="team-name">Claudia Aguilar</h3>
-        <p class="team-role">Studio Manager · Practitioner</p>
-        <p class="team-bio">25 years as Senior Operations Professional. Former CEO Office Manager, assistant to the CEO, and Senior Executive Assistant to C-suite leaders. The heartbeat behind the studio's day-to-day. Training capoeira, dance, and wellness.</p>
-        <div class="team-social">
-          <a href="https://instagram.com/rootsandwisdomstudio" target="_blank" rel="noopener">Instagram ↗</a>
+          <a href="https://instagram.com/carismadance" target="_blank" rel="noopener">Instagram ↗</a>
+          <a href="https://carismadance.com" target="_blank" rel="noopener">Website ↗</a>
+          <a href="samba.html">Samba Page →</a>
         </div>
       </div>
 
@@ -1459,6 +1443,16 @@ html,body{max-width:100%;overflow-x:hidden;}
         <div class="team-social">
           <a href="https://instagram.com/djsuperchino" target="_blank" rel="noopener">Instagram ↗</a>
           <a href="https://www.dj-chino.com/" target="_blank" rel="noopener">Website ↗</a>
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-img"><img src="assets/optimized/team-claudia.webp" alt="Claudia Aguilar, Studio Manager at Roots &amp; Wisdom Studio" width="420" height="420" loading="lazy" decoding="async"/></div>
+        <h3 class="team-name">Claudia Aguilar</h3>
+        <p class="team-role">Studio Manager · Practitioner</p>
+        <p class="team-bio">25 years as Senior Operations Professional. Former CEO Office Manager, assistant to the CEO, and Senior Executive Assistant to C-suite leaders. The heartbeat behind the studio's day-to-day. Training capoeira, dance, and wellness.</p>
+        <div class="team-social">
+          <a href="https://instagram.com/rootsandwisdomstudio" target="_blank" rel="noopener">Instagram ↗</a>
         </div>
       </div>
 
@@ -1480,11 +1474,11 @@ html,body{max-width:100%;overflow-x:hidden;}
       </div>
       <div class="why-card">
         <h3 class="why-title">Cultural Roots</h3>
-        <p class="why-body">Our classes are grounded in rich traditions — Capoeira, Salsa, and Yoga carry meaning and history far beyond movement.</p>
+        <p class="why-body">Our classes are grounded in rich traditions — Capoeira, Salsa, Samba, and Mobility carry meaning and history far beyond movement.</p>
       </div>
       <div class="why-card">
         <h3 class="why-title">World-Class Instructors</h3>
-        <p class="why-body">A 2x World Salsa Champion, a 30-year Capoeira practitioner, and a 500-hour certified yoga instructor — all under one roof.</p>
+        <p class="why-body">Experienced Capoeira, Salsa, Samba, and Mobility educators—with Yoga returning soon.</p>
       </div>
       <div class="why-card">
         <h3 class="why-title">Real Community</h3>
@@ -1523,14 +1517,9 @@ html,body{max-width:100%;overflow-x:hidden;}
 
         <div class="v6-section-title">Perfect For:</div>
         <div class="v6-tags">
-          <span class="v6-tag">Yoga Classes</span>
-          <span class="v6-tag">Dance Rehearsals</span>
-          <span class="v6-tag">Fitness Training</span>
-          <span class="v6-tag">Martial Arts</span>
-          <span class="v6-tag">Workshops</span>
-          <span class="v6-tag">Private Events</span>
-          <span class="v6-tag">Photo Shoots</span>
-          <span class="v6-tag">Pop-Up Classes</span>
+          <span class="v6-tag">Adult &amp; Youth Movement</span>
+          <span class="v6-tag">Cultural Workshops</span>
+          <span class="v6-tag">Studio Rental</span>
         </div>
 
         <div class="v6-notes">
@@ -1602,16 +1591,16 @@ html,body{max-width:100%;overflow-x:hidden;}
     <div class="s-div"></div>
     <div class="local-grid">
       <div class="local-card">
-        <h3>Capoeira, Salsa, Yoga &amp; Ground Mobility in the Heart of Walnut Creek</h3>
+        <h3>Capoeira, Salsa, Samba, Ground-based Mobility Flow, and Yoga Returning Soon in the Heart of Walnut Creek</h3>
         <p>Roots &amp; Wisdom Studio is located at <strong>2029 Mt. Diablo Blvd., Walnut Creek, CA 94596</strong> — close to downtown Walnut Creek, Broadway Plaza, Civic Park, and nearby neighborhoods across the East Bay.</p>
-        <p>Families come to us for kids Capoeira, adults come for Salsa, Yoga, Mobility, and workshops, and instructors use the studio for meaningful gatherings. Every class is taught with cultural respect, technical care, and a sense of belonging from the first visit.</p>
+        <p>Families come to us for kids Capoeira, adults come for Salsa, Samba, Ground-based Mobility Flow, Yoga Returning Soon, and cultural workshops, and instructors use the studio for meaningful gatherings. Every class is taught with cultural respect, technical care, and a sense of belonging from the first visit.</p>
         <div class="local-tags" aria-label="Nearby communities served">
           <span>Walnut Creek</span><span>Lafayette</span><span>Pleasant Hill</span><span>Concord</span><span>Alamo</span><span>Danville</span>
         </div>
       </div>
       <div class="local-details">
         <div class="local-detail"><strong>Address</strong><span>2029 Mt. Diablo Blvd.<br>Walnut Creek, CA 94596</span></div>
-        <div class="local-detail"><strong>Best For</strong><span>Capoeira, Salsa, Yoga, Ground Mobility, kids movement, workshops, and boutique studio rental.</span></div>
+        <div class="local-detail"><strong>Best For</strong><span>Adult &amp; Youth Movement · Cultural Workshops · Studio Rental</span></div>
         <div class="local-detail"><strong>Get Directions</strong><a href="https://maps.google.com/?q=2029+Mt+Diablo+Blvd+Walnut+Creek+CA+94596" target="_blank" rel="noopener">Open in Google Maps ↗</a></div>
       </div>
     </div>
@@ -1630,7 +1619,7 @@ html,body{max-width:100%;overflow-x:hidden;}
       <div class="join-disciplines">
         <h4>Disciplines We're Looking For</h4>
         <div class="disc-tags">
-          <span class="disc-tag">Yoga</span>
+          <span class="disc-tag">Ground-based Mobility Flow</span><span class="disc-tag">Yoga Returning Soon</span>
           <span class="disc-tag">Pilates</span>
           <span class="disc-tag">Dance</span>
           <span class="disc-tag">Barre</span>
@@ -1708,7 +1697,7 @@ html,body{max-width:100%;overflow-x:hidden;}
             </div>
             <div class="form-row">
               <div class="form-field"><label for="inquiry-phone">Phone</label><input id="inquiry-phone" name="phone" type="tel" autocomplete="tel"/></div>
-              <div class="form-field"><label for="inquiry-topic">Topic</label><select id="inquiry-topic" name="topic" required><option value="">Choose one</option><option>Book a class</option><option>Kids Capoeira</option><option>Salsa / Latin dance</option><option>Yoga / Ground Mobility</option><option>Studio rental</option><option>Instructor / workshop inquiry</option><option>Other question</option></select></div>
+              <div class="form-field"><label for="inquiry-topic">Topic</label><select id="inquiry-topic" name="topic" required><option value="">Choose one</option><option>Book a class</option><option>Kids Capoeira</option><option>Salsa / Latin dance</option><option>Samba with Isabel</option><option>Ground-based Mobility Flow / Yoga Returning Soon</option><option>Studio rental</option><option>Instructor / workshop inquiry</option><option>Other question</option></select></div>
             </div>
             <div class="form-field"><label for="inquiry-message">Message</label><textarea id="inquiry-message" name="message" placeholder="Tell us what you’re looking for, preferred days/times, or any questions we can answer." required></textarea></div>
             <button class="form-submit" type="submit">Send Inquiry</button>
@@ -1733,11 +1722,11 @@ html,body{max-width:100%;overflow-x:hidden;}
           </details>
           <details class="faq-item">
             <summary>What classes do you offer?</summary>
-            <div class="faq-answer">We offer five class categories: <strong>Yoga</strong> (Vinyasa, Gentle), <strong>Capoeira</strong> (kids, youth &amp; adults), <strong>Salsa &amp; Latin Dance</strong>, <strong>Ground-Based Mobility Flow</strong> — plus rotating workshops rooted in Latin traditions. <a href="#class-schedule" onclick="go('class-schedule');return false;">See full schedule →</a></div>
+            <div class="faq-answer">We offer <strong>Capoeira</strong> (kids, youth &amp; adults), <strong>Salsa &amp; Latin Dance</strong>, <strong>Vem Sambar! with Isabel</strong>, <strong>Ground-Based Mobility Flow</strong>, and <strong>Yoga Returning Soon</strong> — plus rotating workshops rooted in Latin traditions. Vem Sambar! is an independently operated six-week guest program. <a href="#class-schedule" onclick="go('class-schedule');return false;">See full schedule →</a></div>
           </details>
           <details class="faq-item">
             <summary>How much do classes cost?</summary>
-            <div class="faq-answer">Drop-in pricing varies by category:<br><br>• <strong>Capoeira</strong> &amp; <strong>Salsa &amp; Latin Dance:</strong> $30/class<br>• <strong>Yoga</strong> &amp; <strong>Ground-Based Mobility Flow:</strong> $25/class<br><br>Class packages are also available — text or email us for package pricing and private lesson rates.</div>
+            <div class="faq-answer">Pricing varies by program:<br><br>• <strong>Capoeira</strong> &amp; <strong>Salsa &amp; Latin Dance:</strong> $30/class<br>• <strong>Ground-Based Mobility Flow:</strong> $25/class<br>• <strong>Yoga Returning Soon:</strong> pricing will be announced with the new schedule<br>• <strong>Samba Welcome Workshop:</strong> $30<br>• <strong>Vem Sambar!:</strong> $180 for the complete six-week series; no drop-ins<br><br>Class packages are also available — text or email us for package pricing and private lesson rates.</div>
           </details>
           <details class="faq-item">
             <summary>Where are you located?</summary>
@@ -1800,6 +1789,7 @@ html,body{max-width:100%;overflow-x:hidden;}
         <a href="https://www.revivedanceclasses.com/" target="_blank" rel="noopener" style="color:var(--gold);">Revivé Studio ↗</a>
         <a href="https://www.dj-chino.com/" target="_blank" rel="noopener" style="color:var(--gold);">DJ Super Chino ↗</a>
         <a href="https://www.stillinmotion.club/" target="_blank" rel="noopener" style="color:var(--gold);">Still in Motion ↗</a>
+        <a href="https://carismadance.com" target="_blank" rel="noopener" style="color:var(--gold);">Carisma Dance Academy ↗</a>
       </div>
       <div class="foot-col">
         <h4>Visit Us</h4>
@@ -1836,7 +1826,10 @@ function showView(view, btn) {
 // ─── NAV ───────────────────────────────────────────────────────────
 function toggleLearnMore(id) {
   var panel = document.getElementById(id);
-  if (panel) panel.classList.toggle('open');
+  if (!panel) return;
+  panel.classList.toggle('open');
+  var button = panel.querySelector('.lm-toggle');
+  if (button) button.setAttribute('aria-expanded', panel.classList.contains('open') ? 'true' : 'false');
 }
 // Inline decision panels — outcome first, obstacle removed, micro-CTA built from row's existing link.
 (function() {
@@ -1883,12 +1876,7 @@ function toggleLearnMore(id) {
     },
     'yoga-vinyasa': {
       title: 'What you leave with',
-      text: 'You\'ll leave stronger than you came in — and more aware of your body than you\'ve been in years. Modifications and more advanced variations in the same room, so every level belongs here. Currently running as part of Melissa\'s 7-Week Chakra Series — drop in for $25/wk or join the full journey for $180.',
-      cta: 'Reserve your spot →'
-    },
-    'yoga-gentle': {
-      title: 'What changes in the first few weeks',
-      text: 'This class works in the places other workouts ignore — chronic tension, a nervous system that can\'t downshift, a body that\'s been asked to perform without ever being asked how it feels.',
+      text: 'Yoga is returning soon. Class and instructor details will be shared once confirmed.',
       cta: 'Reserve your spot →'
     },
     'mobility': {
@@ -1910,7 +1898,6 @@ function toggleLearnMore(id) {
     [/salsa intermediate/i,      'salsa-intermediate'],
     [/private salsa/i,           'private-salsa'],
     [/vinyasa yoga/i,            'yoga-vinyasa'],
-    [/gentle yoga/i,             'yoga-gentle'],
     [/mobility/i,                'mobility']
   ];
 
@@ -1942,6 +1929,98 @@ function toggleLearnMore(id) {
       }
     }
   });
+})();
+
+// Program filters keep both schedule views focused and remove empty days on mobile.
+(function initializeScheduleFilters() {
+  var list = document.getElementById('view-list');
+  var calendar = document.querySelector('#view-calendar .week-cal');
+  if (!list || !calendar) return;
+
+  var groupIndex = 0;
+  Array.from(list.children).forEach(function(child) {
+    var label = (child.textContent || '').trim();
+    if (!child.classList.contains('cl-item') && !child.classList.contains('cl-why') && /^(Monday|Tuesday|Wednesday|Thursday|Saturday|Private Lessons)/.test(label)) {
+      groupIndex += 1;
+      child.classList.add('schedule-day-heading');
+    }
+    child.dataset.scheduleGroup = String(groupIndex);
+    if (child.classList.contains('cl-item')) {
+      var dot = child.querySelector('.cl-dot');
+      var categoryClass = dot && Array.from(dot.classList).find(function(name){ return name.indexOf('cl-dot-') === 0; });
+      child.dataset.discipline = categoryClass ? categoryClass.replace('cl-dot-', '') : '';
+    }
+    if (child.classList.contains('cl-why')) {
+      var previous = child.previousElementSibling;
+      child.dataset.discipline = previous && previous.dataset.discipline ? previous.dataset.discipline : '';
+      child.dataset.scheduleGroup = previous && previous.dataset.scheduleGroup ? previous.dataset.scheduleGroup : String(groupIndex);
+    }
+  });
+
+  function pillDiscipline(pill) {
+    var categoryClass = Array.from(pill.classList).find(function(name){ return name.indexOf('cpill-') === 0; });
+    return categoryClass ? categoryClass.replace('cpill-', '') : '';
+  }
+
+  function applyFilter(filter) {
+    document.querySelectorAll('.discipline-filter').forEach(function(button) {
+      var active = button.dataset.filter === filter;
+      button.classList.toggle('active', active);
+      button.setAttribute('aria-pressed', active ? 'true' : 'false');
+    });
+
+    Array.from(list.children).forEach(function(child) {
+      if (child.classList.contains('cl-item') || child.classList.contains('cl-why')) {
+        var visible = filter === 'all' || child.dataset.discipline === filter;
+        child.hidden = !visible;
+        if (!visible && child.classList.contains('cl-why')) child.classList.remove('open');
+      }
+    });
+
+    var groups = new Set(Array.from(list.children).map(function(child){ return child.dataset.scheduleGroup; }).filter(Boolean));
+    groups.forEach(function(group) {
+      var members = Array.from(list.children).filter(function(child){ return child.dataset.scheduleGroup === group; });
+      var hasVisibleClass = members.some(function(child){ return child.classList.contains('cl-item') && !child.hidden; });
+      members.forEach(function(child) {
+        if (!child.classList.contains('cl-item') && !child.classList.contains('cl-why')) child.hidden = !hasVisibleClass;
+      });
+    });
+
+    Array.from(calendar.querySelectorAll('.wday-col')).forEach(function(column) {
+      var pills = Array.from(column.querySelectorAll('.cpill'));
+      pills.forEach(function(pill){ pill.hidden = filter !== 'all' && pillDiscipline(pill) !== filter; });
+      column.hidden = filter !== 'all' && !pills.some(function(pill){ return !pill.hidden; });
+    });
+    calendar.classList.toggle('discipline-filtered', filter !== 'all');
+    document.getElementById('samba-filter-note').style.display = filter === 'samba' ? 'grid' : 'none';
+  }
+
+  document.querySelectorAll('.discipline-filter').forEach(function(button) {
+    button.addEventListener('click', function(){ applyFilter(button.dataset.filter); });
+  });
+  applyFilter('all');
+})();
+
+// Education panels and FAQs always begin closed.
+document.querySelectorAll('.lm-panel').forEach(function(panel, index) {
+  panel.classList.remove('open');
+  var button = panel.querySelector('.lm-toggle');
+  var body = panel.querySelector('.lm-body');
+  if (button && body) {
+    body.id = body.id || 'learn-more-body-' + (index + 1);
+    button.setAttribute('aria-controls', body.id);
+    button.setAttribute('aria-expanded', 'false');
+  }
+});
+document.querySelectorAll('details[open]').forEach(function(item){ item.removeAttribute('open'); });
+
+// Retire the temporary workshop feature after September 29 in Pacific Time.
+(function setWorkshopVisibility() {
+  var requested = new URLSearchParams(window.location.search).get('previewDate');
+  var parts = new Intl.DateTimeFormat('en-US', {timeZone:'America/Los_Angeles',year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(new Date());
+  var now = Object.fromEntries(parts.map(function(part){ return [part.type, part.value]; }));
+  var date = requested || (now.year + '-' + now.month + '-' + now.day);
+  if (date >= '2026-09-30') document.querySelectorAll('[data-workshop-promo]').forEach(function(item){ item.hidden = true; });
 })();
 function go(id) {
   const el = document.getElementById(id);

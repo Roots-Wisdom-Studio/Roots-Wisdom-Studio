@@ -8,7 +8,9 @@
   <meta property="og:title" content="Roots & Wisdom Studio Calendar">
   <meta property="og:description" content="Classes, community events, and special dates at Roots & Wisdom Studio.">
   <meta property="og:type" content="website">
+  <link rel="canonical" href="https://rootsandwisdomstudio.com/calendar">
   <link rel="stylesheet" href="calendar.css">
+  <link rel="stylesheet" href="calendar-samba.css">
 </head>
 <body>
   <main>
@@ -48,7 +50,7 @@
         <div>
           <p class="eyebrow dark">YOUR LIVE VIEW</p>
           <h2 id="group-title">Whole Studio</h2>
-          <p>Upcoming confirmed classes and studio events. Updated August 24, 2026.</p>
+          <p id="group-summary">Registration is open for the September 19 Salsa Social, September 29 Samba Workshop, and October 6 Vem Sambar! series launch.</p>
         </div>
         <label class="switch">
           <input id="special-only" type="checkbox">
@@ -60,7 +62,13 @@
       <div id="program-note"></div>
       <div class="event-list" id="event-list"></div>
 
-      <section class="host-bios" id="host-bios" aria-label="Salsa hosts">
+      <section class="host-bios" id="host-bios" aria-label="Program hosts">
+        <div id="bio-uriel-arauz" class="bio-card">
+          <span>LEADING CAPOEIRA &amp; MOBILITY</span>
+          <h3>Uriel Arauz</h3>
+          <p>Founder of Sitio Alegre Capoeira Group and a 30-year Capoeira practitioner, Uriel leads Kids, Youth, and Adult Capoeira and developed Ground-based Mobility Flow from the same floor-based movement intelligence. He has taught in Walnut Creek since 2011.</p>
+          <a href="https://www.sitioalegrecapoeira.com/" target="_blank" rel="noreferrer">Visit Sitio Alegre Capoeira ↗</a>
+        </div>
         <div id="bio-dj-super-chino" class="bio-card">
           <span>ON THE MUSIC</span>
           <h3>DJ Super Chino</h3>
@@ -72,6 +80,12 @@
           <h3>Luis Aguilar</h3>
           <p>Lead Salsa Director at Roots &amp; Wisdom Studio. Luis is a two-time World Salsa Champion, director, choreographer, and instructor with 30+ years in the craft.</p>
           <a href="https://www.revivedanceclasses.com/" target="_blank" rel="noreferrer">Visit Luis’s teaching website ↗</a>
+        </div>
+        <div id="bio-isabel-de-montiel" class="bio-card">
+          <span>LEADING SAMBA</span>
+          <h3>Isabel De Montiel</h3>
+          <p>Born and raised in Rio de Janeiro, Isabel is the founder and artistic director of Carisma Dance Academy. She brings more than 18 years of dance experience and a warm, beginner-friendly approach to Samba no Pé.</p>
+          <a href="samba.html">View the Samba program page →</a>
         </div>
       </section>
     </section>
@@ -86,6 +100,6 @@
       <p>Movement · culture · community<br><a href="/">rootsandwisdomstudio.com</a></p>
     </footer>
   </main>
-  <script src="calendar.js"></script>
+  <script src="calendar.js?v=20260912-yoga-cleanup"></script>
 </body>
 </html>

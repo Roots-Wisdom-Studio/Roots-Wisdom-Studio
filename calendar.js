@@ -5,13 +5,13 @@
     { key: 'all', label: 'Whole Studio', short: 'Everything at our house' },
     { key: 'capoeira', label: 'Capoeira Families', short: 'Kids, youth, teens + adults' },
     { key: 'salsa', label: 'Salsa Community', short: 'Classes + community socials' },
-    { key: 'yoga', label: 'Yoga', short: 'Early Vinyasa classes' },
-    { key: 'mobility', label: 'Mobility', short: 'Ground-based mobility flow' }
+    { key: 'samba', label: 'Samba', short: 'Guest program with Isabel' },
+    { key: 'mobility', label: 'Mobility', short: 'Ground-based mobility flow' },
+    { key: 'yoga', label: 'Yoga', short: 'Returning soon' }
   ];
 
   const weeklyClasses = [
     { dow: 1, title: 'Ground-based Mobility Flow', start: '12:30', end: '13:30', group: 'mobility', instructor: 'Uriel' },
-    { dow: 2, title: 'Vinyasa Yoga — Early', start: '06:00', end: '07:00', group: 'yoga', instructor: 'Melissa' },
     { dow: 2, title: 'Kids Capoeira · Ages 4–7', start: '16:00', end: '17:00', group: 'capoeira', instructor: 'Uriel' },
     { dow: 2, title: 'Youth Capoeira · Ages 8–13', start: '17:00', end: '18:00', group: 'capoeira', instructor: 'Uriel' },
     { dow: 2, title: 'Teens + Adults Capoeira · Ages 14+', start: '18:00', end: '19:00', group: 'capoeira', instructor: 'Uriel' },
@@ -20,7 +20,7 @@
     { dow: 3, title: 'Salsa — Advanced Beginner', start: '19:30', end: '20:25', group: 'salsa', instructor: 'Luis' },
     { dow: 4, title: 'Kids Capoeira · Ages 4–7', start: '16:00', end: '17:00', group: 'capoeira', instructor: 'Uriel' },
     { dow: 4, title: 'Youth Capoeira · Ages 8–13', start: '17:00', end: '18:00', group: 'capoeira', instructor: 'Uriel' },
-    { dow: 4, title: 'Vinyasa Yoga — Early', start: '06:00', end: '07:00', group: 'yoga', instructor: 'Melissa' },
+    { dow: 4, title: 'Teens Capoeira · Ages 14–17', start: '18:00', end: '19:00', group: 'capoeira', instructor: 'Uriel' },
     { dow: 6, title: 'Youth Capoeira · Ages 8–13', start: '10:00', end: '11:00', group: 'capoeira', instructor: 'Uriel' },
     { dow: 6, title: 'Kids Capoeira · Ages 4–7', start: '11:00', end: '12:00', group: 'capoeira', instructor: 'Uriel' },
     { dow: 6, title: 'Teens + Adults Capoeira · Ages 14+', start: '12:00', end: '13:00', group: 'capoeira', instructor: 'Uriel' }
@@ -29,8 +29,10 @@
   const specialEvents = [
     { id: 'salsa-practica-2026-08-26', title: 'Salsa Práctica', date: '2026-08-26', start: '18:30', end: '20:00', group: 'salsa', instructor: 'Salsa Community', note: "Luis will be away for a last-minute family event. We'll practice the sequences we learned in class last week, and everyone is welcome to join us.", status: 'confirmed', special: true },
     { id: 'combined-2026-08-29', title: 'Combined Kids Capoeira Class', date: '2026-08-29', start: '11:00', end: '12:00', group: 'capoeira', instructor: 'Uriel', note: 'All kids ages 4–13 come together as a community at 11:00 AM!', status: 'confirmed', special: true },
-    { id: 'social-2026-09-19', title: 'First Salsa + Community Social', date: '2026-09-19', start: '16:00', end: '19:00', group: 'salsa', instructor: 'DJ Super Chino + Luis Aguilar', note: 'Doors open at 3:45 PM. Booking details coming soon.', status: 'details-soon', special: true },
+    { id: 'social-2026-09-19', title: 'First Salsa + Community Social', date: '2026-09-19', start: '16:00', end: '19:00', group: 'salsa', instructor: 'DJ Super Chino + Luis Aguilar', note: 'Doors open at 3:30 PM · Advance reservation available · Payment due at the door.', status: 'registration-open', registrationUrl: 'https://rootsandwisdomsalsasocial.manus.space', registrationLabel: 'Register Now →', special: true },
     { id: 'combined-2026-09-26', title: 'Combined Kids Capoeira Class', date: '2026-09-26', start: '11:00', end: '12:00', group: 'capoeira', instructor: 'Uriel', note: 'All kids ages 4–13 come together as a community at 11:00 AM!', status: 'confirmed', special: true },
+    { id: 'samba-welcome-2026-09-29', title: 'Samba with Live Percussion — Welcome Workshop', date: '2026-09-29', start: '19:30', end: '20:30', group: 'samba', instructor: 'Isabel De Montiel + Marcos & Gui', note: '$30 workshop tuition · Beginners welcome · Featured live percussionists Marcos and Gui.', status: 'registration-open', registrationUrl: 'https://form.jotform.com/262537356025154', registrationLabel: 'Register Now →', special: true },
+    { id: 'samba-series-launch-2026-10-06', title: 'Vem Sambar! 6-Week Series Launch (Oct 6 – Nov 10)', date: '2026-10-06', start: '19:30', end: '20:30', group: 'samba', instructor: 'Isabel De Montiel', note: 'Tuesdays 7:30–8:30 PM · Closed 6-Week Cohort ($180) · Pre-registration required.', status: 'registration-open', registrationUrl: 'https://form.jotform.com/262537661593163', registrationLabel: 'Register Now →', special: true },
     { id: 'halloween-2026-10-30', title: 'Halloween Salsa + Community Social', date: '2026-10-30', start: '18:00', end: '21:00', group: 'salsa', instructor: 'DJ Super Chino + Luis Aguilar', note: 'Friday special — bring your best costume. Booking details to follow.', status: 'details-soon', special: true },
     { id: 'combined-2026-10-31', title: 'Happy Halloween Combined Kids Capoeira Class', date: '2026-10-31', start: '11:00', end: '12:00', group: 'capoeira', instructor: 'Uriel', note: 'All kids ages 4–13 come together as a community at 11:00 AM—and costumes are a must! 🎃', status: 'confirmed', special: true },
     { id: 'combined-2026-11-21', title: 'Combined Kids Capoeira Class', date: '2026-11-21', start: '11:00', end: '12:00', group: 'capoeira', instructor: 'Uriel', note: "We're coming together on the 3rd Saturday this month because of the Thanksgiving holiday break. All kids ages 4–13 join us at 11:00 AM!", status: 'confirmed', special: true },
@@ -44,6 +46,7 @@
 
   const filters = document.getElementById('group-filters');
   const title = document.getElementById('group-title');
+  const groupSummary = document.getElementById('group-summary');
   const nextLabel = document.getElementById('next-label');
   const nextTitle = document.getElementById('next-title');
   const nextMeta = document.getElementById('next-meta');
@@ -75,9 +78,11 @@
 
       weeklyClasses
         .filter((event) => event.dow === day.getDay())
+        .filter((event) => !event.starts || key >= event.starts)
+        .filter((event) => !event.ends || key <= event.ends)
         .filter((event) => !(combinedKidsDates.has(key) && (event.title.startsWith('Kids Capoeira') || event.title.startsWith('Youth Capoeira'))))
         .filter((event) => !(salsaPrácticaDates.has(key) && event.group === 'salsa'))
-        .forEach((event, index) => events.push({ ...event, id: `weekly-${key}-${index}`, date: key, status: 'confirmed' }));
+        .forEach((event, index) => events.push({ ...event, id: `weekly-${key}-${index}`, date: key, status: event.status || 'confirmed' }));
     }
 
     const currentDay = dateKey(start);
@@ -153,6 +158,15 @@
     if (event.group === 'salsa' && event.instructor === 'Luis') {
       return 'with <a class="bio-link" href="#bio-luis-aguilar">Luis Aguilar</a>';
     }
+    if (event.id === 'samba-welcome-2026-09-29') {
+      return 'with <a class="bio-link" href="#bio-isabel-de-montiel">Isabel De Montiel</a> + Marcos &amp; Gui';
+    }
+    if (event.group === 'samba') {
+      return `with <a class="bio-link" href="#bio-isabel-de-montiel">${event.instructor}</a>`;
+    }
+    if (event.group === 'capoeira' || event.group === 'mobility') {
+      return `with <a class="bio-link" href="#bio-uriel-arauz">${event.instructor}</a>`;
+    }
     return `with ${event.instructor}`;
   }
 
@@ -181,14 +195,30 @@
 
   function renderProgramNote() {
     if (activeGroup === 'yoga') {
-      programNote.innerHTML = '<div class="program-note yoga-note"><strong>Yoga</strong><span>6:00 AM Vinyasa Yoga on Tuesdays + Thursdays with Melissa.</span></div>';
+      programNote.innerHTML = '<div class="program-note yoga-note"><strong>Yoga Returning Soon</strong><span>Yoga is returning soon. Class and instructor details will be shared once confirmed.</span></div>';
       return;
     }
     if (activeGroup === 'mobility') {
       programNote.innerHTML = '<div class="program-note mobility-note"><strong>Mobility</strong><span>Ground-based Mobility Flow on Mondays + Wednesdays with Uriel.</span></div>';
       return;
     }
+    if (activeGroup === 'samba') {
+      programNote.innerHTML = '<div class="program-note samba-note"><strong>Vem Sambar!</strong><span>Six-week guest program with Isabel · October 6–November 10 · Tuesdays, 7:30–8:30 PM · <a href="samba.html">Program details →</a></span></div>';
+      return;
+    }
     programNote.innerHTML = '';
+  }
+
+  function renderGroupSummary() {
+    const summaries = {
+      all: 'Registration is open for the September 19 Salsa Social, September 29 Samba Workshop, and October 6 Vem Sambar! series launch.',
+      salsa: 'Registration is open for the September 19 First Salsa + Community Social.',
+      samba: 'Registration is open for the September 29 workshop and the October 6–November 10 Vem Sambar! series.',
+      capoeira: 'Browse upcoming Capoeira classes, combined family dates, and community gatherings.',
+      yoga: 'Yoga is returning soon. Class and instructor details will be shared once confirmed.',
+      mobility: 'Browse the active Monday and Wednesday Ground-based Mobility Flow schedule.'
+    };
+    groupSummary.textContent = summaries[activeGroup] || summaries.all;
   }
 
   function renderEvents(events) {
@@ -201,7 +231,7 @@
       const parts = dateParts(event.date);
       const classes = ['event-card', event.special ? 'special' : '', event.group, event.id, event.id === 'combined-2026-10-31' ? 'halloween' : '', event.id === 'capoeira-family-year-end-2026-12-05' ? 'year-end' : ''].filter(Boolean).join(' ');
       return `
-        <article class="${classes}">
+        <article class="${classes}" id="${event.id}">
           <time datetime="${event.date}">
             <span>${parts.month}</span>
             <strong>${parts.day}</strong>
@@ -215,9 +245,12 @@
             <h3>${event.title}</h3>
             <p>${formatTimeRange(event)} · ${instructorMarkup(event)}</p>
             ${event.note ? `<p class="note">${event.note}</p>` : ''}
-            ${event.status === 'details-soon' ? '<span class="soon-label">Save the Date!</span>' : ''}
+              ${event.status === 'details-soon' ? '<span class="soon-label">Save the Date!</span>' : event.status === 'registration-open' ? '<span class="soon-label">Registration Open</span>' : ''}
           </div>
-          <button class="add-button" type="button" data-event-id="${event.id}" aria-label="Add ${event.title} to my calendar">Add to my calendar</button>
+          <div class="event-actions">
+            ${event.registrationUrl ? `<a class="register-button" href="${event.registrationUrl}" target="_blank" rel="noopener">${event.registrationLabel || 'Register'}</a>` : ''}
+            <button class="add-button" type="button" data-event-id="${event.id}" aria-label="Add ${event.title} to my calendar">Add to my calendar</button>
+          </div>
         </article>
       `;
     }).join('');
@@ -237,6 +270,7 @@
     const group = groups.find((item) => item.key === activeGroup);
 
     title.textContent = group.label;
+    renderGroupSummary();
     nextLabel.textContent = `NEXT UP FOR ${group.label.toUpperCase()}`;
     if (filtered[0]) {
       nextTitle.textContent = filtered[0].title;
@@ -249,7 +283,11 @@
     renderFilters();
     renderProgramNote();
     renderEvents(visibleEvents);
-    hostBios.style.display = activeGroup === 'all' || activeGroup === 'salsa' ? '' : 'none';
+    hostBios.style.display = '';
+    document.getElementById('bio-dj-super-chino').style.display = activeGroup === 'all' || activeGroup === 'salsa' ? '' : 'none';
+    document.getElementById('bio-luis-aguilar').style.display = activeGroup === 'all' || activeGroup === 'salsa' ? '' : 'none';
+    document.getElementById('bio-isabel-de-montiel').style.display = activeGroup === 'all' || activeGroup === 'samba' ? '' : 'none';
+    document.getElementById('bio-uriel-arauz').style.display = activeGroup === 'all' || activeGroup === 'capoeira' || activeGroup === 'mobility' ? '' : 'none';
   }
 
   specialOnly.addEventListener('change', render);
