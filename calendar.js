@@ -28,20 +28,14 @@
 
   const specialEvents = [
     { id: 'salsa-practica-2026-08-26', title: 'Salsa Práctica', date: '2026-08-26', start: '18:30', end: '20:00', group: 'salsa', instructor: 'Salsa Community', note: "Luis will be away for a last-minute family event. We'll practice the sequences we learned in class last week, and everyone is welcome to join us.", status: 'confirmed', special: true },
-    { id: 'combined-2026-08-29', title: 'Combined Kids Capoeira Class', date: '2026-08-29', start: '11:00', end: '12:00', group: 'capoeira', instructor: 'Uriel', note: 'All kids ages 4–13 come together as a community at 11:00 AM!', status: 'confirmed', special: true },
     { id: 'social-2026-09-19', title: 'First Salsa + Community Social', date: '2026-09-19', start: '16:00', end: '19:00', group: 'salsa', instructor: 'DJ Super Chino + Luis Aguilar', note: 'Doors open at 3:30 PM · Advance reservation available · Payment due at the door.', status: 'registration-open', registrationUrl: 'https://rootsandwisdomsalsasocial.manus.space', registrationLabel: 'Register Now →', special: true },
-    { id: 'combined-2026-09-26', title: 'Combined Kids Capoeira Class', date: '2026-09-26', start: '11:00', end: '12:00', group: 'capoeira', instructor: 'Uriel', note: 'All kids ages 4–13 come together as a community at 11:00 AM!', status: 'confirmed', special: true },
     { id: 'samba-welcome-2026-09-29', title: 'Samba with Live Percussion — Welcome Workshop', date: '2026-09-29', start: '19:30', end: '20:30', group: 'samba', instructor: 'Isabel De Montiel + Marcos & Gui', note: '$30 workshop tuition · Beginners welcome · Featured live percussionists Marcos and Gui.', status: 'registration-open', registrationUrl: 'https://form.jotform.com/262537356025154', registrationLabel: 'Register Now →', special: true },
     { id: 'samba-series-launch-2026-10-06', title: 'Vem Sambar! 6-Week Series Launch (Oct 6 – Nov 10)', date: '2026-10-06', start: '19:30', end: '20:30', group: 'samba', instructor: 'Isabel De Montiel', note: 'Tuesdays 7:30–8:30 PM · Closed 6-Week Cohort ($180) · Pre-registration required.', status: 'registration-open', registrationUrl: 'https://form.jotform.com/262537661593163', registrationLabel: 'Register Now →', special: true },
     { id: 'halloween-2026-10-30', title: 'Halloween Salsa + Community Social', date: '2026-10-30', start: '18:00', end: '21:00', group: 'salsa', instructor: 'DJ Super Chino + Luis Aguilar', note: 'Friday special — bring your best costume. Booking details to follow.', status: 'details-soon', special: true },
-    { id: 'combined-2026-10-31', title: 'Happy Halloween Combined Kids Capoeira Class', date: '2026-10-31', start: '11:00', end: '12:00', group: 'capoeira', instructor: 'Uriel', note: 'All kids ages 4–13 come together as a community at 11:00 AM—and costumes are a must! 🎃', status: 'confirmed', special: true },
-    { id: 'combined-2026-11-21', title: 'Combined Kids Capoeira Class', date: '2026-11-21', start: '11:00', end: '12:00', group: 'capoeira', instructor: 'Uriel', note: "We're coming together on the 3rd Saturday this month because of the Thanksgiving holiday break. All kids ages 4–13 join us at 11:00 AM!", status: 'confirmed', special: true },
     { id: 'capoeira-family-year-end-2026-12-05', title: 'Capoeira Family Year-End Celebration', date: '2026-12-05', start: '12:00', group: 'capoeira', instructor: 'Capoeira Families', note: "Save the date! Let's gather, celebrate our kids and families, and close out a beautiful year of Capoeira together. More joy, more community, and more details coming soon!", status: 'details-soon', special: true, timeTbd: true },
-    { id: 'combined-2026-12-19', title: 'Combined Kids Capoeira Class', date: '2026-12-19', start: '11:00', end: '12:00', group: 'capoeira', instructor: 'Uriel', note: "We're coming together on the 3rd Saturday this month because of the Christmas holiday break. All kids ages 4–13 join us at 11:00 AM!", status: 'confirmed', special: true },
     { id: 'social-2026-12-19', title: 'Year-End Salsa + Community Social', date: '2026-12-19', start: '16:00', end: '19:00', group: 'salsa', instructor: 'DJ Super Chino + Luis Aguilar', note: 'Booking details to follow.', status: 'details-soon', special: true }
   ];
 
-  const combinedKidsDates = new Set(['2026-08-29', '2026-09-26', '2026-10-31', '2026-11-21', '2026-12-19']);
   const salsaPrácticaDates = new Set(['2026-08-26']);
 
   const filters = document.getElementById('group-filters');
@@ -66,6 +60,13 @@
     return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
   }
 
+  function isLastSaturday(date) {
+    if (date.getDay() !== 6) return false;
+    const nextSaturday = new Date(date);
+    nextSaturday.setDate(date.getDate() + 7);
+    return nextSaturday.getMonth() !== date.getMonth();
+  }
+
   function buildEvents(startDate, days = 70) {
     const start = new Date(startDate);
     start.setHours(0, 0, 0, 0);
@@ -75,14 +76,43 @@
       const day = new Date(start);
       day.setDate(start.getDate() + offset);
       const key = dateKey(day);
+      const lastSaturday = isLastSaturday(day);
 
       weeklyClasses
         .filter((event) => event.dow === day.getDay())
         .filter((event) => !event.starts || key >= event.starts)
         .filter((event) => !event.ends || key <= event.ends)
-        .filter((event) => !(combinedKidsDates.has(key) && (event.title.startsWith('Kids Capoeira') || event.title.startsWith('Youth Capoeira'))))
+        .filter((event) => !(lastSaturday && event.dow === 6))
         .filter((event) => !(salsaPrácticaDates.has(key) && event.group === 'salsa'))
         .forEach((event, index) => events.push({ ...event, id: `weekly-${key}-${index}`, date: key, status: event.status || 'confirmed' }));
+
+      if (lastSaturday) {
+        const halloween = key === '2026-10-31';
+        events.push({
+          id: `last-saturday-kids-${key}`,
+          title: halloween ? 'Happy Halloween All-Kids Community Class' : 'All-Kids Community Class',
+          date: key,
+          start: '10:00',
+          end: '11:00',
+          group: 'capoeira',
+          instructor: 'Uriel',
+          note: halloween ? 'All kids ages 4–13 come together as a community at 10:00 AM—and costumes are a must! 🎃' : 'All kids ages 4–13 come together as a community at 10:00 AM.',
+          status: 'confirmed',
+          special: true
+        });
+        events.push({
+          id: `last-saturday-adults-${key}`,
+          title: 'Teens + Adults Capoeira · Ages 14+',
+          date: key,
+          start: '11:00',
+          end: '12:00',
+          group: 'capoeira',
+          instructor: 'Uriel',
+          note: 'Last-Saturday time: 11:00 AM instead of the usual 12:00 PM.',
+          status: 'confirmed',
+          special: true
+        });
+      }
     }
 
     const currentDay = dateKey(start);
@@ -229,7 +259,7 @@
 
     eventList.innerHTML = events.map((event) => {
       const parts = dateParts(event.date);
-      const classes = ['event-card', event.special ? 'special' : '', event.group, event.id, event.id === 'combined-2026-10-31' ? 'halloween' : '', event.id === 'capoeira-family-year-end-2026-12-05' ? 'year-end' : ''].filter(Boolean).join(' ');
+      const classes = ['event-card', event.special ? 'special' : '', event.group, event.id, event.id === 'last-saturday-kids-2026-10-31' ? 'halloween' : '', event.id === 'capoeira-family-year-end-2026-12-05' ? 'year-end' : ''].filter(Boolean).join(' ');
       return `
         <article class="${classes}" id="${event.id}">
           <time datetime="${event.date}">

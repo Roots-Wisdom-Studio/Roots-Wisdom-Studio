@@ -175,7 +175,7 @@ body{font-family:var(--font-b);background:var(--cream);color:var(--text-dark);mi
 
     <!-- LAST SATURDAY NOTE -->
     <div style="background:var(--terra-pale);border-left:3px solid var(--terra);border-radius:8px;padding:14px 16px;margin-bottom:20px;font-size:.9rem;color:var(--text-dark);line-height:1.6;">
-      <strong style="color:var(--terra);">📅 Please note:</strong> On the last Saturday of each month, all Saturday kids' classes are replaced with one <strong>All-Kids Community Class at 11:00 AM</strong>. Teens &amp; Adults Capoeira at 12:00 PM continues as scheduled.
+      📅 Please note: On the last Saturday of each month, all Saturday kids' classes are replaced with one All-Kids Community Class at 10:00 AM. Teens &amp; Adults Capoeira shifts to 11:00 AM instead of its usual 12:00 PM time.
     </div>
 
     <h2 class="section-h">Tap a class to select it</h2>
@@ -266,7 +266,7 @@ body{font-family:var(--font-b);background:var(--cream);color:var(--text-dark);mi
             <option>Teens &amp; Adults Capoeira (Ages 14+) · Tuesday 6:00 PM · 1st Class FREE</option>
             <option>Teens &amp; Adults Capoeira (Ages 14+) · Saturday 12:00 PM · 1st Class FREE</option>
             <option>Teens Capoeira (Ages 14–17) · Thursday 6:00 PM · 1st Class FREE</option>
-            <option>All-Kids Community Class (Last Saturday of Month) · 11:00 AM · 1st Class FREE</option>
+            <option>All-Kids Community Class (Last Saturday of Month) · 10:00 AM · 1st Class FREE</option>
           </optgroup>
           <optgroup label="Salsa">
             <option>Salsa Absolute Beginner · Wed 6:30PM · $30</option>
@@ -337,12 +337,12 @@ const CLASSES = [
    selectValue:'Youth Capoeira (Ages 8–13) · Saturday 10:00 AM · 1st Class FREE'},
   {key:'cap-adult-tue', name:'Teens & Adults Capoeira', times:'Tuesday 6:00 PM', tag:'cap', tagLabel:'Ages 14+', price:'$30', free:true, days:[2], time:'6:00 PM',
    selectValue:'Teens & Adults Capoeira (Ages 14+) · Tuesday 6:00 PM · 1st Class FREE'},
-  {key:'cap-adult-sat', name:'Teens & Adults Capoeira', times:'Saturday 12:00 PM', tag:'cap', tagLabel:'Ages 14+', price:'$30', free:true, days:[6], time:'12:00 PM',
+  {key:'cap-adult-sat', name:'Teens & Adults Capoeira', times:'Saturday 12:00 PM', tag:'cap', tagLabel:'Ages 14+', price:'$30', free:true, days:[6], time:'12:00 PM', lastSaturdayTime:'11:00 AM',
    selectValue:'Teens & Adults Capoeira (Ages 14+) · Saturday 12:00 PM · 1st Class FREE'},
   {key:'cap-teens-thu', name:'Teens Capoeira', times:'Thursday 6:00 PM', tag:'cap', tagLabel:'Ages 14–17', price:'$30', free:true, days:[4], time:'6:00 PM',
    selectValue:'Teens Capoeira (Ages 14–17) · Thursday 6:00 PM · 1st Class FREE'},
-  {key:'cap-community', name:'All-Kids Community Class', times:'Last Saturday of Month · 11:00 AM', tag:'cap', tagLabel:'All Kids', price:'$30', free:true, kids:true, days:[6], time:'11:00 AM',
-   selectValue:'All-Kids Community Class (Last Saturday of Month) · 11:00 AM · 1st Class FREE'},
+  {key:'cap-community', name:'All-Kids Community Class', times:'Last Saturday of Month · 10:00 AM', tag:'cap', tagLabel:'All Kids', price:'$30', free:true, kids:true, days:[6], time:'10:00 AM',
+   selectValue:'All-Kids Community Class (Last Saturday of Month) · 10:00 AM · 1st Class FREE'},
   {key:'mobility-mw', name:'Ground-based Mobility Flow', times:'Mon 12:30 PM · Wed 2:00 PM', tag:'mob', tagLabel:'All Levels', price:'$25', days:[1,3], time:'12:30 PM', dayTimeMap:{1:'12:30 PM', 3:'2:00 PM'},
    selectValue:'Ground-based Mobility Flow · Mon 12:30PM / Wed 2PM · $25'},
   {key:'salsa-beg', name:'Salsa — Absolute Beginner', times:'Wed 6:30 PM', tag:'sal', tagLabel:'Beginners', price:'$30', days:[3], time:'6:30 PM',
@@ -403,6 +403,13 @@ function selectClass(key, dayOverride = null) {
 const DAY_NAMES = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
 const MONTH_NAMES = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 
+function isLastSaturday(date) {
+  if (date.getDay() !== 6) return false;
+  const nextSaturday = new Date(date);
+  nextSaturday.setDate(date.getDate() + 7);
+  return nextSaturday.getMonth() !== date.getMonth();
+}
+
 function renderDateChips(cls, dayOverride = null) {
   const wrap = document.getElementById('dateChips');
   const dateInput = document.getElementById('f-date');
@@ -425,16 +432,12 @@ function renderDateChips(cls, dayOverride = null) {
     if (allowedDays.includes(d.getDay())) {
       // Special logic for Last Saturday of Month Community Class
       if (cls.key === 'cap-community') {
-        const nextDay = new Date(d);
-        nextDay.setDate(d.getDate() + 7);
-        if (nextDay.getMonth() !== d.getMonth()) {
+        if (isLastSaturday(d)) {
           upcoming.push(d);
         }
       } else if (cls.skipLastSaturday) {
         // Weekly kids' Saturday classes are replaced by the community class on the last Saturday.
-        const nextDay = new Date(d);
-        nextDay.setDate(d.getDate() + 7);
-        if (nextDay.getMonth() === d.getMonth()) {
+        if (!isLastSaturday(d)) {
           upcoming.push(d);
         }
       } else {
@@ -449,7 +452,9 @@ function renderDateChips(cls, dayOverride = null) {
 
   upcoming.forEach((d, idx) => {
     const isToday = idx === 0 && d.toDateString() === today.toDateString();
-    const dayTime = cls.dayTimeMap ? (cls.dayTimeMap[d.getDay()] || cls.time) : cls.time;
+    const dayTime = cls.lastSaturdayTime && isLastSaturday(d)
+      ? cls.lastSaturdayTime
+      : (cls.dayTimeMap ? (cls.dayTimeMap[d.getDay()] || cls.time) : cls.time);
     const label = isToday ? `Today · ${dayTime}` :
                   `${DAY_NAMES[d.getDay()]} ${MONTH_NAMES[d.getMonth()]} ${d.getDate()} · ${dayTime}`;
     const fullText = `${DAY_NAMES[d.getDay()]} ${MONTH_NAMES[d.getMonth()]} ${d.getDate()} at ${dayTime}`;
