@@ -31,7 +31,19 @@
 
 [[redirects]]
   from = "/register"
-  to = "/booking.html"
+  to = "/booking"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/register.html"
+  to = "/booking"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/capoeira"
+  to = "/#classes"
   status = 301
 
 [[redirects]]

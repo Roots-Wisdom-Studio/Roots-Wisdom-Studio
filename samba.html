@@ -68,8 +68,7 @@
 
     <article class="content-card"><span class="eyebrow">Who it&apos;s for</span><h2>Every body, every age, every level.</h2><ul class="check-list"><li>Complete beginners. Most of the room will be.</li><li>Returning dancers who want to clean up their samba and go deeper.</li><li>Salsa, Capoeira, and yoga students cross-training rhythm and mobility.</li><li>Anyone who loves Brazilian music and wants to understand where it lives in the body.</li><li>Ages 16 and up. No partner needed.</li></ul></article>
 
-    <article class="workshop pre-event" id="welcome-workshop"><span class="eyebrow">Introduction to Vem Sambar! · September 29</span><h2>Samba with Live Percussion</h2><p>Before the six-week cohort begins, Isabel opens her season at Roots &amp; Wisdom with a welcome workshop featuring Marcos and Gui, two Bay Area percussionists who bring the heartbeat of Brazil into the room.</p><p>Come meet Isabel, experience Samba in conversation with live rhythm, and decide whether Vem Sambar! is the journey you want to continue. Beginners are welcome, and no partner is needed.</p><div class="workshop-facts"><span>Tuesday, September 29</span><span>7:30–8:30 PM</span><span>$30 workshop tuition</span><span>Marcos &amp; Gui · live percussion</span></div><a class="workshop-cta" href="https://form.jotform.com/262537356025154" target="_blank" rel="noopener" aria-label="Register now for the $30 September 29 Samba workshop">Register Now →</a></article>
-    <article class="content-card post-event" id="post-event"><span class="eyebrow">Thank you for joining us</span><h2>Workshop highlights are coming soon.</h2><p>We’re gathering moments from September 29 and will share approved photos and highlights here.</p></article>
+    <article class="content-card post-event active" id="post-event"><span class="eyebrow">Thank you for joining us</span><h2>Workshop highlights are coming soon.</h2><p>We’re gathering moments from September 29 and will share approved photos and highlights here.</p></article>
 
     <article class="content-card" id="isabel-bio"><div class="bio-grid"><img class="bio-portrait" src="assets/preview/isabel-samba-instructor-portrait.png" alt="Isabel De Montiel, Samba instructor and founder of Carisma Dance Academy" width="984" height="800" loading="lazy" decoding="async"/><div><span class="eyebrow">Meet Isabel</span><h2>Isabel De Montiel</h2><p>Isabel De Montiel was born and raised in Rio de Janeiro, where samba isn&apos;t something you study — it&apos;s something you grow up inside of. Her first dance floors were the street parties of her childhood.</p><p>After a career as a professional Salsa dancer and international competitor, an injury brought her back to where she started: samba no pé.</p><p>Today Isabel is the founder and artistic director of Carisma Dance Academy on the Peninsula. She teaches samba, Salsa, and Bachata, leads a performance company, and is a certified image consultant.</p><p class="motto">Movement. Poise. Confidence.</p><p><a href="https://carismadance.com" target="_blank" rel="noopener" style="color:var(--terra);font-weight:700;text-decoration:underline">Visit Carisma Dance Academy ↗</a></p></div></div></article>
 
@@ -90,11 +89,6 @@
 </main>
 <footer class="footer">Roots &amp; Wisdom Studio · 2029 Mt. Diablo Blvd, Walnut Creek, CA · <a href="tel:4157912557">415-791-2557</a></footer>
 <script>
-const SAMBA_PREVIEW={registrationUrl:'https://form.jotform.com/262537661593163',cohortPriceConfirmed:'$180',cohortStart:'2026-10-06',cohortEnd:'2026-11-10',workshopDate:'2026-09-29'};
-const parts=new Intl.DateTimeFormat('en-US',{timeZone:'America/Los_Angeles',year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(new Date());
-const now=Object.fromEntries(parts.map(part=>[part.type,part.value]));
-const previewDate=new URLSearchParams(location.search).get('previewDate')||`${now.year}-${now.month}-${now.day}`;
-if(previewDate>='2026-09-30'){document.querySelectorAll('.pre-event').forEach(el=>el.classList.add('hidden'));document.querySelectorAll('.post-event').forEach(el=>el.classList.add('active'))}
 const heroVideo=document.getElementById('samba-hero-video');
 const heroToggle=document.getElementById('hero-video-toggle');
 const reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)');
