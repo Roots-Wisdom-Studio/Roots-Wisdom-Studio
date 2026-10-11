@@ -115,3 +115,8 @@ status = 301
   for = "/waiver.css"
   [headers.values]
     Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/waiver-pdf.js"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"

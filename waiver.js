@@ -43,8 +43,8 @@ document.getElementById('print-agreement').addEventListener('click',()=>window.p
 document.getElementById('print-receipt').addEventListener('click',()=>window.print());
 document.getElementById('download-receipt').addEventListener('click',()=>{
   if(!signedRecord)return;
-  const blob=new Blob([JSON.stringify(signedRecord,null,2)],{type:'application/json'});
-  const url=URL.createObjectURL(blob);const link=document.createElement('a');link.href=url;link.download='Roots-Wisdom-Signed-Waiver-'+signedRecord['submission-reference']+'.json';link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
+  try{buildWaiverPdf(signedRecord).save('Roots-Wisdom-Waiver-'+signedRecord['submission-reference']+'.pdf');}
+  catch(e){status.textContent='The PDF download could not be created. Use Print / save signed copy to keep your copy instead.';}
 });
 document.getElementById('another-child').addEventListener('click',()=>{
   if(!window.confirm('Save or print this participant’s copy before continuing. Start a separate waiver for another child?'))return;
