@@ -9,8 +9,8 @@ function buildWaiverPdf(record){
   function text(value,bold=false){
     pdf.setFont('helvetica',bold?'bold':'normal');pdf.setFontSize(bold?12:10);
     const lines=pdf.splitTextToSize(plain(value),width);
-    if(lines.length*14+8<=bottom-54 && y+lines.length*14>bottom){pdf.addPage();y=54;}
-    for(const line of lines){if(y>bottom){pdf.addPage();y=54;}pdf.text(line,54,y);y+=14;}
+    if(lines.length*13+8<=bottom-54 && y+lines.length*13>bottom){pdf.addPage();y=54;}
+    for(const line of lines){if(y>bottom){pdf.addPage();y=54;}pdf.text(line,54,y);y+=13;}
     y+=8;
   }
   text('ROOTS & WISDOM STUDIO — PARTICIPANT COPY',true);

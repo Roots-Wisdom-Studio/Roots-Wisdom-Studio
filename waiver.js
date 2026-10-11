@@ -46,16 +46,25 @@ document.getElementById('download-receipt').addEventListener('click',()=>{
   try{buildWaiverPdf(signedRecord).save('Roots-Wisdom-Waiver-'+signedRecord['submission-reference']+'.pdf');}
   catch(e){status.textContent='The PDF download could not be created. Use Print / save signed copy to keep your copy instead.';}
 });
-document.getElementById('another-child').addEventListener('click',()=>{
-  if(!window.confirm('Save or print this participant’s copy before continuing. Start a separate waiver for another child?'))return;
+function startNextParticipant(role){
+  if(!window.confirm('Save or print this participant’s copy before continuing. Start a separate waiver for the next participant?'))return;
+  // Reuse only a verified-on-screen guardian's contact fields, in memory on this page.
+  const retained={};
+  if(role==='guardian' && signedRecord && signedRecord['signer-role']==='guardian'){
+    for(const key of ['guardian-name','guardian-relationship','email','phone'])retained[key]=signedRecord[key]||'';
+  }
   form.reset();signedRecord=null;document.getElementById('receipt-details').replaceChildren();
   form.elements['submission-reference'].value='';form.elements['signed-at-client-utc'].value='';
-  form.querySelector('[name="signer-role"][value="guardian"]').checked=true;
-  syncRole();syncBirthDate();error.hidden=true;status.textContent=preview?'Review preview: signing is disabled until release.':'';
+  form.querySelector('[name="signer-role"][value="'+role+'"]').checked=true;
+  for(const [key,value]of Object.entries(retained))form.elements[key].value=value;
+  syncRole();syncBirthDate();error.hidden=true;
+  status.textContent=preview?'Review preview: signing is disabled until release.':role==='guardian'?'Check the guardian contact details. Enter this child’s details, emergency contact and media choice, then confirm authority and sign again.':'';
   submit.disabled=preview;submit.textContent='Sign and submit waiver';
   document.getElementById('receipt').hidden=true;document.getElementById('signing').hidden=false;
   document.getElementById('participant-name').focus();
-});
+}
+document.getElementById('another-child').addEventListener('click',()=>startNextParticipant('guardian'));
+document.getElementById('another-adult').addEventListener('click',()=>startNextParticipant('adult'));
 form.addEventListener('submit',async event=>{
   event.preventDefault();if(preview)return;
   error.hidden=true;
