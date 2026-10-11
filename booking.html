@@ -222,7 +222,7 @@ body{font-family:var(--font-b);background:var(--cream);color:var(--text-dark);mi
       <div class="contact-line">📞 <a href="tel:4157912557">415-791-2557</a></div>
       <div class="contact-line">✉ <a href="mailto:hello@rootsandwisdomstudio.com">hello@rootsandwisdomstudio.com</a></div>
       <div class="contact-line">📍 2029 Mt. Diablo Blvd, Walnut Creek</div>
-      <div class="walkin-note">Walk-ins always welcome — no need to book ahead.</div>
+      <div class="walkin-note">Walk-ins welcome — sign the waiver at check-in before joining class. Already signed? We’ll check your record.</div>
     </div>
   </div>
 
@@ -308,6 +308,7 @@ body{font-family:var(--font-b);background:var(--cream);color:var(--text-dark);mi
         <textarea class="textarea" id="f-notes" name="Notes" placeholder="Questions, injuries, how you heard about us…"></textarea>
       </div>
 
+      <p style="font-size:.85rem;line-height:1.5;">Booking takes just a moment. You can sign the participation waiver afterward; it is required before joining class, including a free trial. <a href="/waiver?source=booking">Read the waiver</a>. For a child, a parent or legal guardian must sign.</p>
       <button type="submit" class="submit-btn" id="submitBtn">
         Send Booking Request <span class="submit-arrow">→</span>
       </button>
@@ -319,6 +320,8 @@ body{font-family:var(--font-b);background:var(--cream);color:var(--text-dark);mi
       <div class="success-icon">✓</div>
       <h3 id="successTitle">You're all set!</h3>
       <p id="successBody">Your booking request is on its way to our team. We'll text or email to confirm your spot — usually within a few hours.</p>
+      <p><strong>Before your first class:</strong> complete your one-time participation waiver. A parent or legal guardian signs separately for each child under 18. Already signed the current version? There’s no need to repeat it; staff will check your record. If you need help, arrive early to sign at check-in. You may participate only after staff verify your signed waiver. Independent Salsa and Samba classes also use their providers’ own agreements.</p>
+      <p><a class="submit-btn" href="/waiver?source=booking" style="display:block;text-align:center;text-decoration:none;">Read and sign the waiver →</a></p>
       <p>See you at the studio.</p>
       <p class="signoff">— Claudia</p>
     </div>
@@ -578,7 +581,8 @@ document.getElementById('bookingForm').addEventListener('submit', async e => {
         Class: cls,
         'Preferred Date': date,
         'Child Info': child || '—',
-        Notes: notes || '—'
+        Notes: notes || '—',
+        'Waiver Status': 'Pending staff verification - booking submission does not establish a signed waiver'
       })
     });
 

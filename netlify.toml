@@ -105,3 +105,18 @@ status = 301
   for = "/*.mp4"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/waiver.js"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/waiver.css"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/waiver-pdf.js"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"

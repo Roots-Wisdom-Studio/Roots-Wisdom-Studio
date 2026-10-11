@@ -32,3 +32,12 @@
 
 /*.mp4
   Cache-Control: public, max-age=31536000, immutable
+
+/waiver.js
+  Cache-Control: public, max-age=0, must-revalidate
+
+/waiver.css
+  Cache-Control: public, max-age=0, must-revalidate
+
+/waiver-pdf.js
+  Cache-Control: public, max-age=0, must-revalidate
