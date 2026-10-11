@@ -18,7 +18,7 @@
 <form name="studio-participant-waiver-v1" id="waiver-form" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/waiver-received">
 <input type="hidden" name="form-name" value="studio-participant-waiver-v1"><p class="trap" aria-hidden="true"><label>Leave blank<input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
 
-<div class="grid"><label>Participant’s full legal name<input name="participant-name" id="participant-name" autocomplete="name" required maxlength="120"></label><label id="age-field" hidden>Child’s age<input name="child-age" id="child-age" type="number" min="0" max="17" step="1"></label></div>
+<div class="grid"><label>Participant’s full legal name<input name="participant-name" id="participant-name" autocomplete="name" required maxlength="120"></label><label>Participant’s age (years)<input name="participant-age" id="participant-age" type="number" min="0" max="120" step="1" required inputmode="numeric"></label></div>
 <fieldset><legend>Who is signing?</legend><label class="choice"><input type="radio" name="signer-role" value="adult" required> I am the participant, age 18 or older</label><label class="choice"><input type="radio" name="signer-role" value="guardian" required> I am a child’s parent or legal guardian</label></fieldset>
 
 <div class="grid"><label>Email for this record<input name="email" type="email" autocomplete="email" required maxlength="254"></label><label>Phone<input name="phone" type="tel" autocomplete="tel" required maxlength="40"></label></div>

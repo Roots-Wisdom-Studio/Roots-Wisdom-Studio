@@ -11,8 +11,9 @@ function syncRole(){
   const guardian=form.elements['signer-role'].value==='guardian';
   const fields=document.getElementById('guardian-fields');
   fields.hidden=!guardian;fields.disabled=!guardian;
-  document.getElementById('age-field').hidden=!guardian;
-  const age=document.getElementById('child-age');age.disabled=!guardian;age.required=guardian;
+  const age=document.getElementById('participant-age');
+  const role=form.elements['signer-role'].value;
+  age.min=role==='adult'?'18':'0';age.max=guardian?'17':'120';
   ['guardian-name','guardian-relationship','guardian-authority'].forEach(id=>document.getElementById(id).required=guardian);
   document.getElementById('signature').setCustomValidity('');
 }
@@ -47,7 +48,7 @@ form.addEventListener('submit',async event=>{
     const response=await fetch('/waiver.html',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(data).toString(),signal:controller.signal});
     if(!response.ok)throw new Error('Submission not accepted');
     signedRecord=Object.fromEntries(data);delete signedRecord['bot-field'];
-    const labels={'submission-reference':'Submission reference','waiver-version':'Agreement version','participant-name':'Participant','child-age':'Child’s age','signer-role':'Signing role','guardian-name':'Parent / legal guardian','guardian-relationship':'Relationship','guardian-authority':'Guardian authority','email':'Email','phone':'Phone','emergency-contact-name':'Emergency contact','emergency-contact-phone':'Emergency contact phone','photo-permission':'Photo/video permission','signature':'Electronic signature','agreement-accepted':'Agreement accepted','signed-at-client-utc':'Signing time supplied by this browser (UTC)','document-sha256':'Agreement text fingerprint'};
+    const labels={'submission-reference':'Submission reference','waiver-version':'Agreement version','participant-name':'Participant','participant-age':'Participant’s age at signing','signer-role':'Signing role','guardian-name':'Parent / legal guardian','guardian-relationship':'Relationship','guardian-authority':'Guardian authority','email':'Email','phone':'Phone','emergency-contact-name':'Emergency contact','emergency-contact-phone':'Emergency contact phone','photo-permission':'Photo/video permission','signature':'Electronic signature','agreement-accepted':'Agreement accepted','signed-at-client-utc':'Signing time supplied by this browser (UTC)','document-sha256':'Agreement text fingerprint'};
     const details=document.getElementById('receipt-details');
     for(const [key,label]of Object.entries(labels))if(signedRecord[key]){const dt=document.createElement('dt');dt.textContent=label;const dd=document.createElement('dd');dd.textContent=signedRecord[key];details.append(dt,dd);}
     document.getElementById('signing').hidden=true;const receipt=document.getElementById('receipt');receipt.hidden=false;receipt.focus();receipt.scrollIntoView({behavior:'smooth'});
