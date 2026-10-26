@@ -1,7 +1,7 @@
 import { getStore, getDeployStore } from '@netlify/blobs';
 import { createHandler } from '../../server/core.mjs';
 export default async function handler(request){
- const production=process.env.CONTEXT==='production';
+ const production=['rootsandwisdomstudio.com','www.rootsandwisdomstudio.com','majestic-paletas-4fdb52.netlify.app'].includes(new URL(request.url).hostname);
  const enabled=production?process.env.FAMILY_WAIVERS_ENABLED==='true':true;
  const blob=production?getStore({name:'family-waivers-v1',consistency:'strong'}):getDeployStore({name:'family-waivers-preview-v1',consistency:'strong'});
  const store={get:key=>blob.getWithMetadata(key,{type:'json',consistency:'strong'}),set:(key,data,options)=>blob.setJSON(key,data,options)};
