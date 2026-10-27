@@ -197,3 +197,25 @@ status = 301
   for = "/community.html"
   [headers.values]
     Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; media-src 'self'; connect-src 'self' https://formspree.io; form-action 'self' https://formspree.io; frame-src https://app.jotform.com; frame-ancestors 'self'; base-uri 'self'; upgrade-insecure-requests"
+
+[[redirects]]
+  from = "/art-of-salsa"
+  to = "/art-of-salsa.html"
+  status = 200
+
+[[redirects]]
+  from = "/salsa"
+  to = "/art-of-salsa"
+  status = 301
+
+[[redirects]]
+  from = "/art-of-salsa-admin"
+  to = "/art-of-salsa-admin.html"
+  status = 200
+
+[[headers]]
+  for = "/art-of-salsa-admin*"
+  [headers.values]
+    Cache-Control = "no-store"
+    Referrer-Policy = "no-referrer"
+    X-Robots-Tag = "noindex, nofollow"

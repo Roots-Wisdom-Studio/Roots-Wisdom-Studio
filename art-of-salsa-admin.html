@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Art of Salsa · Studio Admin</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600&family=DM+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--terra:#B85C38;--green-deep:#2E5020;--cream:#FAF3E8;--warm-white:#FFFDF8;--text-dark:#2A1F14;--text-light:#8A7060;--line:#E8DCCB}
+body{margin:0;background:var(--cream);color:var(--text-dark);font:15px/1.5 'DM Sans',system-ui,sans-serif}
+main{max-width:980px;margin:0 auto;padding:24px 16px}
+h1{font:600 1.6rem 'Lora',Georgia,serif;color:var(--green-deep);margin:0 0 4px}
+h2{font:600 1.15rem 'Lora',Georgia,serif;color:var(--green-deep);margin:28px 0 8px}
+.muted{color:var(--text-light);font-size:.88rem}
+.card{background:var(--warm-white);border:1px solid var(--line);border-radius:12px;padding:14px;overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:.88rem}
+th,td{text-align:left;padding:8px 6px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--text-light)}
+input{font:inherit;padding:6px 8px;border:1px solid var(--line);border-radius:8px;width:70px}
+button{font:600 .85rem 'DM Sans',sans-serif;background:var(--terra);color:#fff;border:0;border-radius:999px;padding:7px 14px;cursor:pointer}
+.pin{display:flex;gap:8px;align-items:center;margin-top:16px}.pin input{width:140px}
+.err{color:#a3322a}
+.status{font-weight:600}.status.PAID{color:var(--green-deep)}
+</style>
+</head>
+<body>
+<main>
+<h1>The Art of Salsa · Registrations</h1>
+<p class="muted">Live from Shopify. Every paid order is also in Shopify → Orders, tagged <b>art-of-salsa</b>.</p>
+<form class="pin" id="pinForm"><input id="pin" type="password" inputmode="numeric" autocomplete="current-password" placeholder="Admin PIN" required><button>Open</button><span class="err" id="err"></span></form>
+<div id="out"></div>
+</main>
+<script>
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+let pin = '';
+async function api(path, body) {
+  const r = await fetch('/api/salsa/' + path, { method: body ? 'POST' : 'GET', cache: 'no-store', headers: { 'X-Admin-Pin': pin, 'Content-Type': 'application/json' }, body: body && JSON.stringify(body) });
+  const d = await r.json();
+  if (!r.ok) throw new Error(d.error || 'Request failed');
+  return d;
+}
+function render(d) {
+  $('pinForm').hidden = true;
+  $('out').innerHTML = `<h2>Series</h2><div class="card"><table><tr><th>Series</th><th>Now selling</th><th>$195 left</th><th>$225 left</th><th>Paid</th><th>Held now</th><th>Max dancers</th></tr>
+    ${d.options.map((o) => `<tr><td>${esc(o.label)}</td><td>${o.closed ? 'Closed (started)' : o.full ? 'Full' : `$${o.price} · ${esc(o.tierLabel)}`}</td><td>${o.foundersLeft ?? '–'}</td><td>${o.earlyLeft ?? '–'}</td><td>${o.paid}</td><td>${o.held}</td>
+      <td><form data-id="${o.id}" class="cap"><input type="number" min="1" placeholder="No limit" value="${o.capacity ?? ''}"> <button>Save</button></form></td></tr>`).join('')}</table>
+    <p class="muted">Holds last ${d.holdMinutes} minutes while a dancer is on Shopify checkout. Leave "Max dancers" empty for no limit.</p></div>
+    <h2>Orders (${d.orders.length})</h2><div class="card"><table><tr><th>Order</th><th>Dancer</th><th>Contact</th><th>Intensives</th><th>Status</th></tr>
+    ${d.orders.map((o) => `<tr><td>${esc(o.name)}<div class="muted">${new Date(o.createdAt).toLocaleString()}</div></td><td>${esc(o.attributes['Dancer name'])}</td>
+      <td>${esc(o.email)}<div class="muted">${esc(o.attributes['Mobile'])}</div></td><td>${o.items.map((i) => `${esc(i.label)} · $${i.price}`).join('<br>')}</td><td class="status ${esc(o.status)}">${esc(o.status)}</td></tr>`).join('') || '<tr><td colspan="5" class="muted">No registrations yet.</td></tr>'}</table></div>`;
+  document.querySelectorAll('form.cap').forEach((f) => f.onsubmit = async (e) => {
+    e.preventDefault();
+    const v = f.querySelector('input').value.trim();
+    try { render(await api('admin/capacity', { option: f.dataset.id, capacity: v ? Number(v) : null })); } catch (err) { alert(err.message); }
+  });
+}
+$('pinForm').onsubmit = async (e) => {
+  e.preventDefault(); pin = $('pin').value; $('err').textContent = '';
+  try { render(await api('admin')); } catch (err) { $('err').textContent = err.message; }
+};
+</script>
+</body>
+</html>
