@@ -36,7 +36,7 @@ export function shopifyClient({store,clientId,clientSecret,token,fetch=globalThi
 const SNAPSHOT=`query($q:String!){
  productVariants(first:20,query:"sku:AOS-*"){nodes{id sku price inventoryItem{tracked inventoryLevels(first:1){nodes{quantities(names:["available"]){name quantity}}}}}}
  draftOrders(first:100,query:"tag:art-of-salsa status:open"){nodes{id reserveInventoryUntil lineItems(first:10){nodes{sku quantity}}}}
- orders(first:250,query:$q,sortKey:CREATED_AT,reverse:true){nodes{id name createdAt email displayFinancialStatus customAttributes{key value} lineItems(first:10){nodes{sku quantity originalUnitPriceSet{shopMoney{amount}}}}}}
+ orders(first:250,query:$q,sortKey:CREATED_AT,reverse:true){nodes{id name createdAt email test cancelledAt displayFinancialStatus customAttributes{key value} lineItems(first:10){nodes{sku quantity originalUnitPriceSet{shopMoney{amount}}}}}}
 }`;
 
 export async function snapshot(gql,now=new Date()){
@@ -44,13 +44,14 @@ export async function snapshot(gql,now=new Date()){
  const variants={},holds={};
  for(const v of d.productVariants.nodes){const l=v.inventoryItem.inventoryLevels.nodes[0];variants[v.sku]={id:v.id,price:Number(v.price),tracked:v.inventoryItem.tracked,available:l?l.quantities[0].quantity:0};}
  for(const o of d.draftOrders.nodes)if(o.reserveInventoryUntil&&new Date(o.reserveInventoryUntil)>now)for(const li of o.lineItems.nodes)holds[li.sku]=(holds[li.sku]||0)+li.quantity;
- const orders=d.orders.nodes.map(o=>({name:o.name,createdAt:o.createdAt,email:o.email,status:o.displayFinancialStatus,attributes:Object.fromEntries(o.customAttributes.map(a=>[a.key,a.value])),items:o.lineItems.nodes.map(li=>({sku:li.sku,qty:li.quantity,price:Number(li.originalUnitPriceSet.shopMoney.amount)}))}));
+ const orders=d.orders.nodes.map(o=>({name:o.name,createdAt:o.createdAt,email:o.email,status:o.displayFinancialStatus,test:!!o.test,cancelled:!!o.cancelledAt,attributes:Object.fromEntries(o.customAttributes.map(a=>[a.key,a.value])),items:o.lineItems.nodes.map(li=>({sku:li.sku,qty:li.quantity,price:Number(li.originalUnitPriceSet.shopMoney.amount)}))}));
  return {variants,holds,orders};
 }
 
 export function optionStatus(option,snap,caps,now=new Date()){
  const sku=option.sku;
- const paid=snap.orders.filter(o=>PAID.has(o.status)).flatMap(o=>o.items).filter(i=>i.sku?.startsWith(sku+'-')).reduce((n,i)=>n+i.qty,0);
+ // Test-mode and cancelled orders collected no money, so they never count as registrations.
+ const paid=snap.orders.filter(o=>PAID.has(o.status)&&!o.test&&!o.cancelled).flatMap(o=>o.items).filter(i=>i.sku?.startsWith(sku+'-')).reduce((n,i)=>n+i.qty,0);
  const held=Object.entries(snap.holds).filter(([s])=>s.startsWith(sku+'-')).reduce((n,[,q])=>n+q,0);
  const cap=caps[option.id]??null;
  const base={id:option.id,paid,held,capacity:cap,closed:now>=new Date(option.starts)};
@@ -104,6 +105,8 @@ export async function adminData({gql,caps,now=new Date()}){
  const snap=await snapshot(gql,now);
  const label=Object.fromEntries(OPTIONS.flatMap(o=>TIERS.map(([k,l])=>[`${o.sku}-${k}`,`${o.month.split(' ')[0]} ${o.style} · ${l}`])));
  return {mode:'live',holdMinutes:HOLD_MINUTES,
+  // A test order that wasn't cancelled means Shopify Payments was in test mode when a dancer paid.
+  testOrders:snap.orders.filter(o=>o.test&&!o.cancelled).map(o=>o.name),
   options:OPTIONS.map(o=>({label:`${o.month} · ${o.style} ${o.name}`,...optionStatus(o,snap,caps,now),foundersLeft:snap.variants[`${o.sku}-FOUNDERS`]?.available,earlyLeft:snap.variants[`${o.sku}-EARLY`]?.available})),
   orders:snap.orders.map(o=>({...o,items:o.items.map(i=>({...i,label:label[i.sku]||i.sku}))}))};
 }
