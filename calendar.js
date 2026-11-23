@@ -12,8 +12,8 @@
 
   const weeklyClasses = [
     { dow: 1, title: 'Ground-based Mobility Flow', start: '12:30', end: '13:30', group: 'mobility', instructor: 'Uriel' },
-    { dow: 1, title: 'The Art of Salsa — On1 Precision & Flow', start: '18:30', end: '19:50', group: 'salsa', instructor: 'Luis', starts: '2026-11-09', ends: '2026-12-28', note: '4-week intensives (Nov 9–30 · Dec 7–28) · Prior salsa experience · From $195 per series.', registrationUrl: '/art-of-salsa', registrationLabel: 'Register →', special: true },
-    { dow: 1, title: 'The Art of Salsa — On2 Connection & Musicality', start: '20:00', end: '21:20', group: 'salsa', instructor: 'Luis', starts: '2026-11-09', ends: '2026-12-28', note: '4-week intensives (Nov 9–30 · Dec 7–28) · Prior salsa experience · From $195 per series.', registrationUrl: '/art-of-salsa', registrationLabel: 'Register →', special: true },
+    { dow: 1, title: 'The Art of Salsa — On1 Precision & Flow', start: '18:30', end: '19:50', group: 'salsa', instructor: 'Luis', starts: '2026-11-09', ends: '2026-12-28', note: '4-week intensives (Nov 9–30 · Dec 7–28) · Prior salsa experience · From $195 per series.', registrationUrl: '/art-of-salsa', registrationStarts: '2026-12-07', registrationLabel: 'Register →', special: true },
+    { dow: 1, title: 'The Art of Salsa — On2 Connection & Musicality', start: '20:00', end: '21:20', group: 'salsa', instructor: 'Luis', starts: '2026-11-09', ends: '2026-12-28', note: '4-week intensives (Nov 9–30 · Dec 7–28) · Prior salsa experience · From $195 per series.', registrationUrl: '/art-of-salsa', registrationStarts: '2026-12-07', registrationLabel: 'Register →', special: true },
     { dow: 2, title: 'Kids Capoeira · Ages 4–7', start: '16:00', end: '17:00', group: 'capoeira', instructor: 'Uriel' },
     { dow: 2, title: 'Youth Capoeira · Ages 8–13', start: '17:00', end: '18:00', group: 'capoeira', instructor: 'Uriel' },
     { dow: 2, title: 'Teens + Adults Capoeira · Ages 14+', start: '18:00', end: '19:00', group: 'capoeira', instructor: 'Uriel' },
@@ -292,7 +292,7 @@
               ${event.status === 'details-soon' ? '<span class="soon-label">Save the Date!</span>' : event.status === 'registration-open' ? '<span class="soon-label">Registration Open</span>' : ''}
           </div>
           <div class="event-actions">
-            ${event.registrationUrl ? `<a class="register-button" href="${event.registrationUrl}" target="_blank" rel="noopener">${event.registrationLabel || 'Register'}</a>` : ''}
+            ${event.registrationUrl && (!event.registrationStarts || event.date >= event.registrationStarts) ? `<a class="register-button" href="${event.registrationUrl}" target="_blank" rel="noopener">${event.registrationLabel || 'Register'}</a>` : ''}
             <button class="add-button" type="button" data-event-id="${event.id}" aria-label="Add ${event.title} to my calendar">Add to my calendar</button>
           </div>
         </article>
