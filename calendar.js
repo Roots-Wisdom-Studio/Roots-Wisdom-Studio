@@ -18,7 +18,7 @@
     { dow: 2, title: 'Youth Capoeira · Ages 8–13', start: '17:00', end: '18:00', group: 'capoeira', instructor: 'Uriel' },
     { dow: 2, title: 'Teens + Adults Capoeira · Ages 14+', start: '18:00', end: '19:00', group: 'capoeira', instructor: 'Uriel' },
     // October 6 is already represented by the special series-launch event below.
-    { dow: 2, title: 'Vem Sambar! — Six-Week Samba Journey', start: '19:30', end: '20:30', group: 'samba', instructor: 'Isabel De Montiel', starts: '2026-10-13', ends: '2026-11-10', note: 'Closed six-week cohort · $180 full series · No drop-ins.', registrationUrl: 'samba.html', registrationLabel: 'Program details →' },
+    { dow: 2, title: 'Vem Sambar! with Isabel', start: '19:30', end: '20:30', group: 'samba', instructor: 'Isabel De Montiel', starts: '2026-10-13', ends: '2026-12-08', note: 'Current cohort only · No drop-ins. Samba resumes in January 2027.', registrationUrl: 'samba.html', registrationLabel: 'Program details →' },
     { dow: 3, title: 'Ground-based Mobility Flow', start: '14:00', end: '15:00', group: 'mobility', instructor: 'Uriel' },
     { dow: 3, title: 'Salsa — Absolute Beginner', start: '18:30', end: '19:25', group: 'salsa', instructor: 'Luis' },
     { dow: 3, title: 'Salsa — Advanced Beginner', start: '19:30', end: '20:25', group: 'salsa', instructor: 'Luis' },
@@ -245,7 +245,7 @@
       return;
     }
     if (activeGroup === 'samba') {
-      programNote.innerHTML = '<div class="program-note samba-note"><strong>Vem Sambar!</strong><span>Six-week guest program with Isabel · October 6–November 10 · Tuesdays, 7:30–8:30 PM · <a href="samba.html">Program details →</a></span></div>';
+      programNote.innerHTML = '<div class="program-note samba-note"><strong>Vem Sambar!</strong><span>Guest program with Isabel · Tuesdays, 7:30–8:30 PM through December 8 · Returns in January 2027 · <a href="samba.html">Program details →</a></span></div>';
       return;
     }
     programNote.innerHTML = '';
@@ -255,7 +255,7 @@
     const summaries = {
       all: 'Browse upcoming classes, guest programs, and community gatherings.',
       salsa: 'Browse upcoming Salsa classes and community socials.',
-      samba: 'Vem Sambar! runs October 6–November 10, Tuesdays, 7:30–8:30 PM. See program details for full-series registration.',
+      samba: 'Vem Sambar! runs Tuesdays, 7:30–8:30 PM through December 8 and returns in January 2027.',
       capoeira: 'Browse upcoming Capoeira classes, combined family dates, and community gatherings.',
       yoga: 'Yoga is returning soon. Class and instructor details will be shared once confirmed.',
       mobility: 'Browse the active Monday and Wednesday Ground-based Mobility Flow schedule.'
