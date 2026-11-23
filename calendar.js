@@ -36,7 +36,7 @@
     { id: 'samba-welcome-2026-09-29', title: 'Samba with Live Percussion — Welcome Workshop', date: '2026-09-29', start: '19:30', end: '20:30', group: 'samba', instructor: 'Isabel De Montiel + Marcos & Gui', note: '$30 workshop tuition · Beginners welcome · Featured live percussionists Marcos and Gui.', status: 'registration-open', registrationUrl: 'https://form.jotform.com/262537356025154', registrationLabel: 'Register Now →', special: true },
     { id: 'samba-series-launch-2026-10-06', title: 'Vem Sambar! 6-Week Series Launch (Oct 6 – Nov 10)', date: '2026-10-06', start: '19:30', end: '20:30', group: 'samba', instructor: 'Isabel De Montiel', note: 'Tuesdays 7:30–8:30 PM · Closed 6-Week Cohort ($180) · Pre-registration required.', status: 'registration-open', registrationUrl: 'https://form.jotform.com/262537661593163', registrationLabel: 'Register Now →', special: true },
     { id: 'halloween-2026-10-30', title: 'Halloween Salsa + Community Social', date: '2026-10-30', start: '18:00', end: '21:00', group: 'salsa', instructor: 'DJ Super Chino + Luis Aguilar', note: 'Friday special — bring your best costume. Booking details to follow.', status: 'details-soon', special: true },
-    { id: 'capoeira-family-year-end-2026-12-05', title: 'Capoeira Family Year-End Celebration', date: '2026-12-05', start: '12:00', group: 'capoeira', instructor: 'Capoeira Families', note: "Save the date! Let's gather, celebrate our kids and families, and close out a beautiful year of Capoeira together. More joy, more community, and more details coming soon!", status: 'details-soon', special: true, timeTbd: true },
+    { id: 'capoeira-family-year-end-2026-12-19', title: 'All-Kids & Adults Roda + Family Potluck', date: '2026-12-19', start: '10:00', group: 'capoeira', instructor: 'Uriel', note: 'Kids, teens, and adults share one roda at 10:00 AM in place of regular Saturday Capoeira classes. Join us right after the roda for our year-end Capoeira family potluck at Roots & Wisdom Studio. The celebration was previously scheduled for December 5.', status: 'confirmed', special: true },
     { id: 'social-2026-12-19', title: 'Year-End Salsa + Community Social', date: '2026-12-19', start: '16:00', end: '19:00', group: 'salsa', instructor: 'DJ Super Chino + Luis Aguilar', note: 'Booking details to follow.', status: 'details-soon', special: true }
   ];
 
@@ -71,6 +71,9 @@
     return nextSaturday.getMonth() !== date.getMonth();
   }
 
+  const capoeiraClosureDates = new Set(['2026-11-26', '2026-12-24', '2026-12-26', '2026-12-31']);
+  const capoeiraRodaDate = '2026-12-19';
+
   function buildEvents(startDate, days = 70) {
     const start = new Date(startDate);
     start.setHours(0, 0, 0, 0);
@@ -80,13 +83,14 @@
       const day = new Date(start);
       day.setDate(start.getDate() + offset);
       const key = dateKey(day);
-      const lastSaturday = isLastSaturday(day);
+      const skipCapoeira = capoeiraClosureDates.has(key) || key === capoeiraRodaDate;
+      const lastSaturday = !skipCapoeira && isLastSaturday(day);
 
       weeklyClasses
         .filter((event) => event.dow === day.getDay())
         .filter((event) => !event.starts || key >= event.starts)
         .filter((event) => !event.ends || key <= event.ends)
-        .filter((event) => !(lastSaturday && event.dow === 6))
+        .filter((event) => event.group !== 'capoeira' || (!skipCapoeira && !lastSaturday))
         .filter((event) => !(salsaPrácticaDates.has(key) && event.group === 'salsa'))
         .forEach((event, index) => events.push({ ...event, id: `weekly-${key}-${index}`, date: key, status: event.status || 'confirmed' }));
 
@@ -158,7 +162,7 @@
     const end = event.end ? `${event.date.replaceAll('-', '')}T${event.end.replace(':', '')}00` : start;
     const timing = event.timeTbd
       ? [`DTSTART;VALUE=DATE:${event.date.replaceAll('-', '')}`]
-      : [`DTSTART;TZID=America/Los_Angeles:${start}`, `DTEND;TZID=America/Los_Angeles:${end}`];
+      : [`DTSTART;TZID=America/Los_Angeles:${start}`, ...(event.end ? [`DTEND;TZID=America/Los_Angeles:${end}`] : [])];
     const location = event.timeTbd ? [] : ['LOCATION:2029 Mt. Diablo Blvd., Walnut Creek, CA 94596'];
     const calendar = [
       'BEGIN:VCALENDAR',
@@ -228,6 +232,10 @@
   }
 
   function renderProgramNote() {
+    if ((activeGroup === 'all' || activeGroup === 'capoeira') && dateKey(new Date()) <= '2026-12-31') {
+      programNote.innerHTML = '<div class="program-note"><strong>Capoeira Holiday Schedule</strong><span>No Capoeira classes on November 26 or December 24, 26, and 31. Join us December 19 at 10:00 AM for the All-Kids &amp; Adults Roda and stay for our family potluck right after at the studio.</span></div>';
+      return;
+    }
     if (activeGroup === 'yoga') {
       programNote.innerHTML = '<div class="program-note yoga-note"><strong>Yoga Returning Soon</strong><span>Yoga is returning soon. Class and instructor details will be shared once confirmed.</span></div>';
       return;
@@ -263,7 +271,7 @@
 
     eventList.innerHTML = events.map((event) => {
       const parts = dateParts(event.date);
-      const classes = ['event-card', event.special ? 'special' : '', event.group, event.id, event.id === 'last-saturday-kids-2026-10-31' ? 'halloween' : '', event.id === 'capoeira-family-year-end-2026-12-05' ? 'year-end' : ''].filter(Boolean).join(' ');
+      const classes = ['event-card', event.special ? 'special' : '', event.group, event.id, event.id === 'last-saturday-kids-2026-10-31' ? 'halloween' : '', event.id === 'capoeira-family-year-end-2026-12-19' ? 'year-end' : ''].filter(Boolean).join(' ');
       return `
         <article class="${classes}" id="${event.id}">
           <time datetime="${event.date}">
