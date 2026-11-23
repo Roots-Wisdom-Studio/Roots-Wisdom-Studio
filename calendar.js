@@ -36,7 +36,7 @@
     { id: 'samba-welcome-2026-09-29', title: 'Samba with Live Percussion — Welcome Workshop', date: '2026-09-29', start: '19:30', end: '20:30', group: 'samba', instructor: 'Isabel De Montiel + Marcos & Gui', note: '$30 workshop tuition · Beginners welcome · Featured live percussionists Marcos and Gui.', status: 'registration-open', registrationUrl: 'https://form.jotform.com/262537356025154', registrationLabel: 'Register Now →', special: true },
     { id: 'samba-series-launch-2026-10-06', title: 'Vem Sambar! 6-Week Series Launch (Oct 6 – Nov 10)', date: '2026-10-06', start: '19:30', end: '20:30', group: 'samba', instructor: 'Isabel De Montiel', note: 'Tuesdays 7:30–8:30 PM · Closed 6-Week Cohort ($180) · Pre-registration required.', status: 'registration-open', registrationUrl: 'https://form.jotform.com/262537661593163', registrationLabel: 'Register Now →', special: true },
     { id: 'halloween-2026-10-30', title: 'Halloween Salsa + Community Social', date: '2026-10-30', start: '18:00', end: '21:00', group: 'salsa', instructor: 'DJ Super Chino + Luis Aguilar', note: 'Friday special — bring your best costume. Booking details to follow.', status: 'details-soon', special: true },
-    { id: 'capoeira-family-year-end-2026-12-19', title: 'All-Kids & Adults Roda + Family Potluck', date: '2026-12-19', start: '10:00', group: 'capoeira', instructor: 'Uriel', note: 'Kids, teens, and adults share one roda at 10:00 AM in place of regular Saturday Capoeira classes. Join us right after the roda for our year-end Capoeira family potluck at Roots & Wisdom Studio. The celebration was previously scheduled for December 5.', status: 'confirmed', special: true },
+    { id: 'capoeira-family-year-end-2026-12-19', title: 'All-Kids & Adults Roda + Family Potluck', date: '2026-12-19', start: '10:00', group: 'capoeira', instructor: 'Uriel', note: 'We moved the December roda up a week so kids, teens, and adults can all be in one circle together. After the roda, stay for our Capoeira family potluck at the studio. (We moved it from Dec 5 so we can celebrate it all on one day.) Bring a dish and your family!', status: 'confirmed', special: true },
     { id: 'social-2026-12-19', title: 'Year-End Salsa + Community Social', date: '2026-12-19', start: '16:00', end: '19:00', group: 'salsa', instructor: 'DJ Super Chino + Luis Aguilar', note: 'Booking details to follow.', status: 'details-soon', special: true }
   ];
 
@@ -71,7 +71,6 @@
     return nextSaturday.getMonth() !== date.getMonth();
   }
 
-  const capoeiraClosureDates = new Set(['2026-11-26', '2026-12-24', '2026-12-26', '2026-12-31']);
   const capoeiraRodaDate = '2026-12-19';
 
   function buildEvents(startDate, days = 70) {
@@ -83,7 +82,8 @@
       const day = new Date(start);
       day.setDate(start.getDate() + offset);
       const key = dateKey(day);
-      const skipCapoeira = capoeiraClosureDates.has(key) || key === capoeiraRodaDate;
+      const winterBreak = key >= '2026-12-24' && key <= '2027-01-01';
+      const skipCapoeira = key === '2026-11-26' || winterBreak || key === capoeiraRodaDate;
       const lastSaturday = !skipCapoeira && isLastSaturday(day);
 
       weeklyClasses
@@ -117,8 +117,7 @@
           group: 'capoeira',
           instructor: 'Uriel',
           note: 'Last-Saturday time: 11:00 AM instead of the usual 12:00 PM.',
-          status: 'confirmed',
-          special: true
+          status: 'confirmed'
         });
       }
     }
@@ -232,8 +231,8 @@
   }
 
   function renderProgramNote() {
-    if ((activeGroup === 'all' || activeGroup === 'capoeira') && dateKey(new Date()) <= '2026-12-31') {
-      programNote.innerHTML = '<div class="program-note"><strong>Capoeira Holiday Schedule</strong><span>No Capoeira classes on November 26 or December 24, 26, and 31. Join us December 19 at 10:00 AM for the All-Kids &amp; Adults Roda and stay for our family potluck right after at the studio.</span></div>';
+    if ((activeGroup === 'all' || activeGroup === 'capoeira') && dateKey(new Date()) <= '2027-01-01') {
+      programNote.innerHTML = '<div class="program-note"><span><strong>No class on Thanksgiving:</strong> Thursday, Nov 26<br><br><strong>Capoeira winter break: Thursday, Dec 24 – Friday, Jan 1</strong><br>Our last Capoeira class of the year is <strong>Tuesday, Dec 22</strong>. Then we’re taking some time to rest and be with family. Classes start again on <strong>Saturday, January 2</strong>, and we’ll come back refreshed and ready to play!<br><br><strong>What’s coming up:</strong><br><strong>Saturday, Nov 28.</strong> The All-Kids Community Class is at 10 AM, and Teens &amp; Adults is at 11 AM.<br><br><strong>Saturday, Dec 19, 10 AM: our year-end roda and potluck.</strong> We moved the December roda up a week so kids, teens, and adults can all be in one circle together. After the roda, stay for our Capoeira family potluck. (We moved it from Dec 5 so we can celebrate it all on one day.) Bring a dish and your family!</span></div>';
       return;
     }
     if (activeGroup === 'yoga') {
