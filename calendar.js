@@ -73,15 +73,18 @@
 
   const capoeiraRodaDate = '2026-12-19';
 
-  function buildEvents(startDate, days = 70) {
+  const calendarEnd = '2026-12-31';
+
+  function buildEvents(startDate) {
     const start = new Date(startDate);
     start.setHours(0, 0, 0, 0);
     const events = [];
 
-    for (let offset = 0; offset <= days; offset += 1) {
+    for (let offset = 0; ; offset += 1) {
       const day = new Date(start);
       day.setDate(start.getDate() + offset);
       const key = dateKey(day);
+      if (key > calendarEnd) break;
       const winterBreak = key >= '2026-12-24' && key <= '2027-01-01';
       const skipCapoeira = key === '2026-11-26' || winterBreak || key === capoeiraRodaDate;
       const lastSaturday = !skipCapoeira && isLastSaturday(day);
@@ -123,7 +126,7 @@
     }
 
     const currentDay = dateKey(start);
-    const futureSpecialEvents = specialEvents.filter((event) => event.date >= currentDay);
+    const futureSpecialEvents = specialEvents.filter((event) => event.date >= currentDay && event.date <= calendarEnd);
     return [...events, ...futureSpecialEvents].sort((a, b) => `${a.date}${a.start}`.localeCompare(`${b.date}${b.start}`));
   }
 
@@ -253,7 +256,7 @@
   function renderGroupSummary() {
     const summaries = {
       all: 'Browse upcoming classes, guest programs, and community gatherings.',
-      salsa: 'Browse upcoming Salsa classes and community socials.',
+      salsa: 'Browse upcoming Salsa classes, The Art of Salsa intensives, and community socials.',
       samba: 'Vem Sambar! runs Tuesdays, 7:30–8:30 PM through December 8 and returns in January 2027.',
       capoeira: 'Browse upcoming Capoeira classes, combined family dates, and community gatherings.',
       yoga: 'Yoga is returning soon. Class and instructor details will be shared once confirmed.',
@@ -307,7 +310,6 @@
   function render() {
     const allEvents = buildEvents(new Date());
     const filtered = allEvents.filter((event) => (activeGroup === 'all' || event.group === activeGroup) && (!specialOnly.checked || event.special));
-    const visibleEvents = filtered.filter((event, index) => index < 18 || event.special);
     const group = groups.find((item) => item.key === activeGroup);
 
     title.textContent = group.label;
@@ -323,7 +325,7 @@
 
     renderFilters();
     renderProgramNote();
-    renderEvents(visibleEvents);
+    renderEvents(filtered);
     hostBios.style.display = '';
     document.getElementById('bio-dj-super-chino').style.display = activeGroup === 'all' || activeGroup === 'salsa' ? '' : 'none';
     document.getElementById('bio-luis-aguilar').style.display = activeGroup === 'all' || activeGroup === 'salsa' ? '' : 'none';
