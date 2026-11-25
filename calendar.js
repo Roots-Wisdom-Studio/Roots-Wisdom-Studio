@@ -94,7 +94,7 @@
         .filter((event) => !event.starts || key >= event.starts)
         .filter((event) => !event.ends || key <= event.ends)
         .filter((event) => event.group !== 'capoeira' || (!skipCapoeira && !lastSaturday))
-        .filter((event) => !(salsaPrácticaDates.has(key) && event.group === 'salsa'))
+        .filter((event) => !((salsaPrácticaDates.has(key) || key === '2026-11-25') && event.group === 'salsa'))
         .forEach((event, index) => events.push({ ...event, id: `weekly-${key}-${index}`, date: key, status: event.status || 'confirmed' }));
 
       if (lastSaturday) {
@@ -250,7 +250,10 @@
       programNote.innerHTML = '<div class="program-note samba-note"><strong>Vem Sambar!</strong><span>Guest program with Isabel · Tuesdays, 7:30–8:30 PM through December 8 · Returns in January 2027 · <a href="samba.html">Program details →</a></span></div>';
       return;
     }
-    programNote.innerHTML = '';
+    const isThanksgivingSalsaDate = new Intl.DateTimeFormat('en-CA', { timeZone: 'America/Los_Angeles', year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date()) === '2026-11-25';
+    programNote.innerHTML = isThanksgivingSalsaDate && ['all', 'salsa'].includes(activeGroup)
+      ? '<div class="program-note"><span><strong>Wednesday, November 25</strong><br>No Salsa classes today. Happy Thanksgiving!</span></div>'
+      : '';
   }
 
   function renderGroupSummary() {
