@@ -54,6 +54,13 @@ test('withdraws the draft when a simultaneous checkout took the last spot',async
  assert.ok(shop.calls.some(c=>c.query.includes('draftOrderDelete')));
 });
 
+test('test-mode and cancelled orders do not count as paid registrations',()=>{
+ const item={sku:'AOS-NOV26-ON1-FOUNDERS',qty:1,price:195};
+ const snap={variants:{'AOS-NOV26-ON1-REGULAR':{id:'v',price:250,tracked:false,available:0}},holds:{},orders:[
+  {status:'PAID',test:true,cancelled:false,items:[item]},{status:'PAID',test:false,cancelled:true,items:[item]},{status:'PAID',test:false,cancelled:false,items:[item]}]};
+ assert.equal(optionStatus(OPTIONS[0],snap,{},before).paid,1);
+});
+
 test('a capacity limit closes the series',async()=>{
  const out=await publicOptions({gql:fakeShopify().gql,caps:{'nov-on1':0},now:before});
  assert.equal(out.options[0].full,true);
