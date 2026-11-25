@@ -169,6 +169,7 @@ body{font-family:var(--font-b);background:var(--cream);color:var(--text-dark);mi
   <div class="left-col">
     <p class="eyebrow">Reserve your spot</p>
     <h1>Book a class.<br><em>Walk-ins welcome.</em></h1>
+    <p id="salsa-thanksgiving-notice" role="status" hidden><strong>No Salsa classes today. Happy Thanksgiving!</strong></p>
     <div class="divider"></div>
     <p class="intro-p">Choose a class card or select your class in the booking form. Then choose a date and we’ll confirm your spot by text or email.</p>
     <p class="intro-p" style="margin-top:8px;"><strong style="color:var(--green-deep);">New to capoeira?</strong> Your first class is on us — no payment needed up front.</p>
@@ -327,6 +328,11 @@ body{font-family:var(--font-b);background:var(--cream);color:var(--text-dark);mi
 </div>
 
 <script>
+const salsaThanksgivingDate = '2026-11-25';
+const thanksgivingSalsaClasses = new Set(['salsa-beg', 'salsa-adv']);
+document.getElementById('salsa-thanksgiving-notice').hidden =
+  new Intl.DateTimeFormat('en-CA', { timeZone: 'America/Los_Angeles', year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date()) !== salsaThanksgivingDate;
+
 /* ========== CLASS DATA ========== */
 const CLASSES = [
   {key:'cap-kids-weekday', name:'Kids Capoeira', times:'Tue & Thu 4:00 PM', tag:'cap', tagLabel:'Ages 4–7', price:'$30', free:true, kids:true, days:[2,4], time:'4:00 PM',
@@ -431,6 +437,8 @@ function renderDateChips(cls, dayOverride = null) {
   for (let i = 0; i < searchWindow && upcoming.length < 4; i++) {
     const d = new Date(today);
     d.setDate(today.getDate() + i);
+    if (thanksgivingSalsaClasses.has(cls.key) &&
+        d.getFullYear() === 2026 && d.getMonth() === 10 && d.getDate() === 25) continue;
     if (allowedDays.includes(d.getDay())) {
       // Special logic for Last Saturday of Month Community Class
       if (cls.key === 'cap-community') {
@@ -464,6 +472,7 @@ function renderDateChips(cls, dayOverride = null) {
     chip.type = 'button';
     chip.className = 'date-chip';
     chip.textContent = label;
+    chip.dataset.bookingDate = fullText;
     chip.setAttribute('aria-pressed', 'false');
     chip.addEventListener('click', () => {
       wrap.querySelectorAll('.date-chip').forEach(c => {
@@ -548,7 +557,12 @@ document.getElementById('bookingForm').addEventListener('submit', async e => {
   });
   const dateWrap = document.getElementById('dateChips');
   dateWrap.classList.toggle('invalid', !date);
-  if (!date) errs.push('f-date');
+  const selectedClass = CLASSES.find((item) => item.selectValue === cls);
+  const selectedDate = dateWrap.querySelector('.date-chip.selected')?.dataset.bookingDate;
+  if (!date || (thanksgivingSalsaClasses.has(selectedClass?.key) && date !== selectedDate)) {
+    errs.push('f-date');
+    dateWrap.classList.add('invalid');
+  }
   if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
     document.getElementById('f-email').classList.add('invalid');
     errs.push('email-format');
