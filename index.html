@@ -764,6 +764,7 @@ html,body{max-width:100%;overflow-x:hidden;}
   </div>
 </section>
 
+<p id="salsa-thanksgiving-notice" class="banner" role="status" hidden>No Salsa classes today. Happy Thanksgiving!</p>
 <!-- CLASSES -->
 <section id="classes">
   <div class="si">
@@ -1817,6 +1818,8 @@ html,body{max-width:100%;overflow-x:hidden;}
 </a>
 
 <script>
+  document.getElementById('salsa-thanksgiving-notice').hidden =
+    new Intl.DateTimeFormat('en-CA', { timeZone: 'America/Los_Angeles', year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date()) !== '2026-11-25';
 // ─── CLASS VIEW TOGGLE ────────────────────────────────────────────
 function showView(view, btn) {
   document.getElementById('view-list').style.display = view === 'list' ? 'flex' : 'none';
