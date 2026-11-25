@@ -623,7 +623,7 @@ const preClass = params.get('class');
 const preDay = params.get('day');
 if (preClass) {
   const dayIndex = preDay ? DAY_NAMES.findIndex(day => day.toLowerCase() === preDay.slice(0,3).toLowerCase()) : -1;
-  const normalizedClass = preClass.toLowerCase();
+  const normalizedClass = preClass.toLowerCase().replace('salsa — advanced beginner', 'salsa — adv. beginner');
   const candidates = CLASSES.filter(c =>
     c.key === preClass ||
     c.name.toLowerCase().includes(normalizedClass) ||
